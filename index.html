@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gentlingo">
+<title>Gentlingo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root {
+  --bg:#ffffff;--bg2:#f5f5f5;--bg3:#eeeeee;--text:#111111;--text2:#555555;--text3:#999999;
+  --border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.25);
+  --success:#1a7f37;--success-bg:#dcfce7;--danger:#b91c1c;--danger-bg:#fee2e2;
+  --info:#1d4ed8;--info-bg:#dbeafe;--warning:#b45309;--radius:8px;--radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;--text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;
+  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.25);
+  --success:#34d058;--success-bg:#0d2818;--danger:#f87171;--danger-bg:#2d1010;
+  --info:#60a5fa;--info-bg:#0d1f3c;--warning:#fbbf24;}
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;background:var(--bg3);}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);}
+.app{max-width:430px;margin:0 auto;background:var(--bg3);min-height:100%;display:flex;flex-direction:column;}
+.screen{display:none;flex:1;flex-direction:column;padding-bottom:60px;}
+.screen.active{display:flex;}
+.topbar{padding:14px 16px;background:var(--bg);border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topbar h1{font-size:17px;font-weight:600;color:var(--text);flex:1;}
+.topbar-exit{background:none;border:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:inherit;padding:4px 8px;}
+.sync-indicator{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:4px;}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;display:flex;border-top:0.5px solid var(--border);background:var(--bg);z-index:100;padding-bottom:env(safe-area-inset-bottom);}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:10px;font-family:inherit;}
+.nav-btn.active{color:var(--info);}
+.nav-btn i{font-size:20px;}
+.scroll-content{flex:1;overflow-y:auto;padding:16px;-webkit-overflow-scrolling:touch;}
+input[type=text],textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:11px 12px;font-size:16px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;-webkit-appearance:none;}
+input[type=text]:focus,textarea:focus{border-color:var(--border2);}
+textarea{resize:none;min-height:120px;line-height:1.5;}
+.btn-primary{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:var(--radius);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;}
+.btn-primary:disabled{opacity:0.4;cursor:default;}
+.btn-outline{width:100%;background:none;border:0.5px solid var(--border2);border-radius:var(--radius);padding:13px;font-size:15px;color:var(--text);cursor:pointer;font-family:inherit;}
+.card{background:var(--bg);border-radius:var(--radius-lg);padding:16px;margin-bottom:12px;}
+.sec-label{font-size:11px;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle;}
+.tag-verb{background:var(--info-bg);color:var(--info);}
+.tag-noun{background:var(--success-bg);color:var(--success);}
+.tag-adj{background:#fef3c7;color:#92400e;}
+.tag-other{background:var(--bg2);color:var(--text2);}
+.api-note{background:var(--bg2);border-radius:var(--radius);padding:12px;font-size:13px;color:var(--text2);line-height:1.55;}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.status-msg{font-size:13px;color:var(--text2);text-align:center;padding:8px 0;min-height:22px;}
+.status-msg.ok{color:var(--success);}
+.status-msg.err{color:var(--danger);}
+.tab-row{display:flex;gap:2px;background:var(--bg2);border-radius:var(--radius);padding:3px;margin-bottom:16px;}
+.tab{flex:1;padding:8px;font-size:14px;border:none;border-radius:6px;background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
+.tab.active{background:var(--bg);color:var(--text);font-weight:600;}
+.sort-row{display:flex;gap:6px;margin-bottom:12px;}
+.sort-btn{flex:1;padding:8px 4px;font-size:12px;border:0.5px solid var(--border);border-radius:var(--radius);background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
+.sort-btn.active{background:var(--bg2);color:var(--text);border-color:var(--border2);}
+.word-row{display:flex;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--border);}
+.word-row:last-child{border-bottom:none;}
+.empty-state{text-align:center;padding:60px 16px;color:var(--text2);}
+.empty-state i{font-size:48px;display:block;margin-bottom:12px;color:var(--text3);}
+.card-arena{padding:16px;flex:1;}
+.card-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.card-progress-track{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden;}
+.card-progress-done{height:100%;background:var(--border2);border-radius:2px;transition:width 0.3s;}
+.card-counter{font-size:13px;color:var(--text3);white-space:nowrap;}
+.swipe-area{position:relative;height:210px;margin-bottom:16px;touch-action:pan-y;user-select:none;}
+.flash-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;border-radius:var(--radius);padding:7px 16px;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:10;white-space:nowrap;font-weight:600;}
+.flash-known{background:var(--success-bg);color:var(--success);}
+.flash-forgot{background:var(--danger-bg);color:var(--danger);}
+.swipe-card{position:absolute;inset:0;background:var(--bg);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;will-change:transform;padding:24px;border:0.5px solid var(--border);transition:border-color 0.15s;}
+.swipe-card.tilt-r{border-color:var(--success);}
+.swipe-card.tilt-l{border-color:var(--danger);}
+.card-word{font-size:28px;font-weight:700;color:var(--text);text-align:center;line-height:1.3;}
+.card-badge{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
+.card-hint{font-size:12px;color:var(--text3);}
+.card-reveal{font-size:17px;color:var(--text2);text-align:center;transition:opacity 0.2s;min-height:26px;}
+.action-row{display:flex;gap:10px;margin-bottom:14px;}
+.act-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:0.5px solid var(--border);border-radius:var(--radius-lg);background:none;cursor:pointer;font-size:12px;font-family:inherit;color:var(--text2);}
+.act-btn i{font-size:22px;}
+.act-forgot{border-color:var(--danger);color:var(--danger);}
+.act-knew{border-color:var(--success);color:var(--success);}
+.act-mic{border-color:var(--info);color:var(--info);}
+.act-mic.recording{background:var(--danger-bg);border-color:var(--danger);color:var(--danger);animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.sess-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.stat-cell{background:var(--bg2);border-radius:var(--radius);padding:12px;text-align:center;}
+.stat-num{font-size:26px;font-weight:700;}
+.stat-lbl{font-size:11px;color:var(--text2);margin-top:2px;}
+.mic-box{border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin-bottom:10px;font-size:15px;background:var(--bg2);min-height:40px;display:none;}
+.mic-box.ok{border-color:var(--success);background:var(--success-bg);color:var(--success);}
+.mic-box.err{border-color:var(--danger);background:var(--danger-bg);color:var(--danger);}
+.mic-hint{font-size:12px;color:var(--text3);text-align:center;margin-bottom:8px;min-height:18px;}
+.check-row{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
+.check-row input{flex:1;}
+.check-btn{background:none;border:0.5px solid var(--border2);border-radius:var(--radius);padding:11px 12px;cursor:pointer;color:var(--text);font-size:14px;font-family:inherit;white-space:nowrap;}
+.mode-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.mode-card{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 10px;text-align:center;cursor:pointer;background:none;font-family:inherit;}
+.mode-card i{font-size:24px;color:var(--text2);display:block;margin-bottom:6px;}
+.mode-card .mt{font-size:13px;font-weight:600;color:var(--text);}
+.mode-card .md{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
+.mode-card.active{border-color:var(--info);background:var(--info-bg);}
+.mode-card.active i,.mode-card.active .mt{color:var(--info);}
+.done-screen{text-align:center;padding:32px 0 20px;}
+.done-screen i{font-size:52px;color:var(--warning);display:block;margin-bottom:12px;}
+.done-screen h2{font-size:20px;font-weight:700;margin-bottom:6px;}
+.done-screen p{font-size:14px;color:var(--text2);}
+.conj-badge{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
+.gen-loading{text-align:center;padding:30px 0;color:var(--text2);font-size:14px;}
+.sync-bar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="sync-bar" id="sync-bar"></div>
+
+<!-- ДОБАВЛЕНИЕ -->
+<div class="screen active" id="s-add">
+  <div class="topbar">
+    <i class="ti ti-language" style="font-size:20px;color:var(--text2)"></i>
+    <h1>Gentlingo</h1>
+    <span id="word-count" style="font-size:13px;color:var(--text2)">…</span>
+  </div>
+  <div class="scroll-content">
+    <div id="db-loading" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="spinner"></span>Загрузка...</div>
+    <div id="add-ui" style="display:none">
+      <div class="tab-row">
+        <button class="tab active" onclick="switchTab('single')">По одному</button>
+        <button class="tab" onclick="switchTab('bulk')">Списком</button>
+      </div>
+      <div id="t-single">
+        <div class="card">
+          <p class="sec-label">Новое слово</p>
+          <input type="text" id="inp-single" placeholder="Слово на русском или испанском" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+          <div style="height:10px"></div>
+          <p class="api-note"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>ИИ определит язык, часть речи и добавит перевод</p>
+        </div>
+        <button class="btn-primary" id="btn-add-single" onclick="addSingle()">Добавить</button>
+        <p class="status-msg" id="st-single"></p>
+      </div>
+      <div id="t-bulk" style="display:none">
+        <div class="card">
+          <p class="sec-label">Список — по одному слову на строке</p>
+          <textarea id="inp-bulk" placeholder="мяч&#10;pelota&#10;играть&#10;jugar"></textarea>
+        </div>
+        <button class="btn-primary" id="btn-add-bulk" onclick="addBulk()">Обработать список</button>
+        <p class="status-msg" id="st-bulk"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- УЗНАВАНИЕ -->
+<div class="screen" id="s-recog">
+  <div class="topbar"><h1>Узнавание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
+  <div id="recog-setup" class="scroll-content">
+    <p class="sec-label" style="margin-bottom:12px">Режим карточки</p>
+    <div class="mode-pick">
+      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><i class="ti ti-eye"></i><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
+      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><i class="ti ti-ear"></i><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
+    </div>
+    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>В базе нет слов.</div>
+    <button class="btn-primary" onclick="startRecog()">Начать</button>
+  </div>
+  <div id="recog-session" style="display:none;flex:1;flex-direction:column">
+    <div class="card-arena">
+      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="rg-prog"></div></div><span class="card-counter" id="rg-cnt">0/0</span></div>
+      <div class="swipe-area" id="rg-area">
+        <div class="flash-hint flash-known" id="rg-fk">Знаю ✓</div>
+        <div class="flash-hint flash-forgot" id="rg-ff">Не помню</div>
+        <div class="swipe-card" id="rg-card">
+          <span class="card-word" id="rg-word">—</span>
+          <span class="card-badge" id="rg-pos">—</span>
+          <span class="card-hint" id="rg-hint">нажми, чтобы открыть перевод</span>
+          <span class="card-reveal" id="rg-reveal" style="opacity:0">—</span>
+        </div>
+      </div>
+      <div class="action-row">
+        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
+        <button class="act-btn" onclick="rgSpeak()"><i class="ti ti-volume"></i><span>Слушать</span></button>
+        <button class="act-btn act-knew" onclick="rgResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+      </div>
+      <div class="sess-stats">
+        <div class="stat-cell"><div class="stat-num" id="rg-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+        <div class="stat-cell"><div class="stat-num" id="rg-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="recog-done" style="display:none" class="scroll-content">
+    <div class="done-screen"><i class="ti ti-star"></i><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
+    <div class="sess-stats" style="margin-bottom:16px">
+      <div class="stat-cell"><div class="stat-num" id="rg-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+      <div class="stat-cell"><div class="stat-num" id="rg-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+    </div>
+    <button class="btn-primary" onclick="startRecog()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn-outline" onclick="showSub('recog','setup')">Настройки</button>
+  </div>
+</div>
+
+<!-- ПРИПОМИНАНИЕ -->
+<div class="screen" id="s-recall">
+  <div class="topbar"><h1>Припоминание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
+  <div id="recall-setup" class="scroll-content">
+    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Видишь русское слово — называешь или пишешь испанский перевод</p>
+    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>В базе нет слов.</div>
+    <button class="btn-primary" onclick="startRecall()">Начать</button>
+  </div>
+  <div id="recall-session" style="display:none;flex:1;flex-direction:column">
+    <div class="card-arena">
+      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="rl-prog"></div></div><span class="card-counter" id="rl-cnt">0/0</span></div>
+      <div class="swipe-area" id="rl-area">
+        <div class="flash-hint flash-known" id="rl-fk">Знаю ✓</div>
+        <div class="flash-hint flash-forgot" id="rl-ff">Не помню</div>
+        <div class="swipe-card" id="rl-card">
+          <span class="card-word" id="rl-word">—</span>
+          <span class="card-hint">назови или напиши перевод</span>
+          <span class="card-reveal" id="rl-reveal" style="opacity:0">—</span>
+        </div>
+      </div>
+      <div class="mic-box" id="rl-mic-box"></div>
+      <p class="mic-hint" id="rl-mic-hint"></p>
+      <div class="check-row">
+        <input type="text" id="rl-inp" placeholder="Напиши перевод..." autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')rlCheck()"/>
+        <button class="check-btn" onclick="rlCheck()">Проверить</button>
+      </div>
+      <div class="action-row">
+        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
+        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><i class="ti ti-microphone"></i><span>Говорить</span></button>
+        <button class="act-btn act-knew" onclick="rlResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+      </div>
+      <div class="sess-stats">
+        <div class="stat-cell"><div class="stat-num" id="rl-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+        <div class="stat-cell"><div class="stat-num" id="rl-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="recall-done" style="display:none" class="scroll-content">
+    <div class="done-screen"><i class="ti ti-trophy"></i><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
+    <div class="sess-stats" style="margin-bottom:16px">
+      <div class="stat-cell"><div class="stat-num" id="rl-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+      <div class="stat-cell"><div class="stat-num" id="rl-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+    </div>
+    <button class="btn-primary" onclick="startRecall()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn-outline" onclick="showSub('recall','setup')">К настройкам</button>
+  </div>
+</div>
+
+<!-- ФРАЗЫ -->
+<div class="screen" id="s-conj">
+  <div class="topbar"><h1>Фразы</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
+  <div id="conj-setup" class="scroll-content">
+    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">ИИ генерирует фразы из слов с рейтингом выше 50%. Переводи фразы целиком.</p>
+    <p class="sec-label" style="margin-bottom:10px">Направление</p>
+    <div class="mode-pick">
+      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><i class="ti ti-arrow-right"></i><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
+      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><i class="ti ti-arrow-left"></i><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
+    </div>
+    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Нужно хотя бы 2 слова с рейтингом выше 50%.</div>
+    <button class="btn-primary" onclick="startConj()">Начать</button>
+  </div>
+  <div id="conj-session" style="display:none;flex:1;flex-direction:column">
+    <div class="card-arena">
+      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="cj-prog"></div></div><span class="card-counter" id="cj-cnt">0/10</span></div>
+      <div class="gen-loading" id="cj-loading" style="display:none"><span class="spinner"></span>ИИ составляет фразу...</div>
+      <div id="cj-card-ui">
+        <div class="swipe-area" id="cj-area">
+          <div class="flash-hint flash-known" id="cj-fk">Знаю ✓</div>
+          <div class="flash-hint flash-forgot" id="cj-ff">Не помню</div>
+          <div class="swipe-card" id="cj-card">
+            <span class="conj-badge" id="cj-dir-lbl">—</span>
+            <span class="card-word" id="cj-phrase" style="font-size:22px">—</span>
+            <span class="card-hint" id="cj-tap-hint">нажми, чтобы открыть перевод</span>
+            <span class="card-reveal" id="cj-answer" style="opacity:0">—</span>
+          </div>
+        </div>
+        <div class="mic-box" id="cj-mic-box"></div>
+        <p class="mic-hint" id="cj-mic-hint"></p>
+        <div class="check-row" id="cj-input-row" style="display:none">
+          <input type="text" id="cj-inp" placeholder="Напиши перевод фразы..." autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')cjCheck()"/>
+          <button class="check-btn" onclick="cjCheck()">Проверить</button>
+        </div>
+        <div class="action-row">
+          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
+          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><i class="ti ti-volume" id="cj-mid-icon"></i><span id="cj-mid-lbl">Слушать</span></button>
+          <button class="act-btn act-knew" onclick="cjResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+        </div>
+        <div class="sess-stats">
+          <div class="stat-cell"><div class="stat-num" id="cj-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+          <div class="stat-cell"><div class="stat-num" id="cj-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="conj-done" style="display:none" class="scroll-content">
+    <div class="done-screen"><i class="ti ti-medal"></i><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
+    <div class="sess-stats" style="margin-bottom:16px">
+      <div class="stat-cell"><div class="stat-num" id="cj-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
+      <div class="stat-cell"><div class="stat-num" id="cj-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+    </div>
+    <button class="btn-primary" onclick="startConj()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn-outline" onclick="showSub('conj','setup')">К настройкам</button>
+  </div>
+</div>
+
+<!-- СЛОВА -->
+<div class="screen" id="s-list">
+  <div class="topbar"><h1>Мои слова</h1></div>
+  <div class="scroll-content">
+    <div class="sort-row">
+      <button class="sort-btn active" id="srt-alpha" onclick="sortBy('alpha')">А—Я</button>
+      <button class="sort-btn" id="srt-score" onclick="sortBy('score')">Рейтинг</button>
+      <button class="sort-btn" id="srt-added" onclick="sortBy('added')">Новые</button>
+    </div>
+    <div id="words-list"></div>
+  </div>
+</div>
+
+<!-- НАСТРОЙКИ -->
+<div class="screen" id="s-settings">
+  <div class="topbar"><h1>Настройки</h1></div>
+  <div class="scroll-content">
+    <div class="card">
+      <p class="sec-label">GitHub</p>
+      <input type="text" id="inp-gh-token" placeholder="ghp_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-bottom:8px"/>
+      <button class="btn-primary" onclick="saveGH()">Сохранить токен</button>
+      <p class="status-msg" id="st-gh"></p>
+      <p class="api-note" style="margin-top:8px"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Токен нужен для сохранения базы данных. Получить: GitHub → Settings → Developer settings → Personal access tokens</p>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <p class="sec-label">API-ключ Anthropic</p>
+      <input type="text" id="inp-key" placeholder="sk-ant-..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <div style="height:8px"></div>
+      <button class="btn-primary" onclick="saveKey()">Сохранить ключ</button>
+      <p class="status-msg" id="st-key"></p>
+      <p class="api-note" style="margin-top:8px"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Нужен для добавления слов и режима фраз. <a href="https://console.anthropic.com" style="color:var(--info)">console.anthropic.com</a></p>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <p class="sec-label">О приложении</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo — личное приложение для изучения испанского. База хранится на GitHub, синхронизируется между устройствами автоматически.</p>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" id="nav-add" onclick="nav('add')"><i class="ti ti-plus"></i><span>Добавить</span></button>
+  <button class="nav-btn" id="nav-recog" onclick="nav('recog')"><i class="ti ti-eye"></i><span>Узнавание</span></button>
+  <button class="nav-btn" id="nav-recall" onclick="nav('recall')"><i class="ti ti-brain"></i><span>Припоминание</span></button>
+  <button class="nav-btn" id="nav-conj" onclick="nav('conj')"><i class="ti ti-message-language"></i><span>Фразы</span></button>
+  <button class="nav-btn" id="nav-list" onclick="nav('list')"><i class="ti ti-vocabulary"></i><span>Слова</span></button>
+  <button class="nav-btn" id="nav-settings" onclick="nav('settings')"><i class="ti ti-settings"></i><span>Настройки</span></button>
+</nav>
+</div>
+
+<script>
+// ── CONFIG ──
+const GH_OWNER = 'kibergoth';
+const GH_REPO  = 'gentlingo';
+const GH_FILE  = 'db.json';
+const GH_BRANCH= 'main';
+
+// ── STATE ──
+let words = [];
+let ghFileSha = null;
+let saving = false;
+let currentSort = 'alpha';
+let rgMode = 'text', rgQueue=[], rgIdx=0, rgKnown=0, rgForgot=0, rgRevealed=false;
+let rlQueue=[], rlIdx=0, rlKnown=0, rlForgot=0;
+let cjDir='es2ru', cjIdx=0, cjKnown=0, cjForgot=0, cjRevealed=false, cjGoodWords=[];
+let recognition=null, micActive=false, micCtx='recall';
+
+// ── STORAGE (keys only, data on GitHub) ──
+function getKey()   { return localStorage.getItem('gl_claude_key')||''; }
+function getGHToken(){ return localStorage.getItem('gl_gh_token')||''; }
+function saveKey()  { const k=document.getElementById('inp-key').value.trim(); if(!k){st('st-key','Введи ключ','err');return;} localStorage.setItem('gl_claude_key',k); st('st-key','Ключ сохранён','ok'); }
+function saveGH()   {
+  const k=document.getElementById('inp-gh-token').value.trim();
+  if(!k){st('st-gh','Введи токен','err');return;}
+  localStorage.setItem('gl_gh_token',k);
+  st('st-gh','Токен сохранён','ok');
+  loadDB();
+}
+
+// ── GITHUB DB ──
+async function ghGet() {
+  const token = getGHToken();
+  const headers = { 'Accept':'application/vnd.github+json' };
+  if (token) headers['Authorization'] = 'Bearer ' + token;
+  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`, { headers });
+  if (!r.ok) throw new Error('GitHub read error ' + r.status);
+  const d = await r.json();
+  ghFileSha = d.sha;
+  return JSON.parse(atob(d.content.replace(/\n/g,'')));
+}
+
+async function ghPut(data) {
+  const token = getGHToken();
+  if (!token) throw new Error('Нет GitHub токена — добавь в Настройках');
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  const body = { message:'update db', content, branch: GH_BRANCH };
+  if (ghFileSha) body.sha = ghFileSha;
+  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, {
+    method:'PUT',
+    headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) {
+    const e = await r.json().catch(()=>({}));
+    throw new Error('GitHub write error ' + r.status + (e.message?' — '+e.message:''));
+  }
+  const d = await r.json();
+  ghFileSha = d.content.sha;
+}
+
+function syncBar(msg) {
+  const el = document.getElementById('sync-bar');
+  if (msg) { el.textContent = msg; el.style.display='block'; }
+  else el.style.display='none';
+}
+
+async function loadDB() {
+  syncBar('⟳ Загружаю базу...');
+  try {
+    words = await ghGet();
+    updateCount();
+    document.getElementById('db-loading').style.display='none';
+    document.getElementById('add-ui').style.display='block';
+    syncBar('');
+  } catch(e) {
+    document.getElementById('db-loading').style.display='none';
+    document.getElementById('add-ui').style.display='block';
+    if (!getGHToken()) {
+      syncBar('⚠ Добавь GitHub токен в Настройках');
+    } else {
+      syncBar('⚠ Ошибка загрузки: ' + e.message);
+    }
+  }
+}
+
+async function saveDB() {
+  if (saving) return;
+  saving = true;
+  syncBar('⟳ Сохраняю...');
+  try {
+    await ghPut(words);
+    syncBar('');
+  } catch(e) {
+    syncBar('⚠ Ошибка сохранения: ' + e.message);
+  }
+  saving = false;
+}
+
+// ── AI ──
+async function callAI(prompt, maxTokens) {
+  const key = getKey();
+  if (!key) throw new Error('Нет API-ключа Anthropic — добавь в Настройках');
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'x-api-key':key,
+      'anthropic-version':'2023-06-01',
+      'anthropic-dangerous-direct-browser-access':'true'
+    },
+    body:JSON.stringify({
+      model:'claude-sonnet-4-6',
+      max_tokens: maxTokens||1000,
+      messages:[{role:'user',content:prompt}]
+    })
+  });
+  if (!r.ok) {
+    const e = await r.json().catch(()=>({}));
+    throw new Error('Ошибка API '+ r.status+(e.error?.message?': '+e.error.message:''));
+  }
+  const d = await r.json();
+  return d.content[0].text;
+}
+
+function extractJSON(text) {
+  // Try direct parse
+  try { return JSON.parse(text); } catch(e) {}
+  // Strip markdown fences
+  const stripped = text.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  try { return JSON.parse(stripped); } catch(e) {}
+  // Find first [ ... ] or { ... }
+  const arrMatch = stripped.match(/\[[\s\S]*\]/);
+  if (arrMatch) { try { return JSON.parse(arrMatch[0]); } catch(e) {} }
+  const objMatch = stripped.match(/\{[\s\S]*\}/);
+  if (objMatch) { try { return JSON.parse(objMatch[0]); } catch(e) {} }
+  throw new Error('Не удалось разобрать ответ ИИ. Попробуй ещё раз.');
+}
+
+// ── ADD WORDS ──
+async function processWords(list) {
+  const exRu = words.map(w=>w.ru.toLowerCase());
+  const exEs = words.map(w=>w.es.toLowerCase());
+  // Split into chunks of 15 to avoid JSON issues
+  const chunks = [];
+  for (let i=0; i<list.length; i+=15) chunks.push(list.slice(i,i+15));
+  const results = [];
+  for (const chunk of chunks) {
+    const prompt = `Ты помогаешь наполнять базу для изучения испанского.
+
+Слова от пользователя (обработай ВСЕ):
+${chunk.map((w,i)=>(i+1)+'. '+w).join('\n')}
+
+Уже в базе (не дублировать):
+Русские: ${exRu.slice(0,50).join(', ')||'нет'}
+Испанские: ${exEs.slice(0,50).join(', ')||'нет'}
+
+Для КАЖДОГО слова из списка:
+1. Определи язык (русский или испанский)
+2. Найди перевод на другой язык
+3. Определи часть речи: глагол, существительное, прилагательное, местоимение, наречие, предлог, союз, фраза, другое
+4. Если оба слова пары уже в базе — пропусти
+5. Фразы типа "a favor", "de donde" считай одной единицей
+
+Верни ТОЛЬКО JSON-массив, без пояснений, без markdown, без переносов внутри строк:
+[{"ru":"...","es":"...","pos":"..."}]
+Если всё уже в базе — верни: []`;
+
+    const text = await callAI(prompt, 2000);
+    const parsed = extractJSON(text);
+    if (Array.isArray(parsed)) results.push(...parsed);
+  }
+  return results;
+}
+
+async function addSingle() {
+  const word = document.getElementById('inp-single').value.trim();
+  if (!word) return;
+  const btn = document.getElementById('btn-add-single'); btn.disabled=true;
+  document.getElementById('st-single').innerHTML='<span class="spinner"></span>Обрабатываю...';
+  try {
+    const res = await processWords([word]);
+    if (!res.length) { st('st-single','Слово уже есть в базе',''); }
+    else {
+      const now = Date.now();
+      for (const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[]});
+      document.getElementById('inp-single').value='';
+      updateCount();
+      await saveDB();
+      st('st-single','Добавлено: '+res.map(w=>w.ru+' / '+w.es).join(', '),'ok');
+    }
+  } catch(e) { st('st-single',e.message,'err'); }
+  btn.disabled=false;
+}
+
+async function addBulk() {
+  const text = document.getElementById('inp-bulk').value.trim();
+  if (!text) return;
+  const list = text.split('\n').map(s=>s.trim()).filter(Boolean);
+  const btn = document.getElementById('btn-add-bulk'); btn.disabled=true;
+  document.getElementById('st-bulk').innerHTML='<span class="spinner"></span>Обрабатываю '+list.length+' слов...';
+  try {
+    const res = await processWords(list);
+    if (!res.length) { st('st-bulk','Все слова уже в базе',''); }
+    else {
+      const now = Date.now();
+      for (const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[]});
+      document.getElementById('inp-bulk').value='';
+      updateCount();
+      await saveDB();
+      st('st-bulk','Добавлено '+res.length+' '+plural(res.length),'ok');
+    }
+  } catch(e) { st('st-bulk',e.message,'err'); }
+  btn.disabled=false;
+}
+
+// ── UI HELPERS ──
+function st(id,msg,type) {
+  const el=document.getElementById(id); if(!el)return;
+  el.textContent=msg; el.className='status-msg'+(type?' '+type:'');
+  if(type==='ok')setTimeout(()=>{el.textContent='';el.className='status-msg';},3000);
+}
+function flash(id) { const el=document.getElementById(id);if(!el)return;el.style.opacity='1';setTimeout(()=>{el.style.opacity='0';},600); }
+function plural(n) { if(n%10===1&&n%100!==11)return'слово';if([2,3,4].includes(n%10)&&![12,13,14].includes(n%100))return'слова';return'слов'; }
+function updateCount() { const n=words.length; document.getElementById('word-count').textContent=n+' '+plural(n); }
+function normalize(s) { return s.toLowerCase().trim().replace(/[¡!¿?.,;:«»]/g,'').replace(/[áàâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[íìîï]/g,'i').replace(/[óòôö]/g,'o').replace(/[úùûü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' '); }
+function pct(w,key) { const h=(w[key]||[]).slice(-10);return h.length?h.filter(x=>x.result==='known').length/h.length:0; }
+function wShuffle(arr,key) { return arr.map(w=>({w,weight:1-pct(w,key)*0.8+Math.random()*0.3})).sort((a,b)=>b.weight-a.weight).map(x=>x.w); }
+function posTag(pos) { const m={глагол:'verb',существительное:'noun',прилагательное:'adj'};const c=m[pos]||'other';return`<span class="tag tag-${c}">${pos}</span>`; }
+
+function nav(name) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  if(name==='list') renderList();
+  if(name==='settings') { const k=getKey();if(k)document.getElementById('inp-key').value=k; const t=getGHToken();if(t)document.getElementById('inp-gh-token').value=t; }
+  if(name==='recog') showSub('recog','setup');
+  if(name==='recall') showSub('recall','setup');
+  if(name==='conj') showSub('conj','setup');
+}
+
+function showSub(screen,sub) {
+  ['setup','session','done'].forEach(s=>{
+    const el=document.getElementById(screen+'-'+s); if(!el)return;
+    if(s==='setup'||s==='done') el.style.display=s===sub?'block':'none';
+    else el.style.display=s===sub?'flex':'none';
+    if(s===sub&&s==='session') el.style.flexDirection='column';
+  });
+}
+
+function switchTab(t) {
+  document.getElementById('t-single').style.display=t==='single'?'block':'none';
+  document.getElementById('t-bulk').style.display=t==='bulk'?'block':'none';
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',(i===0&&t==='single')||(i===1&&t==='bulk')));
+}
+
+// ── УЗНАВАНИЕ ──
+function setRecogMode(m) { rgMode=m; document.getElementById('rm-text').classList.toggle('active',m==='text'); document.getElementById('rm-audio').classList.toggle('active',m==='audio'); }
+
+function startRecog() {
+  if(!words.length){document.getElementById('recog-warn').style.display='block';return;}
+  document.getElementById('recog-warn').style.display='none';
+  rgQueue=wShuffle(words,'history').slice(0,Math.min(20,words.length));
+  rgIdx=0;rgKnown=0;rgForgot=0;
+  showSub('recog','session'); rgStats(); rgCard();
+}
+
+function rgCard() {
+  if(rgIdx>=rgQueue.length){rgEnd();return;}
+  const w=rgQueue[rgIdx]; rgRevealed=false;
+  document.getElementById('rg-word').textContent=w.es;
+  document.getElementById('rg-pos').textContent=w.pos;
+  document.getElementById('rg-reveal').textContent=w.ru;
+  document.getElementById('rg-reveal').style.opacity='0';
+  document.getElementById('rg-card').className='swipe-card';
+  document.getElementById('rg-card').style.transform='';
+  document.getElementById('rg-hint').textContent=rgMode==='audio'?'нажми, чтобы услышать':'нажми, чтобы открыть перевод';
+  const tot=rgQueue.length;
+  document.getElementById('rg-prog').style.width=Math.round(rgIdx/tot*100)+'%';
+  document.getElementById('rg-cnt').textContent=rgIdx+' / '+tot;
+  if(rgMode==='audio')setTimeout(rgSpeak,300);
+}
+
+function rgReveal(){rgRevealed=true;document.getElementById('rg-reveal').style.opacity='1';document.getElementById('rg-hint').textContent='';}
+function rgSpeak(){if(rgIdx>=rgQueue.length)return;const u=new SpeechSynthesisUtterance(rgQueue[rgIdx].es);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
+
+async function rgResult(result) {
+  if(rgIdx>=rgQueue.length)return;
+  const w=rgQueue[rgIdx];
+  if(!w.history)w.history=[];
+  w.history.push({ts:Date.now(),result,mode:rgMode,bySound:rgMode==='audio'&&!rgRevealed});
+  const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
+  if(idx>=0)words[idx]=w;
+  if(result==='known'){rgKnown++;flash('rg-fk');}else{rgForgot++;flash('rg-ff');}
+  rgStats(); rgIdx++; setTimeout(rgCard,350);
+  if(rgIdx>=rgQueue.length)await saveDB();
+}
+
+function rgStats(){document.getElementById('rg-kn').textContent=rgKnown;document.getElementById('rg-fg').textContent=rgForgot;}
+function rgEnd(){
+  showSub('recog','done');
+  document.getElementById('rg-dk').textContent=rgKnown;document.getElementById('rg-df').textContent=rgForgot;
+  const tot=rgKnown+rgForgot,p=tot?Math.round(rgKnown/tot*100):0;
+  document.getElementById('rg-sum').textContent='Результат: '+p+'% знаю ('+tot+' карточек)';
+}
+
+// ── ПРИПОМИНАНИЕ ──
+function startRecall() {
+  if(!words.length){document.getElementById('recall-warn').style.display='block';return;}
+  document.getElementById('recall-warn').style.display='none';
+  rlQueue=wShuffle(words,'historyRecall').slice(0,Math.min(20,words.length));
+  rlIdx=0;rlKnown=0;rlForgot=0;
+  showSub('recall','session'); rlStats(); rlCard();
+}
+
+function rlCard() {
+  if(rlIdx>=rlQueue.length){rlEnd();return;}
+  const w=rlQueue[rlIdx];
+  document.getElementById('rl-word').textContent=w.ru;
+  document.getElementById('rl-reveal').textContent=w.es;
+  document.getElementById('rl-reveal').style.opacity='0';
+  document.getElementById('rl-card').className='swipe-card';
+  document.getElementById('rl-card').style.transform='';
+  document.getElementById('rl-inp').value='';
+  document.getElementById('rl-mic-box').style.display='none';
+  document.getElementById('rl-mic-box').className='mic-box';
+  document.getElementById('rl-mic-hint').textContent='';
+  stopMic();
+  const tot=rlQueue.length;
+  document.getElementById('rl-prog').style.width=Math.round(rlIdx/tot*100)+'%';
+  document.getElementById('rl-cnt').textContent=rlIdx+' / '+tot;
+}
+
+function rlCheck() {
+  const val=document.getElementById('rl-inp').value.trim();if(!val)return;
+  const w=rlQueue[rlIdx];const ok=normalize(val)===normalize(w.es);
+  const box=document.getElementById('rl-mic-box');box.style.display='block';
+  document.getElementById('rl-reveal').style.opacity='1';
+  if(ok){box.className='mic-box ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>rlResult('known'),800);}
+  else{box.className='mic-box err';box.textContent='✗ '+val;document.getElementById('rl-mic-hint').textContent='Неверно. Свайпни или попробуй ещё раз';}
+}
+
+async function rlResult(result) {
+  if(rlIdx>=rlQueue.length)return;
+  const w=rlQueue[rlIdx];
+  if(!w.historyRecall)w.historyRecall=[];
+  w.historyRecall.push({ts:Date.now(),result});
+  const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
+  if(idx>=0)words[idx]=w;
+  if(result==='known'){rlKnown++;flash('rl-fk');}else{rlForgot++;flash('rl-ff');}
+  rlStats(); rlIdx++; setTimeout(rlCard,350);
+  if(rlIdx>=rlQueue.length)await saveDB();
+}
+
+function rlStats(){document.getElementById('rl-kn').textContent=rlKnown;document.getElementById('rl-fg').textContent=rlForgot;}
+function rlEnd(){
+  showSub('recall','done');
+  document.getElementById('rl-dk').textContent=rlKnown;document.getElementById('rl-df').textContent=rlForgot;
+  const tot=rlKnown+rlForgot,p=tot?Math.round(rlKnown/tot*100):0;
+  document.getElementById('rl-sum').textContent='Результат: '+p+'% знаю ('+tot+' карточек)';
+  saveDB();
+}
+
+// ── ФРАЗЫ ──
+function setConjDir(d){cjDir=d;document.getElementById('cj-d-es2ru').classList.toggle('active',d==='es2ru');document.getElementById('cj-d-ru2es').classList.toggle('active',d==='ru2es');}
+
+function startConj() {
+  const good=words.filter(w=>pct(w,'history')>=0.5||pct(w,'historyRecall')>=0.5);
+  if(good.length<2){document.getElementById('conj-warn').style.display='block';return;}
+  document.getElementById('conj-warn').style.display='none';
+  cjGoodWords=good;cjIdx=0;cjKnown=0;cjForgot=0;
+  showSub('conj','session'); cjStats(); cjGenerate();
+}
+
+async function cjGenerate() {
+  cjRevealed=false;
+  document.getElementById('cj-loading').style.display='block';
+  document.getElementById('cj-card-ui').style.display='none';
+  const wordList=cjGoodWords.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
+  const prompt=`Ты помогаешь изучать испанский язык.
+
+Слова пользователя:
+${wordList}
+
+Составь ОДНУ простую фразу (3-7 слов) используя только эти слова.
+Фраза должна быть грамматически правильной и естественной на испанском.
+
+Верни ТОЛЬКО JSON без пояснений и без markdown:
+{"es":"фраза на испанском","ru":"перевод на русский"}`;
+  try {
+    const text=await callAI(prompt,300);
+    const card=extractJSON(text);
+    const isEs2ru=cjDir==='es2ru';
+    document.getElementById('cj-phrase').textContent=isEs2ru?card.es:card.ru;
+    document.getElementById('cj-answer').textContent=isEs2ru?card.ru:card.es;
+    document.getElementById('cj-answer').style.opacity='0';
+    document.getElementById('cj-tap-hint').textContent='нажми, чтобы открыть перевод';
+    document.getElementById('cj-dir-lbl').textContent=isEs2ru?'Переведи на русский':'Переведи на испанский';
+    document.getElementById('cj-card').className='swipe-card';
+    document.getElementById('cj-card').style.transform='';
+    document.getElementById('cj-card').dataset.es=card.es;
+    document.getElementById('cj-card').dataset.ru=card.ru;
+    document.getElementById('cj-mic-box').style.display='none';
+    document.getElementById('cj-mic-hint').textContent='';
+    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').className='ti ti-volume';document.getElementById('cj-mid-lbl').textContent='Слушать';}
+    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').className='ti ti-microphone';document.getElementById('cj-mid-lbl').textContent='Говорить';}
+    document.getElementById('cj-prog').style.width=Math.round(cjIdx/10*100)+'%';
+    document.getElementById('cj-cnt').textContent=cjIdx+' / 10';
+  } catch(e) {
+    document.getElementById('cj-phrase').textContent='Ошибка: '+e.message;
+    document.getElementById('cj-answer').textContent='';
+  }
+  document.getElementById('cj-loading').style.display='none';
+  document.getElementById('cj-card-ui').style.display='block';
+}
+
+function cjReveal(){cjRevealed=true;document.getElementById('cj-answer').style.opacity='1';document.getElementById('cj-tap-hint').textContent='';}
+function cjMidAction(){
+  if(cjDir==='es2ru'){const u=new SpeechSynthesisUtterance(document.getElementById('cj-phrase').textContent);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);cjReveal();}
+  else toggleMic('conj');
+}
+function cjCheck(){
+  const val=document.getElementById('cj-inp').value.trim();if(!val)return;
+  const esAnswer=document.getElementById('cj-card').dataset.es||'';
+  const ok=normalize(val)===normalize(esAnswer);
+  const box=document.getElementById('cj-mic-box');box.style.display='block';cjReveal();
+  if(ok){box.className='mic-box ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>cjResult('known'),800);}
+  else{box.className='mic-box err';box.textContent='✗ '+val;document.getElementById('cj-mic-hint').textContent='Неверно или частично. Реши сам.';}
+}
+async function cjResult(result){
+  if(result==='known'){cjKnown++;flash('cj-fk');}else{cjForgot++;flash('cj-ff');}
+  cjStats();cjIdx++;stopMic();
+  if(cjIdx>=10){setTimeout(cjEnd,350);return;}
+  setTimeout(cjGenerate,350);
+}
+function cjStats(){document.getElementById('cj-kn').textContent=cjKnown;document.getElementById('cj-fg').textContent=cjForgot;}
+function cjEnd(){
+  showSub('conj','done');
+  document.getElementById('cj-dk').textContent=cjKnown;document.getElementById('cj-df').textContent=cjForgot;
+  const tot=cjKnown+cjForgot,p=tot?Math.round(cjKnown/tot*100):0;
+  document.getElementById('cj-sum').textContent='Результат: '+p+'% знаю (10 фраз)';
+}
+
+// ── МИК ──
+function toggleMic(ctx){
+  if(micActive){stopMic();return;}
+  micCtx=ctx;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){alert('Распознавание речи не поддерживается. Используй Chrome.');return;}
+  recognition=new SR();recognition.lang='es-ES';recognition.continuous=false;recognition.interimResults=false;
+  recognition.onstart=()=>{
+    micActive=true;
+    const btnId=ctx==='recall'?'rl-mic-btn':'cj-mid-btn';
+    document.getElementById(btnId).classList.add('recording');
+    document.getElementById(btnId).querySelector('span').textContent='Запись...';
+    document.getElementById(ctx==='recall'?'rl-mic-hint':'cj-mic-hint').textContent='Говори сейчас...';
+  };
+  recognition.onresult=e=>handleMic(e.results[0][0].transcript,ctx);
+  recognition.onerror=e=>{stopMic();document.getElementById(ctx==='recall'?'rl-mic-hint':'cj-mic-hint').textContent='Ошибка: '+e.error;};
+  recognition.onend=()=>stopMic();
+  recognition.start();
+}
+function stopMic(){
+  micActive=false;if(recognition){try{recognition.stop();}catch(e){}recognition=null;}
+  const rb=document.getElementById('rl-mic-btn');if(rb){rb.classList.remove('recording');rb.querySelector('span').textContent='Говорить';}
+  const cb=document.getElementById('cj-mid-btn');if(cb&&cjDir==='ru2es'){cb.classList.remove('recording');cb.querySelector('span').textContent='Говорить';}
+}
+function handleMic(transcript,ctx){
+  let target,boxId,hintId,inpId;
+  if(ctx==='recall'){target=rlQueue[rlIdx]?.es||'';boxId='rl-mic-box';hintId='rl-mic-hint';inpId='rl-inp';document.getElementById('rl-reveal').style.opacity='1';}
+  else{target=document.getElementById('cj-card').dataset.es||'';boxId='cj-mic-box';hintId='cj-mic-hint';inpId='cj-inp';cjReveal();}
+  if(inpId)document.getElementById(inpId).value=transcript;
+  const ok=normalize(transcript)===normalize(target);
+  const box=document.getElementById(boxId);box.style.display='block';
+  if(ok){box.className='mic-box ok';box.textContent='✓ «'+transcript+'» — верно!';document.getElementById(hintId).textContent='';setTimeout(()=>ctx==='recall'?rlResult('known'):cjResult('known'),900);}
+  else{box.className='mic-box err';box.textContent='✗ «'+transcript+'»';document.getElementById(hintId).textContent='Неверно или неточно распознано — реши сам';}
+}
+
+// ── СПИСОК СЛОВ ──
+function sortBy(t){
+  currentSort=t;['alpha','score','added'].forEach(s=>document.getElementById('srt-'+s).classList.toggle('active',s===t));renderList();
+}
+function renderList(){
+  const el=document.getElementById('words-list');
+  if(!words.length){el.innerHTML='<div class="empty-state"><i class="ti ti-books"></i>Слов пока нет.<br>Добавь первое слово!</div>';return;}
+  let sorted=[...words];
+  if(currentSort==='alpha')sorted.sort((a,b)=>a.ru.localeCompare(b.ru,'ru'));
+  if(currentSort==='score')sorted.sort((a,b)=>pct(b,'history')-pct(a,'history'));
+  if(currentSort==='added')sorted.sort((a,b)=>b.added-a.added);
+  const sp=(w,key)=>{const h=(w[key]||[]).slice(-10);if(!h.length)return null;return Math.round(h.filter(x=>x.result==='known').length/h.length*100);};
+  el.innerHTML='<div class="card" style="padding:0 16px">'+sorted.map(w=>{
+    const sc=sp(w,'history'),scR=sp(w,'historyRecall');
+    return`<div class="word-row"><div style="flex:1;min-width:0">
+      <div style="font-size:15px">${w.ru}${posTag(w.pos)}</div>
+      <div style="font-size:14px;color:var(--text2);margin-top:2px">${w.es}</div>
+      <div style="display:flex;gap:14px;margin-top:3px">
+        ${sc!==null?`<span style="font-size:11px;color:var(--text3)">Узн. <b style="color:var(--success)">${sc}%</b></span>`:''}
+        ${scR!==null?`<span style="font-size:11px;color:var(--text3)">Прип. <b style="color:var(--info)">${scR}%</b></span>`:''}
+      </div>
+    </div></div>`;
+  }).join('')+'</div>';
+}
+
+// ── СВАЙПЫ ──
+function setupSwipe(areaId,cardId,onLeft,onRight){
+  let sx=0,sy=0,drag=false;
+  const area=document.getElementById(areaId);
+  area.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;drag=true;},{passive:true});
+  area.addEventListener('touchmove',e=>{
+    if(!drag)return;
+    const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
+    if(Math.abs(dy)>Math.abs(dx)+10)return;
+    const card=document.getElementById(cardId);
+    card.style.transform=`translateX(${dx}px) rotate(${dx*0.07}deg)`;
+    card.className='swipe-card'+(dx>30?' tilt-r':dx<-30?' tilt-l':'');
+  },{passive:true});
+  area.addEventListener('touchend',e=>{
+    if(!drag)return;drag=false;
+    const dx=e.changedTouches[0].clientX-sx;
+    const card=document.getElementById(cardId);
+    if(dx>70){card.style.transform='translateX(500px) rotate(20deg)';onRight();}
+    else if(dx<-70){card.style.transform='translateX(-500px) rotate(-20deg)';onLeft();}
+    else{card.style.transform='';card.className='swipe-card';}
+  });
+}
+setupSwipe('rg-area','rg-card',()=>rgResult('forgot'),()=>rgResult('known'));
+setupSwipe('rl-area','rl-card',()=>rlResult('forgot'),()=>rlResult('known'));
+setupSwipe('cj-area','cj-card',()=>cjResult('forgot'),()=>cjResult('known'));
+document.getElementById('rg-card').addEventListener('click',()=>{if(!rgRevealed)rgReveal();});
+document.getElementById('cj-card').addEventListener('click',()=>{if(!cjRevealed)cjReveal();});
+
+// ── СТАРТ ──
+loadDB();
+</script>
+</body>
+</html>
