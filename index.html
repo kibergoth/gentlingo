@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Gentlingo">
 <title>Gentlingo</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
 <style>
 :root {
   --bg:#ffffff;--bg2:#f5f5f5;--bg3:#eeeeee;--text:#111111;--text2:#555555;--text3:#999999;
@@ -113,6 +113,11 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .conj-badge{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
 .gen-loading{text-align:center;padding:30px 0;color:var(--text2);font-size:14px;}
 .sync-bar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;}
+
+.icon-emoji { font-style: normal; font-size: 22px; line-height: 1; }
+.nav-btn .icon-emoji { font-size: 22px; display: block; }
+.act-btn .icon-emoji { font-size: 22px; }
+.mode-card .icon-emoji { font-size: 24px; display: block; margin-bottom: 6px; }
 </style>
 </head>
 <body>
@@ -123,7 +128,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 <!-- ДОБАВЛЕНИЕ -->
 <div class="screen active" id="s-add">
   <div class="topbar">
-    <i class="ti ti-language" style="font-size:20px;color:var(--text2)"></i>
+    <span class="icon-emoji" style="font-size:20px;color:var(--text2)">🌐</span>
     <h1>Gentlingo</h1>
     <span id="word-count" style="font-size:13px;color:var(--text2)">…</span>
   </div>
@@ -139,7 +144,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <p class="sec-label">Новое слово</p>
           <input type="text" id="inp-single" placeholder="Слово на русском или испанском" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
           <div style="height:10px"></div>
-          <p class="api-note"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>ИИ определит язык, часть речи и добавит перевод</p>
+          <p class="api-note"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>ИИ определит язык, часть речи и добавит перевод</p>
         </div>
         <button class="btn-primary" id="btn-add-single" onclick="addSingle()">Добавить</button>
         <p class="status-msg" id="st-single"></p>
@@ -162,10 +167,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div id="recog-setup" class="scroll-content">
     <p class="sec-label" style="margin-bottom:12px">Режим карточки</p>
     <div class="mode-pick">
-      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><i class="ti ti-eye"></i><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
-      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><i class="ti ti-ear"></i><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
+      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><span class="icon-emoji">👁</span><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
+      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><span class="icon-emoji">👂</span><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
     </div>
-    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>В базе нет слов.</div>
+    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>В базе нет слов.</div>
     <button class="btn-primary" onclick="startRecog()">Начать</button>
   </div>
   <div id="recog-session" style="display:none;flex:1;flex-direction:column">
@@ -182,9 +187,9 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         </div>
       </div>
       <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
-        <button class="act-btn" onclick="rgSpeak()"><i class="ti ti-volume"></i><span>Слушать</span></button>
-        <button class="act-btn act-knew" onclick="rgResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
+        <button class="act-btn" onclick="rgSpeak()"><span class="icon-emoji">🔊</span><span>Слушать</span></button>
+        <button class="act-btn act-knew" onclick="rgResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
       </div>
       <div class="sess-stats">
         <div class="stat-cell"><div class="stat-num" id="rg-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
@@ -193,7 +198,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     </div>
   </div>
   <div id="recog-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ti ti-star"></i><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
+    <div class="done-screen"><span class="icon-emoji">⭐</span><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
     <div class="sess-stats" style="margin-bottom:16px">
       <div class="stat-cell"><div class="stat-num" id="rg-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
       <div class="stat-cell"><div class="stat-num" id="rg-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
@@ -208,7 +213,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar"><h1>Припоминание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
   <div id="recall-setup" class="scroll-content">
     <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Видишь русское слово — называешь или пишешь испанский перевод</p>
-    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>В базе нет слов.</div>
+    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>В базе нет слов.</div>
     <button class="btn-primary" onclick="startRecall()">Начать</button>
   </div>
   <div id="recall-session" style="display:none;flex:1;flex-direction:column">
@@ -230,9 +235,9 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         <button class="check-btn" onclick="rlCheck()">Проверить</button>
       </div>
       <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
-        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><i class="ti ti-microphone"></i><span>Говорить</span></button>
-        <button class="act-btn act-knew" onclick="rlResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
+        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><span class="icon-emoji">🎤</span><span>Говорить</span></button>
+        <button class="act-btn act-knew" onclick="rlResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
       </div>
       <div class="sess-stats">
         <div class="stat-cell"><div class="stat-num" id="rl-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
@@ -241,7 +246,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     </div>
   </div>
   <div id="recall-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ti ti-trophy"></i><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
+    <div class="done-screen"><span class="icon-emoji">🏆</span><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
     <div class="sess-stats" style="margin-bottom:16px">
       <div class="stat-cell"><div class="stat-num" id="rl-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
       <div class="stat-cell"><div class="stat-num" id="rl-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
@@ -258,10 +263,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">ИИ генерирует фразы из слов с рейтингом выше 50%. Переводи фразы целиком.</p>
     <p class="sec-label" style="margin-bottom:10px">Направление</p>
     <div class="mode-pick">
-      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><i class="ti ti-arrow-right"></i><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
-      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><i class="ti ti-arrow-left"></i><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
+      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><span class="icon-emoji">→</span><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
+      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><span class="icon-emoji">←</span><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
     </div>
-    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px"><i class="ti ti-alert-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Нужно хотя бы 2 слова с рейтингом выше 50%.</div>
+    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>Нужно хотя бы 2 слова с рейтингом выше 50%.</div>
     <button class="btn-primary" onclick="startConj()">Начать</button>
   </div>
   <div id="conj-session" style="display:none;flex:1;flex-direction:column">
@@ -286,9 +291,9 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <button class="check-btn" onclick="cjCheck()">Проверить</button>
         </div>
         <div class="action-row">
-          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><i class="ti ti-x"></i><span>Не помню</span></button>
-          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><i class="ti ti-volume" id="cj-mid-icon"></i><span id="cj-mid-lbl">Слушать</span></button>
-          <button class="act-btn act-knew" onclick="cjResult('known')"><i class="ti ti-check"></i><span>Знаю</span></button>
+          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
+          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><span class="icon-emoji" id="cj-mid-icon">🔊</span><span id="cj-mid-lbl">Слушать</span></button>
+          <button class="act-btn act-knew" onclick="cjResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
         </div>
         <div class="sess-stats">
           <div class="stat-cell"><div class="stat-num" id="cj-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
@@ -298,7 +303,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     </div>
   </div>
   <div id="conj-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ti ti-medal"></i><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
+    <div class="done-screen"><span class="icon-emoji">🏅</span><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
     <div class="sess-stats" style="margin-bottom:16px">
       <div class="stat-cell"><div class="stat-num" id="cj-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
       <div class="stat-cell"><div class="stat-num" id="cj-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
@@ -330,7 +335,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
       <input type="text" id="inp-gh-token" placeholder="ghp_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-bottom:8px"/>
       <button class="btn-primary" onclick="saveGH()">Сохранить токен</button>
       <p class="status-msg" id="st-gh"></p>
-      <p class="api-note" style="margin-top:8px"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Токен нужен для сохранения базы данных. Получить: GitHub → Settings → Developer settings → Personal access tokens</p>
+      <p class="api-note" style="margin-top:8px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>Токен нужен для сохранения базы данных. Получить: GitHub → Settings → Developer settings → Personal access tokens</p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
@@ -339,7 +344,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
       <div style="height:8px"></div>
       <button class="btn-primary" onclick="saveKey()">Сохранить ключ</button>
       <p class="status-msg" id="st-key"></p>
-      <p class="api-note" style="margin-top:8px"><i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i>Нужен для добавления слов и режима фраз. <a href="https://console.anthropic.com" style="color:var(--info)">console.anthropic.com</a></p>
+      <p class="api-note" style="margin-top:8px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>Нужен для добавления слов и режима фраз. <a href="https://console.anthropic.com" style="color:var(--info)">console.anthropic.com</a></p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
@@ -350,12 +355,12 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" id="nav-add" onclick="nav('add')"><i class="ti ti-plus"></i><span>Добавить</span></button>
-  <button class="nav-btn" id="nav-recog" onclick="nav('recog')"><i class="ti ti-eye"></i><span>Узнавание</span></button>
-  <button class="nav-btn" id="nav-recall" onclick="nav('recall')"><i class="ti ti-brain"></i><span>Припоминание</span></button>
-  <button class="nav-btn" id="nav-conj" onclick="nav('conj')"><i class="ti ti-message-language"></i><span>Фразы</span></button>
-  <button class="nav-btn" id="nav-list" onclick="nav('list')"><i class="ti ti-vocabulary"></i><span>Слова</span></button>
-  <button class="nav-btn" id="nav-settings" onclick="nav('settings')"><i class="ti ti-settings"></i><span>Настройки</span></button>
+  <button class="nav-btn active" id="nav-add" onclick="nav('add')"><span class="icon-emoji">+</span><span>Добавить</span></button>
+  <button class="nav-btn" id="nav-recog" onclick="nav('recog')"><span class="icon-emoji">👁</span><span>Узнавание</span></button>
+  <button class="nav-btn" id="nav-recall" onclick="nav('recall')"><span class="icon-emoji">🧠</span><span>Припоминание</span></button>
+  <button class="nav-btn" id="nav-conj" onclick="nav('conj')"><span class="icon-emoji">💬</span><span>Фразы</span></button>
+  <button class="nav-btn" id="nav-list" onclick="nav('list')"><span class="icon-emoji">📖</span><span>Слова</span></button>
+  <button class="nav-btn" id="nav-settings" onclick="nav('settings')"><span class="icon-emoji">⚙️</span><span>Настройки</span></button>
 </nav>
 </div>
 
@@ -763,8 +768,8 @@ ${wordList}
     document.getElementById('cj-card').dataset.ru=card.ru;
     document.getElementById('cj-mic-box').style.display='none';
     document.getElementById('cj-mic-hint').textContent='';
-    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').className='ti ti-volume';document.getElementById('cj-mid-lbl').textContent='Слушать';}
-    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').className='ti ti-microphone';document.getElementById('cj-mid-lbl').textContent='Говорить';}
+    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').textContent='🔊';document.getElementById('cj-mid-icon').className='icon-emoji';document.getElementById('cj-mid-lbl').textContent='Слушать';}
+    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').textContent='🎤';document.getElementById('cj-mid-icon').className='icon-emoji';document.getElementById('cj-mid-lbl').textContent='Говорить';}
     document.getElementById('cj-prog').style.width=Math.round(cjIdx/10*100)+'%';
     document.getElementById('cj-cnt').textContent=cjIdx+' / 10';
   } catch(e) {
@@ -843,7 +848,7 @@ function sortBy(t){
 }
 function renderList(){
   const el=document.getElementById('words-list');
-  if(!words.length){el.innerHTML='<div class="empty-state"><i class="ti ti-books"></i>Слов пока нет.<br>Добавь первое слово!</div>';return;}
+  if(!words.length){el.innerHTML='<div class="empty-state"><span class="icon-emoji">📚</span>Слов пока нет.<br>Добавь первое слово!</div>';return;}
   let sorted=[...words];
   if(currentSort==='alpha')sorted.sort((a,b)=>a.ru.localeCompare(b.ru,'ru'));
   if(currentSort==='score')sorted.sort((a,b)=>pct(b,'history')-pct(a,'history'));
