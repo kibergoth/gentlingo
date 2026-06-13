@@ -6,7 +6,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Gentlingo">
 <title>Gentlingo</title>
-
 <style>
 :root {
   --bg:#ffffff;--bg2:#f5f5f5;--bg3:#eeeeee;--text:#111111;--text2:#555555;--text3:#999999;
@@ -29,14 +28,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:va
 .topbar{padding:14px 16px;background:var(--bg);border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .topbar h1{font-size:17px;font-weight:600;color:var(--text);flex:1;}
 .topbar-exit{background:none;border:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:inherit;padding:4px 8px;}
-.sync-indicator{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:4px;}
 .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;display:flex;border-top:0.5px solid var(--border);background:var(--bg);z-index:100;padding-bottom:env(safe-area-inset-bottom);}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:10px;font-family:inherit;}
 .nav-btn.active{color:var(--info);}
-.nav-btn i{font-size:20px;}
+.nav-btn .ico{font-size:22px;display:block;font-style:normal;}
 .scroll-content{flex:1;overflow-y:auto;padding:16px;-webkit-overflow-scrolling:touch;}
-input[type=text],textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:11px 12px;font-size:16px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;-webkit-appearance:none;}
-input[type=text]:focus,textarea:focus{border-color:var(--border2);}
+input[type=text],textarea,input[type=number]{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:11px 12px;font-size:16px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;-webkit-appearance:none;}
+input[type=text]:focus,textarea:focus,input[type=number]:focus{border-color:var(--border2);}
 textarea{resize:none;min-height:120px;line-height:1.5;}
 .btn-primary{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:var(--radius);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;}
 .btn-primary:disabled{opacity:0.4;cursor:default;}
@@ -63,7 +61,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .word-row{display:flex;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--border);}
 .word-row:last-child{border-bottom:none;}
 .empty-state{text-align:center;padding:60px 16px;color:var(--text2);}
-.empty-state i{font-size:48px;display:block;margin-bottom:12px;color:var(--text3);}
+.empty-state .ico{font-size:48px;display:block;margin-bottom:12px;font-style:normal;}
 .card-arena{padding:16px;flex:1;}
 .card-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .card-progress-track{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden;}
@@ -82,16 +80,12 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .card-reveal{font-size:17px;color:var(--text2);text-align:center;transition:opacity 0.2s;min-height:26px;}
 .action-row{display:flex;gap:10px;margin-bottom:14px;}
 .act-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:0.5px solid var(--border);border-radius:var(--radius-lg);background:none;cursor:pointer;font-size:12px;font-family:inherit;color:var(--text2);}
-.act-btn i{font-size:22px;}
+.act-btn .ico{font-size:22px;font-style:normal;}
 .act-forgot{border-color:var(--danger);color:var(--danger);}
 .act-knew{border-color:var(--success);color:var(--success);}
 .act-mic{border-color:var(--info);color:var(--info);}
 .act-mic.recording{background:var(--danger-bg);border-color:var(--danger);color:var(--danger);animation:pulse 1s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.sess-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
-.stat-cell{background:var(--bg2);border-radius:var(--radius);padding:12px;text-align:center;}
-.stat-num{font-size:26px;font-weight:700;}
-.stat-lbl{font-size:11px;color:var(--text2);margin-top:2px;}
 .mic-box{border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin-bottom:10px;font-size:15px;background:var(--bg2);min-height:40px;display:none;}
 .mic-box.ok{border-color:var(--success);background:var(--success-bg);color:var(--success);}
 .mic-box.err{border-color:var(--danger);background:var(--danger-bg);color:var(--danger);}
@@ -101,36 +95,44 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .check-btn{background:none;border:0.5px solid var(--border2);border-radius:var(--radius);padding:11px 12px;cursor:pointer;color:var(--text);font-size:14px;font-family:inherit;white-space:nowrap;}
 .mode-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
 .mode-card{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 10px;text-align:center;cursor:pointer;background:none;font-family:inherit;}
-.mode-card i{font-size:24px;color:var(--text2);display:block;margin-bottom:6px;}
+.mode-card .ico{font-size:24px;font-style:normal;display:block;margin-bottom:6px;}
 .mode-card .mt{font-size:13px;font-weight:600;color:var(--text);}
 .mode-card .md{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
 .mode-card.active{border-color:var(--info);background:var(--info-bg);}
-.mode-card.active i,.mode-card.active .mt{color:var(--info);}
+.mode-card.active .mt{color:var(--info);}
 .done-screen{text-align:center;padding:32px 0 20px;}
-.done-screen i{font-size:52px;color:var(--warning);display:block;margin-bottom:12px;}
+.done-screen .ico{font-size:52px;font-style:normal;display:block;margin-bottom:12px;}
 .done-screen h2{font-size:20px;font-weight:700;margin-bottom:6px;}
 .done-screen p{font-size:14px;color:var(--text2);}
 .conj-badge{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
 .gen-loading{text-align:center;padding:30px 0;color:var(--text2);font-size:14px;}
-.sync-bar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;}
+.sync-bar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;flex-shrink:0;}
 
-.icon-emoji { font-style: normal; font-size: 22px; line-height: 1; }
-.nav-btn .icon-emoji { font-size: 22px; display: block; }
-.act-btn .icon-emoji { font-size: 22px; }
-.mode-card .icon-emoji { font-size: 24px; display: block; margin-bottom: 6px; }
+/* STAT TREE */
+.stat-tree{background:var(--bg);border-radius:var(--radius-lg);padding:16px;margin-bottom:14px;}
+.stat-row{display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;}
+.stat-row-child{padding-left:16px;}
+.stat-row-grandchild{padding-left:32px;}
+.stat-label{font-size:14px;color:var(--text2);}
+.stat-label.ready{color:var(--info);font-weight:600;}
+.stat-value{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;margin-left:8px;}
+.stat-value.ok{color:var(--success);}
+.stat-value.warn{color:var(--warning);}
+.stat-value.bad{color:var(--danger);}
+.stat-divider{height:0.5px;background:var(--border);margin:6px 0;}
 </style>
 </head>
 <body>
 <div class="app">
-
 <div class="sync-bar" id="sync-bar"></div>
 
 <!-- ДОБАВЛЕНИЕ -->
 <div class="screen active" id="s-add">
   <div class="topbar">
-    <span class="icon-emoji" style="font-size:20px;color:var(--text2)">🌐</span>
+    <i class="ico">🌐</i>
     <h1>Gentlingo</h1>
-    <span id="word-count" style="font-size:13px;color:var(--text2)">…</span><span style="font-size:11px;color:var(--text3);margin-left:4px">v3</span>
+    <span id="word-count" style="font-size:13px;color:var(--text2)">…</span>
+    <span style="font-size:11px;color:var(--text3);margin-left:4px">v4</span>
   </div>
   <div class="scroll-content">
     <div id="db-loading" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="spinner"></span>Загрузка...</div>
@@ -144,7 +146,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <p class="sec-label">Новое слово</p>
           <input type="text" id="inp-single" placeholder="Слово на русском или испанском" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
           <div style="height:10px"></div>
-          <p class="api-note"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>ИИ определит язык, часть речи и добавит перевод</p>
+          <p class="api-note">ℹ️ ИИ определит язык, часть речи и добавит перевод</p>
         </div>
         <button class="btn-primary" id="btn-add-single" onclick="addSingle()">Добавить</button>
         <p class="status-msg" id="st-single"></p>
@@ -167,11 +169,13 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div id="recog-setup" class="scroll-content">
     <p class="sec-label" style="margin-bottom:12px">Режим карточки</p>
     <div class="mode-pick">
-      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><span class="icon-emoji">👁</span><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
-      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><span class="icon-emoji">👂</span><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
+      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><i class="ico">👁</i><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
+      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><i class="ico">👂</i><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
     </div>
-    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>В базе нет слов.</div>
+    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ В базе нет слов готовых к повторению.</div>
     <button class="btn-primary" onclick="startRecog()">Начать</button>
+    <div style="height:16px"></div>
+    <div class="stat-tree" id="recog-stat-tree"></div>
   </div>
   <div id="recog-session" style="display:none;flex:1;flex-direction:column">
     <div class="card-arena">
@@ -187,22 +191,18 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         </div>
       </div>
       <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
-        <button class="act-btn" onclick="rgSpeak()"><span class="icon-emoji">🔊</span><span>Слушать</span></button>
-        <button class="act-btn act-knew" onclick="rgResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
+        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+        <button class="act-btn" onclick="rgSpeak()"><i class="ico">🔊</i><span>Слушать</span></button>
+        <button class="act-btn act-knew" onclick="rgResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
       </div>
-      <div class="sess-stats">
-        <div class="stat-cell"><div class="stat-num" id="rg-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-        <div class="stat-cell"><div class="stat-num" id="rg-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
-      </div>
+      <div class="stat-tree" id="rg-session-stat" style="font-size:13px"></div>
     </div>
   </div>
   <div id="recog-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><span class="icon-emoji">⭐</span><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
-    <div class="sess-stats" style="margin-bottom:16px">
-      <div class="stat-cell"><div class="stat-num" id="rg-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-      <div class="stat-cell"><div class="stat-num" id="rg-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
-    </div>
+    <div class="done-screen"><i class="ico">⭐</i><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
+    <div style="height:12px"></div>
+    <div class="stat-tree" id="rg-done-stat"></div>
+    <div style="height:12px"></div>
     <button class="btn-primary" onclick="startRecog()" style="margin-bottom:10px">Ещё раз</button>
     <button class="btn-outline" onclick="showSub('recog','setup')">Настройки</button>
   </div>
@@ -213,8 +213,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar"><h1>Припоминание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
   <div id="recall-setup" class="scroll-content">
     <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Видишь русское слово — называешь или пишешь испанский перевод</p>
-    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>В базе нет слов.</div>
+    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ В базе нет слов готовых к повторению.</div>
     <button class="btn-primary" onclick="startRecall()">Начать</button>
+    <div style="height:16px"></div>
+    <div class="stat-tree" id="recall-stat-tree"></div>
   </div>
   <div id="recall-session" style="display:none;flex:1;flex-direction:column">
     <div class="card-arena">
@@ -235,22 +237,18 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         <button class="check-btn" onclick="rlCheck()">Проверить</button>
       </div>
       <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
-        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><span class="icon-emoji">🎤</span><span>Говорить</span></button>
-        <button class="act-btn act-knew" onclick="rlResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
+        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><i class="ico">🎤</i><span>Говорить</span></button>
+        <button class="act-btn act-knew" onclick="rlResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
       </div>
-      <div class="sess-stats">
-        <div class="stat-cell"><div class="stat-num" id="rl-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-        <div class="stat-cell"><div class="stat-num" id="rl-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
-      </div>
+      <div class="stat-tree" id="rl-session-stat" style="font-size:13px"></div>
     </div>
   </div>
   <div id="recall-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><span class="icon-emoji">🏆</span><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
-    <div class="sess-stats" style="margin-bottom:16px">
-      <div class="stat-cell"><div class="stat-num" id="rl-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-      <div class="stat-cell"><div class="stat-num" id="rl-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
-    </div>
+    <div class="done-screen"><i class="ico">🏆</i><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
+    <div style="height:12px"></div>
+    <div class="stat-tree" id="rl-done-stat"></div>
+    <div style="height:12px"></div>
     <button class="btn-primary" onclick="startRecall()" style="margin-bottom:10px">Ещё раз</button>
     <button class="btn-outline" onclick="showSub('recall','setup')">К настройкам</button>
   </div>
@@ -260,13 +258,13 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 <div class="screen" id="s-conj">
   <div class="topbar"><h1>Фразы</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
   <div id="conj-setup" class="scroll-content">
-    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">ИИ генерирует фразы из слов с рейтингом выше 50%. Переводи фразы целиком.</p>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Фразы строятся из слов, которые ты полностью освоил в режиме узнавания (прошли все 4 интервала повторения).</p>
     <p class="sec-label" style="margin-bottom:10px">Направление</p>
     <div class="mode-pick">
-      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><span class="icon-emoji">→</span><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
-      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><span class="icon-emoji">←</span><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
+      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><i class="ico">→</i><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
+      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><i class="ico">←</i><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
     </div>
-    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">⚠️</span>Нужно хотя бы 2 слова с рейтингом выше 50%.</div>
+    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ Нужно хотя бы 2 освоенных слова (прошедших все 4 интервала).</div>
     <button class="btn-primary" onclick="startConj()">Начать</button>
   </div>
   <div id="conj-session" style="display:none;flex:1;flex-direction:column">
@@ -291,23 +289,16 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <button class="check-btn" onclick="cjCheck()">Проверить</button>
         </div>
         <div class="action-row">
-          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><span class="icon-emoji">✕</span><span>Не помню</span></button>
-          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><span class="icon-emoji" id="cj-mid-icon">🔊</span><span id="cj-mid-lbl">Слушать</span></button>
-          <button class="act-btn act-knew" onclick="cjResult('known')"><span class="icon-emoji">✓</span><span>Знаю</span></button>
-        </div>
-        <div class="sess-stats">
-          <div class="stat-cell"><div class="stat-num" id="cj-kn" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-          <div class="stat-cell"><div class="stat-num" id="cj-fg" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
+          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><i class="ico" id="cj-mid-icon">🔊</i><span id="cj-mid-lbl">Слушать</span></button>
+          <button class="act-btn act-knew" onclick="cjResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
         </div>
       </div>
     </div>
   </div>
   <div id="conj-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><span class="icon-emoji">🏅</span><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
-    <div class="sess-stats" style="margin-bottom:16px">
-      <div class="stat-cell"><div class="stat-num" id="cj-dk" style="color:var(--success)">0</div><div class="stat-lbl">Знаю</div></div>
-      <div class="stat-cell"><div class="stat-num" id="cj-df" style="color:var(--danger)">0</div><div class="stat-lbl">Не помню</div></div>
-    </div>
+    <div class="done-screen"><i class="ico">🏅</i><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
+    <div style="height:16px"></div>
     <button class="btn-primary" onclick="startConj()" style="margin-bottom:10px">Ещё раз</button>
     <button class="btn-outline" onclick="showSub('conj','setup')">К настройкам</button>
   </div>
@@ -331,11 +322,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar"><h1>Настройки</h1></div>
   <div class="scroll-content">
     <div class="card">
-      <p class="sec-label">GitHub</p>
+      <p class="sec-label">GitHub токен</p>
       <input type="text" id="inp-gh-token" placeholder="ghp_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-bottom:8px"/>
       <button class="btn-primary" onclick="saveGH()">Сохранить токен</button>
       <p class="status-msg" id="st-gh"></p>
-      <p class="api-note" style="margin-top:8px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>Токен нужен для сохранения базы данных. Получить: GitHub → Settings → Developer settings → Personal access tokens</p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
@@ -344,101 +334,204 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
       <div style="height:8px"></div>
       <button class="btn-primary" onclick="saveKey()">Сохранить ключ</button>
       <p class="status-msg" id="st-key"></p>
-      <p class="api-note" style="margin-top:8px"><span class="icon-emoji" style="font-size:14px;vertical-align:-2px;margin-right:4px">ℹ️</span>Нужен для добавления слов и режима фраз. <a href="https://console.anthropic.com" style="color:var(--info)">console.anthropic.com</a></p>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <p class="sec-label">Освоенные слова — частота повторения</p>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.5">Одно освоенное слово на каждые N обычных показов</p>
+      <div style="display:flex;align-items:center;gap:10px">
+        <input type="number" id="inp-mastered-freq" min="10" max="1000" value="50" style="width:100px"/>
+        <span style="font-size:14px;color:var(--text2)">показов</span>
+      </div>
+      <div style="height:8px"></div>
+      <button class="btn-primary" onclick="saveFreq()">Сохранить</button>
+      <p class="status-msg" id="st-freq"></p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
       <p class="sec-label">О приложении</p>
-      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo — личное приложение для изучения испанского. База хранится на GitHub, синхронизируется между устройствами автоматически.</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v4 — личное приложение для изучения испанского. База хранится на GitHub, синхронизируется между устройствами автоматически.</p>
     </div>
   </div>
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" id="nav-add" onclick="nav('add')"><span class="icon-emoji">+</span><span>Добавить</span></button>
-  <button class="nav-btn" id="nav-recog" onclick="nav('recog')"><span class="icon-emoji">👁</span><span>Узнавание</span></button>
-  <button class="nav-btn" id="nav-recall" onclick="nav('recall')"><span class="icon-emoji">🧠</span><span>Припоминание</span></button>
-  <button class="nav-btn" id="nav-conj" onclick="nav('conj')"><span class="icon-emoji">💬</span><span>Фразы</span></button>
-  <button class="nav-btn" id="nav-list" onclick="nav('list')"><span class="icon-emoji">📖</span><span>Слова</span></button>
-  <button class="nav-btn" id="nav-settings" onclick="nav('settings')"><span class="icon-emoji">⚙️</span><span>Настройки</span></button>
+  <button class="nav-btn active" id="nav-add" onclick="nav('add')"><i class="ico">+</i><span>Добавить</span></button>
+  <button class="nav-btn" id="nav-recog" onclick="nav('recog')"><i class="ico">👁</i><span>Узнавание</span></button>
+  <button class="nav-btn" id="nav-recall" onclick="nav('recall')"><i class="ico">🧠</i><span>Припоминание</span></button>
+  <button class="nav-btn" id="nav-conj" onclick="nav('conj')"><i class="ico">💬</i><span>Фразы</span></button>
+  <button class="nav-btn" id="nav-list" onclick="nav('list')"><i class="ico">📖</i><span>Слова</span></button>
+  <button class="nav-btn" id="nav-settings" onclick="nav('settings')"><i class="ico">⚙️</i><span>Настройки</span></button>
 </nav>
 </div>
 
 <script>
 // ── CONFIG ──
-const GH_OWNER = 'kibergoth';
-const GH_REPO  = 'gentlingo';
-const GH_FILE  = 'db.json';
-const GH_BRANCH= 'main';
+const GH_OWNER='kibergoth', GH_REPO='gentlingo', GH_FILE='db.json', GH_BRANCH='main';
+
+// Интервалы SRS в миллисекундах: 12ч, 24ч, 120ч, 720ч
+const SRS_INTERVALS = [12*3600000, 24*3600000, 120*3600000, 720*3600000];
 
 // ── STATE ──
-let words = [];
-let ghFileSha = null;
-let saving = false;
-let currentSort = 'alpha';
-let rgMode = 'text', rgQueue=[], rgIdx=0, rgKnown=0, rgForgot=0, rgRevealed=false;
-let rlQueue=[], rlIdx=0, rlKnown=0, rlForgot=0;
-let cjDir='es2ru', cjIdx=0, cjKnown=0, cjForgot=0, cjRevealed=false, cjGoodWords=[];
+let words=[], ghFileSha=null, saving=false, currentSort='alpha';
+let rgMode='text', rgQueue=[], rgIdx=0, rgRevealed=false, rgSessionKnown=0, rgSessionForgot=0;
+let rlQueue=[], rlIdx=0, rlSessionKnown=0, rlSessionForgot=0;
+let cjDir='es2ru', cjIdx=0, cjKnown=0, cjForgot=0, cjRevealed=false, cjMasteredWords=[];
 let recognition=null, micActive=false, micCtx='recall';
+let showCounter=0; // счётчик показов для освоенных слов
 
-// ── STORAGE (keys only, data on GitHub) ──
-function getKey()   { return localStorage.getItem('gl_claude_key')||''; }
-function getGHToken(){ return localStorage.getItem('gl_gh_token')||''; }
+// ── SETTINGS ──
+function getKey()      { return localStorage.getItem('gl_claude_key')||''; }
+function getGHToken()  { return localStorage.getItem('gl_gh_token')||''; }
+function getMasteredFreq() { return parseInt(localStorage.getItem('gl_mastered_freq')||'50'); }
+
 function saveKey()  { const k=document.getElementById('inp-key').value.trim(); if(!k){st('st-key','Введи ключ','err');return;} localStorage.setItem('gl_claude_key',k); st('st-key','Ключ сохранён','ok'); }
-function saveGH()   {
-  const k=document.getElementById('inp-gh-token').value.trim();
-  if(!k){st('st-gh','Введи токен','err');return;}
-  localStorage.setItem('gl_gh_token',k);
-  st('st-gh','Токен сохранён','ok');
-  loadDB();
+function saveGH()   { const k=document.getElementById('inp-gh-token').value.trim(); if(!k){st('st-gh','Введи токен','err');return;} localStorage.setItem('gl_gh_token',k); st('st-gh','Токен сохранён','ok'); loadDB(); }
+function saveFreq() { const v=parseInt(document.getElementById('inp-mastered-freq').value); if(v<10||v>1000){st('st-freq','Введи число от 10 до 1000','err');return;} localStorage.setItem('gl_mastered_freq',v); st('st-freq','Сохранено','ok'); }
+
+// ── SRS LOGIC ──
+// Флаги на слове (для узнавания):
+// srsLevel: 0=новое, 1-4=уровень интервала, 5=освоено
+// srsNextAt: timestamp когда слово снова доступно
+// srsLastResult: 'known'|'forgot'
+// srsLast5: массив последних 5 результатов ['known','forgot',...]
+
+function isMastered(w, key) {
+  const lvlKey = key==='history' ? 'srsLevel' : 'srsLevelR';
+  return (w[lvlKey]||0) >= 5;
+}
+
+function isReadyForReview(w, key) {
+  const nextKey = key==='history' ? 'srsNextAt' : 'srsNextAtR';
+  const lvlKey  = key==='history' ? 'srsLevel'  : 'srsLevelR';
+  const lvl = w[lvlKey]||0;
+  if (lvl >= 5) return false; // освоено — особый режим
+  const nextAt = w[nextKey]||0;
+  return Date.now() >= nextAt;
+}
+
+function getReadyWords(key) {
+  return words.filter(w => isReadyForReview(w, key));
+}
+
+function getMasteredWords(key) {
+  return words.filter(w => isMastered(w, key));
+}
+
+function applyResult(w, result, key) {
+  const lvlKey    = key==='history' ? 'srsLevel'      : 'srsLevelR';
+  const nextKey   = key==='history' ? 'srsNextAt'     : 'srsNextAtR';
+  const last5Key  = key==='history' ? 'srsLast5'      : 'srsLast5R';
+  const lastKey   = key==='history' ? 'srsLastResult' : 'srsLastResultR';
+
+  let lvl = w[lvlKey]||0;
+  const last5 = w[last5Key]||[];
+
+  last5.push(result);
+  if (last5.length > 5) last5.shift();
+  w[last5Key] = last5;
+  w[lastKey] = result;
+
+  if (result === 'known') {
+    lvl = Math.min(lvl+1, 5);
+    const interval = lvl <= 4 ? SRS_INTERVALS[lvl-1] : SRS_INTERVALS[3]*10;
+    w[nextKey] = Date.now() + interval;
+  } else {
+    // сброс: уровень обнуляется, доступно сразу
+    lvl = 0;
+    w[nextKey] = Date.now();
+  }
+  w[lvlKey] = lvl;
+  return w;
+}
+
+// ── STAT TREE ──
+function buildStatTree(key) {
+  const total = words.length;
+  if (!total) return '<p style="color:var(--text3);font-size:14px">Слов пока нет</p>';
+
+  const lvlKey   = key==='history' ? 'srsLevel'      : 'srsLevelR';
+  const last5Key = key==='history' ? 'srsLast5'      : 'srsLast5R';
+  const lastKey  = key==='history' ? 'srsLastResult' : 'srsLastResultR';
+  const nextKey  = key==='history' ? 'srsNextAt'     : 'srsNextAtR';
+
+  const newWords      = words.filter(w => !(w[key]||[]).length && (w[lvlKey]||0)===0 && !w[lastKey]);
+  const seenWords     = words.filter(w => w[lastKey]);
+  const mastered      = seenWords.filter(w => (w[lvlKey]||0)>=5);
+  const active        = seenWords.filter(w => (w[lvlKey]||0)<5);
+  const ready         = active.filter(w => Date.now()>=(w[nextKey]||0));
+
+  const lastForgot    = seenWords.filter(w => w[lastKey]==='forgot');
+  const forgotRecent  = seenWords.filter(w => { const l=w[last5Key]||[]; return l.length>0 && l.includes('forgot'); });
+  const knownLast5    = seenWords.filter(w => { const l=w[last5Key]||[]; return l.length>=5 && l.every(r=>r==='known'); });
+
+  const p = (n,d) => d ? Math.round(n/d*100)+'%' : '0%';
+  const row = (label, val, cls, indent) =>
+    `<div class="stat-row ${indent}"><span class="stat-label">${label}</span><span class="stat-value ${cls||''}">${val}</span></div>`;
+
+  let html = '';
+  html += row('Всего слов в словаре', total, '', '');
+  html += `<div class="stat-divider"></div>`;
+  html += row('Новые (ни разу не оценивались)', `${newWords.length} (${p(newWords.length,total)})`, 'warn', 'stat-row-child');
+  html += row('Знакомые (оценивались хотя бы раз)', `${seenWords.length} (${p(seenWords.length,total)})`, '', 'stat-row-child');
+  if (seenWords.length) {
+    html += `<div class="stat-divider"></div>`;
+    html += row('Ждут повторения прямо сейчас', `${ready.length}`, ready.length>0?'ready':'', 'stat-row-grandchild');
+    html += row('Не узнано при последнем показе', `${lastForgot.length}`, lastForgot.length>0?'bad':'ok', 'stat-row-grandchild');
+    html += row('Не узнано хотя бы раз за 5 показов', `${forgotRecent.length}`, forgotRecent.length>0?'warn':'ok', 'stat-row-grandchild');
+    html += row('Знаю уверенно (5 подряд верно)', `${knownLast5.length}`, knownLast5.length>0?'ok':'', 'stat-row-grandchild');
+    html += row('Освоено (прошли все 4 интервала)', `${mastered.length}`, mastered.length>0?'ok':'', 'stat-row-grandchild');
+  }
+  return html;
+}
+
+function renderStatTree(containerId, key) {
+  const el = document.getElementById(containerId);
+  if (el) el.innerHTML = buildStatTree(key);
 }
 
 // ── GITHUB DB ──
 async function ghGet() {
-  const token = getGHToken();
-  const headers = { 'Accept':'application/vnd.github+json' };
-  if (token) headers['Authorization'] = 'Bearer ' + token;
-  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`, { headers });
-  if (!r.ok) throw new Error('GitHub read error ' + r.status);
-  const d = await r.json();
-  ghFileSha = d.sha;
-  const raw = atob(d.content.replace(/\n/g,''));
-  const bytes2 = Uint8Array.from(raw, c=>c.charCodeAt(0));
-  return JSON.parse(new TextDecoder().decode(bytes2));
+  const token=getGHToken();
+  const headers={'Accept':'application/vnd.github+json'};
+  if(token) headers['Authorization']='Bearer '+token;
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`,{headers});
+  if(!r.ok) throw new Error('GitHub read error '+r.status);
+  const d=await r.json();
+  ghFileSha=d.sha;
+  const raw=atob(d.content.replace(/\n/g,''));
+  const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(bytes));
 }
 
 async function ghPut(data) {
-  const token = getGHToken();
-  if (!token) throw new Error('Нет GitHub токена — добавь в Настройках');
-  const jsonStr = JSON.stringify(data, null, 2);
-  const bytes = new TextEncoder().encode(jsonStr);
-  const binStr = Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
-  const content = btoa(binStr);
-  const body = { message:'update db', content, branch: GH_BRANCH };
-  if (ghFileSha) body.sha = ghFileSha;
-  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, {
+  const token=getGHToken();
+  if(!token) throw new Error('Нет GitHub токена — добавь в Настройках');
+  const jsonStr=JSON.stringify(data,null,2);
+  const bytes=new TextEncoder().encode(jsonStr);
+  const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
+  const content=btoa(binStr);
+  const body={message:'update db',content,branch:GH_BRANCH};
+  if(ghFileSha) body.sha=ghFileSha;
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`,{
     method:'PUT',
     headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
-    body: JSON.stringify(body)
+    body:JSON.stringify(body)
   });
-  if (!r.ok) {
-    const e = await r.json().catch(()=>({}));
-    throw new Error('GitHub write error ' + r.status + (e.message?' — '+e.message:''));
-  }
-  const d = await r.json();
-  ghFileSha = d.content.sha;
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('GitHub write error '+r.status+(e.message?' — '+e.message:''));}
+  const d=await r.json();
+  ghFileSha=d.content.sha;
 }
 
 function syncBar(msg) {
-  const el = document.getElementById('sync-bar');
-  if (msg) { el.textContent = msg; el.style.display='block'; }
-  else el.style.display='none';
+  const el=document.getElementById('sync-bar');
+  if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';
 }
 
 async function loadDB() {
   syncBar('⟳ Загружаю базу...');
   try {
-    words = await ghGet();
+    words=await ghGet();
     updateCount();
     document.getElementById('db-loading').style.display='none';
     document.getElementById('add-ui').style.display='block';
@@ -446,77 +539,49 @@ async function loadDB() {
   } catch(e) {
     document.getElementById('db-loading').style.display='none';
     document.getElementById('add-ui').style.display='block';
-    if (!getGHToken()) {
-      syncBar('⚠ Добавь GitHub токен в Настройках');
-    } else {
-      syncBar('⚠ Ошибка загрузки: ' + e.message);
-    }
+    syncBar(getGHToken() ? '⚠ Ошибка загрузки: '+e.message : '⚠ Добавь GitHub токен в Настройках');
   }
 }
 
 async function saveDB() {
-  if (saving) return;
-  saving = true;
-  syncBar('⟳ Сохраняю...');
-  try {
-    await ghPut(words);
-    syncBar('');
-  } catch(e) {
-    syncBar('⚠ Ошибка сохранения: ' + e.message);
-  }
-  saving = false;
+  if(saving) return;
+  saving=true; syncBar('⟳ Сохраняю...');
+  try { await ghPut(words); syncBar(''); }
+  catch(e) { syncBar('⚠ Ошибка сохранения: '+e.message); }
+  saving=false;
 }
 
 // ── AI ──
 async function callAI(prompt, maxTokens) {
-  const key = getKey();
-  if (!key) throw new Error('Нет API-ключа Anthropic — добавь в Настройках');
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
+  const key=getKey();
+  if(!key) throw new Error('Нет API-ключа Anthropic — добавь в Настройках');
+  const r=await fetch('https://api.anthropic.com/v1/messages',{
     method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'x-api-key':key,
-      'anthropic-version':'2023-06-01',
-      'anthropic-dangerous-direct-browser-access':'true'
-    },
-    body:JSON.stringify({
-      model:'claude-sonnet-4-6',
-      max_tokens: maxTokens||1000,
-      messages:[{role:'user',content:prompt}]
-    })
+    headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:maxTokens||1000,messages:[{role:'user',content:prompt}]})
   });
-  if (!r.ok) {
-    const e = await r.json().catch(()=>({}));
-    throw new Error('Ошибка API '+ r.status+(e.error?.message?': '+e.error.message:''));
-  }
-  const d = await r.json();
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('Ошибка API '+r.status+(e.error?.message?': '+e.error.message:''));}
+  const d=await r.json();
   return d.content[0].text;
 }
 
 function extractJSON(text) {
-  // Try direct parse
-  try { return JSON.parse(text); } catch(e) {}
-  // Strip markdown fences
-  const stripped = text.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
-  try { return JSON.parse(stripped); } catch(e) {}
-  // Find first [ ... ] or { ... }
-  const arrMatch = stripped.match(/\[[\s\S]*\]/);
-  if (arrMatch) { try { return JSON.parse(arrMatch[0]); } catch(e) {} }
-  const objMatch = stripped.match(/\{[\s\S]*\}/);
-  if (objMatch) { try { return JSON.parse(objMatch[0]); } catch(e) {} }
+  try{return JSON.parse(text);}catch(e){}
+  const s=text.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  try{return JSON.parse(s);}catch(e){}
+  const a=s.match(/\[[\s\S]*\]/);if(a){try{return JSON.parse(a[0]);}catch(e){}}
+  const o=s.match(/\{[\s\S]*\}/);if(o){try{return JSON.parse(o[0]);}catch(e){}}
   throw new Error('Не удалось разобрать ответ ИИ. Попробуй ещё раз.');
 }
 
 // ── ADD WORDS ──
 async function processWords(list) {
-  const exRu = words.map(w=>w.ru.toLowerCase());
-  const exEs = words.map(w=>w.es.toLowerCase());
-  // Split into chunks of 15 to avoid JSON issues
-  const chunks = [];
-  for (let i=0; i<list.length; i+=15) chunks.push(list.slice(i,i+15));
-  const results = [];
-  for (const chunk of chunks) {
-    const prompt = `Ты помогаешь наполнять базу для изучения испанского.
+  const exRu=words.map(w=>w.ru.toLowerCase()), exEs=words.map(w=>w.es.toLowerCase());
+  const chunks=[];
+  for(let i=0;i<list.length;i+=15) chunks.push(list.slice(i,i+15));
+  const results=[];
+  for(const chunk of chunks){
+    const prompt=`Ты помогаешь наполнять базу для изучения испанского.
 
 Слова от пользователя (обработай ВСЕ):
 ${chunk.map((w,i)=>(i+1)+'. '+w).join('\n')}
@@ -525,120 +590,130 @@ ${chunk.map((w,i)=>(i+1)+'. '+w).join('\n')}
 Русские: ${exRu.slice(0,50).join(', ')||'нет'}
 Испанские: ${exEs.slice(0,50).join(', ')||'нет'}
 
-Для КАЖДОГО слова из списка:
-1. Определи язык (русский или испанский)
-2. Найди перевод на другой язык
-3. Определи часть речи: глагол, существительное, прилагательное, местоимение, наречие, предлог, союз, фраза, другое
-4. Если оба слова пары уже в базе — пропусти
-5. Фразы типа "a favor", "de donde" считай одной единицей
+Для КАЖДОГО слова:
+1. Определи язык
+2. Найди перевод
+3. Часть речи: глагол, существительное, прилагательное, местоимение, наречие, предлог, союз, фраза, другое
+4. Фразы типа "a favor", "de donde" — одна единица
+5. Не дублируй слова из базы
 
-Верни ТОЛЬКО JSON-массив, без пояснений, без markdown, без переносов внутри строк:
+Верни ТОЛЬКО JSON-массив без пояснений и markdown:
 [{"ru":"...","es":"...","pos":"..."}]
 Если всё уже в базе — верни: []`;
-
-    const text = await callAI(prompt, 2000);
-    const parsed = extractJSON(text);
-    if (Array.isArray(parsed)) results.push(...parsed);
+    const text=await callAI(prompt,2000);
+    const parsed=extractJSON(text);
+    if(Array.isArray(parsed)) results.push(...parsed);
   }
   return results;
 }
 
 async function addSingle() {
-  const word = document.getElementById('inp-single').value.trim();
-  if (!word) return;
-  const btn = document.getElementById('btn-add-single'); btn.disabled=true;
+  const word=document.getElementById('inp-single').value.trim();if(!word)return;
+  const btn=document.getElementById('btn-add-single');btn.disabled=true;
   document.getElementById('st-single').innerHTML='<span class="spinner"></span>Обрабатываю...';
   try {
-    const res = await processWords([word]);
-    if (!res.length) { st('st-single','Слово уже есть в базе',''); }
-    else {
-      const now = Date.now();
-      for (const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[]});
+    const res=await processWords([word]);
+    if(!res.length){st('st-single','Слово уже есть в базе','');}
+    else{
+      const now=Date.now();
+      for(const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[],srsLevel:0,srsLevelR:0,srsNextAt:now,srsNextAtR:now});
       document.getElementById('inp-single').value='';
-      updateCount();
-      await saveDB();
+      updateCount();await saveDB();
       st('st-single','Добавлено: '+res.map(w=>w.ru+' / '+w.es).join(', '),'ok');
     }
-  } catch(e) { st('st-single',e.message,'err'); }
+  }catch(e){st('st-single',e.message,'err');}
   btn.disabled=false;
 }
 
 async function addBulk() {
-  const text = document.getElementById('inp-bulk').value.trim();
-  if (!text) return;
-  const list = text.split('\n').map(s=>s.trim()).filter(Boolean);
-  const btn = document.getElementById('btn-add-bulk'); btn.disabled=true;
+  const text=document.getElementById('inp-bulk').value.trim();if(!text)return;
+  const list=text.split('\n').map(s=>s.trim()).filter(Boolean);
+  const btn=document.getElementById('btn-add-bulk');btn.disabled=true;
   document.getElementById('st-bulk').innerHTML='<span class="spinner"></span>Обрабатываю '+list.length+' слов...';
   try {
-    const res = await processWords(list);
-    if (!res.length) { st('st-bulk','Все слова уже в базе',''); }
-    else {
-      const now = Date.now();
-      for (const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[]});
+    const res=await processWords(list);
+    if(!res.length){st('st-bulk','Все слова уже в базе','');}
+    else{
+      const now=Date.now();
+      for(const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[],srsLevel:0,srsLevelR:0,srsNextAt:now,srsNextAtR:now});
       document.getElementById('inp-bulk').value='';
-      updateCount();
-      await saveDB();
+      updateCount();await saveDB();
       st('st-bulk','Добавлено '+res.length+' '+plural(res.length),'ok');
     }
-  } catch(e) { st('st-bulk',e.message,'err'); }
+  }catch(e){st('st-bulk',e.message,'err');}
   btn.disabled=false;
 }
 
 // ── UI HELPERS ──
-function st(id,msg,type) {
-  const el=document.getElementById(id); if(!el)return;
-  el.textContent=msg; el.className='status-msg'+(type?' '+type:'');
-  if(type==='ok')setTimeout(()=>{el.textContent='';el.className='status-msg';},3000);
-}
-function flash(id) { const el=document.getElementById(id);if(!el)return;el.style.opacity='1';setTimeout(()=>{el.style.opacity='0';},600); }
-function plural(n) { if(n%10===1&&n%100!==11)return'слово';if([2,3,4].includes(n%10)&&![12,13,14].includes(n%100))return'слова';return'слов'; }
-function updateCount() { const n=words.length; document.getElementById('word-count').textContent=n+' '+plural(n); }
-function normalize(s) { return s.toLowerCase().trim().replace(/[¡!¿?.,;:«»]/g,'').replace(/[áàâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[íìîï]/g,'i').replace(/[óòôö]/g,'o').replace(/[úùûü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' '); }
-function pct(w,key) { const h=(w[key]||[]).slice(-10);return h.length?h.filter(x=>x.result==='known').length/h.length:0; }
-function wShuffle(arr,key) { return arr.map(w=>({w,weight:1-pct(w,key)*0.8+Math.random()*0.3})).sort((a,b)=>b.weight-a.weight).map(x=>x.w); }
-function posTag(pos) { const m={глагол:'verb',существительное:'noun',прилагательное:'adj'};const c=m[pos]||'other';return`<span class="tag tag-${c}">${pos}</span>`; }
+function st(id,msg,type){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.className='status-msg'+(type?' '+type:'');if(type==='ok')setTimeout(()=>{el.textContent='';el.className='status-msg';},3000);}
+function flash(id){const el=document.getElementById(id);if(!el)return;el.style.opacity='1';setTimeout(()=>{el.style.opacity='0';},600);}
+function plural(n){if(n%10===1&&n%100!==11)return'слово';if([2,3,4].includes(n%10)&&![12,13,14].includes(n%100))return'слова';return'слов';}
+function updateCount(){const n=words.length;document.getElementById('word-count').textContent=n+' '+plural(n);}
+function normalize(s){return s.toLowerCase().trim().replace(/[¡!¿?.,;:«»]/g,'').replace(/[áàâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[íìîï]/g,'i').replace(/[óòôö]/g,'o').replace(/[úùûü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' ');}
+function posTag(pos){const m={глагол:'verb',существительное:'noun',прилагательное:'adj'};const c=m[pos]||'other';return`<span class="tag tag-${c}">${pos}</span>`;}
 
-function nav(name) {
+function nav(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('s-'+name).classList.add('active');
   document.getElementById('nav-'+name).classList.add('active');
-  if(name==='list') renderList();
-  if(name==='settings') { const k=getKey();if(k)document.getElementById('inp-key').value=k; const t=getGHToken();if(t)document.getElementById('inp-gh-token').value=t; }
-  if(name==='recog') showSub('recog','setup');
-  if(name==='recall') showSub('recall','setup');
-  if(name==='conj') showSub('conj','setup');
+  if(name==='list')renderList();
+  if(name==='settings'){const k=getKey();if(k)document.getElementById('inp-key').value=k;const t=getGHToken();if(t)document.getElementById('inp-gh-token').value=t;const f=getMasteredFreq();document.getElementById('inp-mastered-freq').value=f;}
+  if(name==='recog'){showSub('recog','setup');renderStatTree('recog-stat-tree','history');}
+  if(name==='recall'){showSub('recall','setup');renderStatTree('recall-stat-tree','historyRecall');}
+  if(name==='conj')showSub('conj','setup');
 }
 
-function showSub(screen,sub) {
+function showSub(screen,sub){
   ['setup','session','done'].forEach(s=>{
-    const el=document.getElementById(screen+'-'+s); if(!el)return;
-    if(s==='setup'||s==='done') el.style.display=s===sub?'block':'none';
-    else el.style.display=s===sub?'flex':'none';
-    if(s===sub&&s==='session') el.style.flexDirection='column';
+    const el=document.getElementById(screen+'-'+s);if(!el)return;
+    if(s==='setup'||s==='done')el.style.display=s===sub?'block':'none';
+    else{el.style.display=s===sub?'flex':'none';if(s===sub)el.style.flexDirection='column';}
   });
 }
 
-function switchTab(t) {
+function switchTab(t){
   document.getElementById('t-single').style.display=t==='single'?'block':'none';
   document.getElementById('t-bulk').style.display=t==='bulk'?'block':'none';
   document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',(i===0&&t==='single')||(i===1&&t==='bulk')));
 }
 
 // ── УЗНАВАНИЕ ──
-function setRecogMode(m) { rgMode=m; document.getElementById('rm-text').classList.toggle('active',m==='text'); document.getElementById('rm-audio').classList.toggle('active',m==='audio'); }
+function setRecogMode(m){rgMode=m;document.getElementById('rm-text').classList.toggle('active',m==='text');document.getElementById('rm-audio').classList.toggle('active',m==='audio');}
 
-function startRecog() {
-  if(!words.length){document.getElementById('recog-warn').style.display='block';return;}
-  document.getElementById('recog-warn').style.display='none';
-  rgQueue=wShuffle(words,'history').slice(0,Math.min(20,words.length));
-  rgIdx=0;rgKnown=0;rgForgot=0;
-  showSub('recog','session'); rgStats(); rgCard();
+function buildRecogQueue() {
+  const ready = getReadyWords('history');
+  // добавляем освоенные с заданной частотой
+  const mastered = getMasteredWords('history');
+  const freq = getMasteredFreq();
+  showCounter++;
+  let queue = [...ready];
+  if (mastered.length && showCounter % freq === 0) {
+    // добавляем случайное освоенное слово
+    const pick = mastered[Math.floor(Math.random()*mastered.length)];
+    queue.push(pick);
+  }
+  // shuffle weighted by level (lower level = higher priority)
+  queue.sort((a,b)=>{
+    const la=a.srsLevel||0, lb=b.srsLevel||0;
+    return (la-lb) + (Math.random()-0.5)*0.5;
+  });
+  return queue.slice(0,20);
 }
 
-function rgCard() {
+function startRecog(){
+  const queue=buildRecogQueue();
+  if(!queue.length){document.getElementById('recog-warn').style.display='block';return;}
+  document.getElementById('recog-warn').style.display='none';
+  rgQueue=queue;rgIdx=0;rgRevealed=false;rgSessionKnown=0;rgSessionForgot=0;
+  showSub('recog','session');
+  renderStatTree('rg-session-stat','history');
+  rgCard();
+}
+
+function rgCard(){
   if(rgIdx>=rgQueue.length){rgEnd();return;}
-  const w=rgQueue[rgIdx]; rgRevealed=false;
+  const w=rgQueue[rgIdx];rgRevealed=false;
   document.getElementById('rg-word').textContent=w.es;
   document.getElementById('rg-pos').textContent=w.pos;
   document.getElementById('rg-reveal').textContent=w.ru;
@@ -655,36 +730,55 @@ function rgCard() {
 function rgReveal(){rgRevealed=true;document.getElementById('rg-reveal').style.opacity='1';document.getElementById('rg-hint').textContent='';}
 function rgSpeak(){if(rgIdx>=rgQueue.length)return;const u=new SpeechSynthesisUtterance(rgQueue[rgIdx].es);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
 
-async function rgResult(result) {
+async function rgResult(result){
   if(rgIdx>=rgQueue.length)return;
-  const w=rgQueue[rgIdx];
+  let w=rgQueue[rgIdx];
+  // add to history log
   if(!w.history)w.history=[];
-  w.history.push({ts:Date.now(),result,mode:rgMode,bySound:rgMode==='audio'&&!rgRevealed});
+  w.history.push({ts:Date.now(),result,mode:rgMode,bySound:rgMode==='audio'&&!rgRevealed,cat:'recog'});
+  // apply SRS
+  w=applyResult(w,'known'===result?'known':'forgot','history');
+  // update in words array
   const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
   if(idx>=0)words[idx]=w;
-  if(result==='known'){rgKnown++;flash('rg-fk');}else{rgForgot++;flash('rg-ff');}
-  rgStats(); rgIdx++; setTimeout(rgCard,350);
-  if(rgIdx>=rgQueue.length)await saveDB();
+  if(result==='known'){rgSessionKnown++;flash('rg-fk');}else{rgSessionForgot++;flash('rg-ff');}
+  renderStatTree('rg-session-stat','history');
+  rgIdx++;
+  if(rgIdx>=rgQueue.length){await saveDB();setTimeout(rgEnd,350);}
+  else setTimeout(rgCard,350);
 }
 
-function rgStats(){document.getElementById('rg-kn').textContent=rgKnown;document.getElementById('rg-fg').textContent=rgForgot;}
 function rgEnd(){
   showSub('recog','done');
-  document.getElementById('rg-dk').textContent=rgKnown;document.getElementById('rg-df').textContent=rgForgot;
-  const tot=rgKnown+rgForgot,p=tot?Math.round(rgKnown/tot*100):0;
-  document.getElementById('rg-sum').textContent='Результат: '+p+'% знаю ('+tot+' карточек)';
+  const tot=rgSessionKnown+rgSessionForgot,p=tot?Math.round(rgSessionKnown/tot*100):0;
+  document.getElementById('rg-sum').textContent='Знаю '+p+'% ('+tot+' карточек)';
+  document.getElementById('rg-dk').textContent=rgSessionKnown;
+  document.getElementById('rg-df').textContent=rgSessionForgot;
+  renderStatTree('rg-done-stat','history');
 }
 
 // ── ПРИПОМИНАНИЕ ──
-function startRecall() {
-  if(!words.length){document.getElementById('recall-warn').style.display='block';return;}
-  document.getElementById('recall-warn').style.display='none';
-  rlQueue=wShuffle(words,'historyRecall').slice(0,Math.min(20,words.length));
-  rlIdx=0;rlKnown=0;rlForgot=0;
-  showSub('recall','session'); rlStats(); rlCard();
+function buildRecallQueue(){
+  const ready=getReadyWords('historyRecall');
+  const mastered=getMasteredWords('historyRecall');
+  const freq=getMasteredFreq();
+  let queue=[...ready];
+  if(mastered.length&&showCounter%freq===0){const pick=mastered[Math.floor(Math.random()*mastered.length)];queue.push(pick);}
+  queue.sort((a,b)=>(a.srsLevelR||0)-(b.srsLevelR||0)+(Math.random()-0.5)*0.5);
+  return queue.slice(0,20);
 }
 
-function rlCard() {
+function startRecall(){
+  const queue=buildRecallQueue();
+  if(!queue.length){document.getElementById('recall-warn').style.display='block';return;}
+  document.getElementById('recall-warn').style.display='none';
+  rlQueue=queue;rlIdx=0;rlSessionKnown=0;rlSessionForgot=0;
+  showSub('recall','session');
+  renderStatTree('rl-session-stat','historyRecall');
+  rlCard();
+}
+
+function rlCard(){
   if(rlIdx>=rlQueue.length){rlEnd();return;}
   const w=rlQueue[rlIdx];
   document.getElementById('rl-word').textContent=w.ru;
@@ -702,7 +796,7 @@ function rlCard() {
   document.getElementById('rl-cnt').textContent=rlIdx+' / '+tot;
 }
 
-function rlCheck() {
+function rlCheck(){
   const val=document.getElementById('rl-inp').value.trim();if(!val)return;
   const w=rlQueue[rlIdx];const ok=normalize(val)===normalize(w.es);
   const box=document.getElementById('rl-mic-box');box.style.display='block';
@@ -711,43 +805,46 @@ function rlCheck() {
   else{box.className='mic-box err';box.textContent='✗ '+val;document.getElementById('rl-mic-hint').textContent='Неверно. Свайпни или попробуй ещё раз';}
 }
 
-async function rlResult(result) {
+async function rlResult(result){
   if(rlIdx>=rlQueue.length)return;
-  const w=rlQueue[rlIdx];
+  let w=rlQueue[rlIdx];
   if(!w.historyRecall)w.historyRecall=[];
-  w.historyRecall.push({ts:Date.now(),result});
+  w.historyRecall.push({ts:Date.now(),result,cat:'recall'});
+  w=applyResult(w,result,'historyRecall');
   const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
   if(idx>=0)words[idx]=w;
-  if(result==='known'){rlKnown++;flash('rl-fk');}else{rlForgot++;flash('rl-ff');}
-  rlStats(); rlIdx++; setTimeout(rlCard,350);
-  if(rlIdx>=rlQueue.length)await saveDB();
+  if(result==='known'){rlSessionKnown++;flash('rl-fk');}else{rlSessionForgot++;flash('rl-ff');}
+  renderStatTree('rl-session-stat','historyRecall');
+  rlIdx++;
+  if(rlIdx>=rlQueue.length){await saveDB();setTimeout(rlEnd,350);}
+  else setTimeout(rlCard,350);
 }
 
-function rlStats(){document.getElementById('rl-kn').textContent=rlKnown;document.getElementById('rl-fg').textContent=rlForgot;}
 function rlEnd(){
   showSub('recall','done');
-  document.getElementById('rl-dk').textContent=rlKnown;document.getElementById('rl-df').textContent=rlForgot;
-  const tot=rlKnown+rlForgot,p=tot?Math.round(rlKnown/tot*100):0;
-  document.getElementById('rl-sum').textContent='Результат: '+p+'% знаю ('+tot+' карточек)';
-  saveDB();
+  const tot=rlSessionKnown+rlSessionForgot,p=tot?Math.round(rlSessionKnown/tot*100):0;
+  document.getElementById('rl-sum').textContent='Знаю '+p+'% ('+tot+' карточек)';
+  document.getElementById('rl-dk').textContent=rlSessionKnown;
+  document.getElementById('rl-df').textContent=rlSessionForgot;
+  renderStatTree('rl-done-stat','historyRecall');
 }
 
 // ── ФРАЗЫ ──
 function setConjDir(d){cjDir=d;document.getElementById('cj-d-es2ru').classList.toggle('active',d==='es2ru');document.getElementById('cj-d-ru2es').classList.toggle('active',d==='ru2es');}
 
-function startConj() {
-  const good=words.filter(w=>pct(w,'history')>=0.5||pct(w,'historyRecall')>=0.5);
-  if(good.length<2){document.getElementById('conj-warn').style.display='block';return;}
+function startConj(){
+  cjMasteredWords=getMasteredWords('history');
+  if(cjMasteredWords.length<2){document.getElementById('conj-warn').style.display='block';return;}
   document.getElementById('conj-warn').style.display='none';
-  cjGoodWords=good;cjIdx=0;cjKnown=0;cjForgot=0;
-  showSub('conj','session'); cjStats(); cjGenerate();
+  cjIdx=0;cjKnown=0;cjForgot=0;
+  showSub('conj','session');cjGenerate();
 }
 
-async function cjGenerate() {
+async function cjGenerate(){
   cjRevealed=false;
   document.getElementById('cj-loading').style.display='block';
   document.getElementById('cj-card-ui').style.display='none';
-  const wordList=cjGoodWords.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
+  const wordList=cjMasteredWords.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
   const prompt=`Ты помогаешь изучать испанский язык.
 
 Слова пользователя:
@@ -756,9 +853,9 @@ ${wordList}
 Составь ОДНУ простую фразу (3-7 слов) используя только эти слова.
 Фраза должна быть грамматически правильной и естественной на испанском.
 
-Верни ТОЛЬКО JSON без пояснений и без markdown:
+Верни ТОЛЬКО JSON без пояснений и markdown:
 {"es":"фраза на испанском","ru":"перевод на русский"}`;
-  try {
+  try{
     const text=await callAI(prompt,300);
     const card=extractJSON(text);
     const isEs2ru=cjDir==='es2ru';
@@ -773,11 +870,11 @@ ${wordList}
     document.getElementById('cj-card').dataset.ru=card.ru;
     document.getElementById('cj-mic-box').style.display='none';
     document.getElementById('cj-mic-hint').textContent='';
-    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').textContent='🔊';document.getElementById('cj-mid-icon').className='icon-emoji';document.getElementById('cj-mid-lbl').textContent='Слушать';}
-    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').textContent='🎤';document.getElementById('cj-mid-icon').className='icon-emoji';document.getElementById('cj-mid-lbl').textContent='Говорить';}
+    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').textContent='🔊';document.getElementById('cj-mid-lbl').textContent='Слушать';}
+    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').textContent='🎤';document.getElementById('cj-mid-lbl').textContent='Говорить';}
     document.getElementById('cj-prog').style.width=Math.round(cjIdx/10*100)+'%';
     document.getElementById('cj-cnt').textContent=cjIdx+' / 10';
-  } catch(e) {
+  }catch(e){
     document.getElementById('cj-phrase').textContent='Ошибка: '+e.message;
     document.getElementById('cj-answer').textContent='';
   }
@@ -800,14 +897,12 @@ function cjCheck(){
 }
 async function cjResult(result){
   if(result==='known'){cjKnown++;flash('cj-fk');}else{cjForgot++;flash('cj-ff');}
-  cjStats();cjIdx++;stopMic();
+  cjIdx++;stopMic();
   if(cjIdx>=10){setTimeout(cjEnd,350);return;}
   setTimeout(cjGenerate,350);
 }
-function cjStats(){document.getElementById('cj-kn').textContent=cjKnown;document.getElementById('cj-fg').textContent=cjForgot;}
 function cjEnd(){
   showSub('conj','done');
-  document.getElementById('cj-dk').textContent=cjKnown;document.getElementById('cj-df').textContent=cjForgot;
   const tot=cjKnown+cjForgot,p=tot?Math.round(cjKnown/tot*100):0;
   document.getElementById('cj-sum').textContent='Результат: '+p+'% знаю (10 фраз)';
 }
@@ -848,25 +943,23 @@ function handleMic(transcript,ctx){
 }
 
 // ── СПИСОК СЛОВ ──
-function sortBy(t){
-  currentSort=t;['alpha','score','added'].forEach(s=>document.getElementById('srt-'+s).classList.toggle('active',s===t));renderList();
-}
+function sortBy(t){currentSort=t;['alpha','score','added'].forEach(s=>document.getElementById('srt-'+s).classList.toggle('active',s===t));renderList();}
 function renderList(){
   const el=document.getElementById('words-list');
-  if(!words.length){el.innerHTML='<div class="empty-state"><span class="icon-emoji">📚</span>Слов пока нет.<br>Добавь первое слово!</div>';return;}
+  if(!words.length){el.innerHTML='<div class="empty-state"><i class="ico">📚</i>Слов пока нет.<br>Добавь первое слово!</div>';return;}
   let sorted=[...words];
   if(currentSort==='alpha')sorted.sort((a,b)=>a.ru.localeCompare(b.ru,'ru'));
-  if(currentSort==='score')sorted.sort((a,b)=>pct(b,'history')-pct(a,'history'));
+  if(currentSort==='score')sorted.sort((a,b)=>(b.srsLevel||0)-(a.srsLevel||0));
   if(currentSort==='added')sorted.sort((a,b)=>b.added-a.added);
-  const sp=(w,key)=>{const h=(w[key]||[]).slice(-10);if(!h.length)return null;return Math.round(h.filter(x=>x.result==='known').length/h.length*100);};
   el.innerHTML='<div class="card" style="padding:0 16px">'+sorted.map(w=>{
-    const sc=sp(w,'history'),scR=sp(w,'historyRecall');
+    const lvl=w.srsLevel||0, lvlR=w.srsLevelR||0;
+    const lvlLabel=['новое','12ч','24ч','120ч','720ч','освоено'];
     return`<div class="word-row"><div style="flex:1;min-width:0">
       <div style="font-size:15px">${w.ru}${posTag(w.pos)}</div>
       <div style="font-size:14px;color:var(--text2);margin-top:2px">${w.es}</div>
       <div style="display:flex;gap:14px;margin-top:3px">
-        ${sc!==null?`<span style="font-size:11px;color:var(--text3)">Узн. <b style="color:var(--success)">${sc}%</b></span>`:''}
-        ${scR!==null?`<span style="font-size:11px;color:var(--text3)">Прип. <b style="color:var(--info)">${scR}%</b></span>`:''}
+        <span style="font-size:11px;color:var(--text3)">Узн.: <b style="color:var(--${lvl>=5?'success':'info'})">${lvlLabel[lvl]||lvl}</b></span>
+        <span style="font-size:11px;color:var(--text3)">Прип.: <b style="color:var(--${lvlR>=5?'success':'info'})">${lvlLabel[lvlR]||lvlR}</b></span>
       </div>
     </div></div>`;
   }).join('')+'</div>';
@@ -878,16 +971,14 @@ function setupSwipe(areaId,cardId,onLeft,onRight){
   const area=document.getElementById(areaId);
   area.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;drag=true;},{passive:true});
   area.addEventListener('touchmove',e=>{
-    if(!drag)return;
-    const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
+    if(!drag)return;const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
     if(Math.abs(dy)>Math.abs(dx)+10)return;
     const card=document.getElementById(cardId);
     card.style.transform=`translateX(${dx}px) rotate(${dx*0.07}deg)`;
     card.className='swipe-card'+(dx>30?' tilt-r':dx<-30?' tilt-l':'');
   },{passive:true});
   area.addEventListener('touchend',e=>{
-    if(!drag)return;drag=false;
-    const dx=e.changedTouches[0].clientX-sx;
+    if(!drag)return;drag=false;const dx=e.changedTouches[0].clientX-sx;
     const card=document.getElementById(cardId);
     if(dx>70){card.style.transform='translateX(500px) rotate(20deg)';onRight();}
     else if(dx<-70){card.style.transform='translateX(-500px) rotate(-20deg)';onLeft();}
@@ -900,7 +991,6 @@ setupSwipe('cj-area','cj-card',()=>cjResult('forgot'),()=>cjResult('known'));
 document.getElementById('rg-card').addEventListener('click',()=>{if(!rgRevealed)rgReveal();});
 document.getElementById('cj-card').addEventListener('click',()=>{if(!cjRevealed)cjReveal();});
 
-// ── СТАРТ ──
 loadDB();
 </script>
 </body>
