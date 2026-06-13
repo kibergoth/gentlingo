@@ -117,7 +117,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar">
     <h1>Gentlingo</h1>
     <span id="wcnt" style="font-size:13px;color:var(--text2)">…</span>
-    <span style="font-size:11px;color:var(--text3);margin-left:4px">v5</span>
+    <span style="font-size:11px;color:var(--text3);margin-left:4px">v6</span>
   </div>
   <div class="sc">
     <div id="dbl" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="sp"></span>Загрузка...</div>
@@ -335,7 +335,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     <div style="height:12px"></div>
     <div class="card">
       <p class="slbl">О приложении</p>
-      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v5 — личное приложение для изучения испанского. База хранится на GitHub.</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v6 — личное приложение для изучения испанского. База хранится на GitHub.</p>
     </div>
   </div>
 </div>
@@ -667,7 +667,7 @@ function rgCard(){
 }
 
 function rgReveal(){rgRev=true;document.getElementById('rg-reveal').style.opacity='1';document.getElementById('rg-hint').textContent='';}
-function rgSpeak(){if(rgI>=rgQ.length)return;const u=new SpeechSynthesisUtterance(rgQ[rgI].es);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
+function rgSpeak(){if(rgI>=rgQ.length)return;const u=new SpeechSynthesisUtterance(rgQ[rgI].es);u.lang='es-AR';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
 
 async function rgResult(result){
   if(rgI>=rgQ.length)return;
@@ -786,7 +786,7 @@ async function cjGenerate(){
   const wl=cjPool.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
   const prompt=`Помогай изучать испанский.
 Слова: ${wl}
-Составь ОДНУ простую фразу (3-7 слов) только из этих слов. Грамматически правильную и естественную.
+Составь ОДНУ простую фразу (3-7 слов) только из этих слов. Используй аргентинский диалект: vos вместо tú, соответствующие формы глаголов (vos tenés, vos sos, vos querés и т.п.). Фраза должна быть грамматически правильной и естественной.
 ТОЛЬКО JSON: {"es":"...","ru":"..."}`;
   try{
     const text=await callAI(prompt,300);
@@ -833,7 +833,7 @@ function cjReveal(){cjRev=true;document.getElementById('cj-ans').style.opacity='
 function cjMid(){
   if(cjDir==='es2ru'){
     const u=new SpeechSynthesisUtterance(document.getElementById('cj-phrase').textContent);
-    u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);cjReveal();
+    u.lang='es-AR';speechSynthesis.cancel();speechSynthesis.speak(u);cjReveal();
   } else toggleMic('conj');
 }
 
@@ -878,7 +878,7 @@ function toggleMic(ctx){
   micCtx=ctx;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){alert('Распознавание речи не поддерживается. Используй Chrome.');return;}
-  recog=new SR();recog.lang='es-ES';recog.continuous=false;recog.interimResults=false;
+  recog=new SR();recog.lang='es-AR';recog.continuous=false;recog.interimResults=false;
   recog.onstart=()=>{
     micOn=true;
     const btnId=ctx==='recall'?'rl-mic':'cj-mid';
