@@ -1,378 +1,549 @@
-[
-  {
-    "ru": "философ",
-    "es": "filósofo",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "инженер",
-    "es": "ingeniero",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "механик",
-    "es": "mecánico",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "почтальон",
-    "es": "cartero",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "учёный",
-    "es": "científico",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "адвокат",
-    "es": "abogado",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "экономист",
-    "es": "economista",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "администратор",
-    "es": "administrativo",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "политик",
-    "es": "político",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "продавец",
-    "es": "dependiente",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "водитель",
-    "es": "conductor",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "архитектор",
-    "es": "arquitecto",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "думать",
-    "es": "pensar",
-    "pos": "глагол",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "спрашивать",
-    "es": "preguntar",
-    "pos": "глагол",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "кто",
-    "es": "quién",
-    "pos": "местоимение",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "Кто это (он/она)",
-    "es": "Quién es",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "Кто ты (ты есть)",
-    "es": "Quien sos",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "красивый",
-    "es": "bonito",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "некрасивый, уродливый",
-    "es": "feo",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "большой",
-    "es": "grande",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "маленький",
-    "es": "pequeño",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "бедный",
-    "es": "pobre",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "богатый, вкусный",
-    "es": "rico",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "хороший",
-    "es": "bueno",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "плохой",
-    "es": "malo",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "за, в пользу",
-    "es": "a favor",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "против",
-    "es": "contra",
-    "pos": "предлог",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "о чём",
-    "es": "sobre qué",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "что ты думаешь",
-    "es": "qué pensás",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "откуда он/она",
-    "es": "de donde es",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "Откуда ты (откуда вы родом)",
-    "es": "De donde sos",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "страна",
-    "es": "país",
-    "pos": "существительное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "я думаю что",
-    "es": "yo creo que",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "я уверен",
-    "es": "estoy seguro",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "из чего это (сделано)",
-    "es": "de qué es",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "хорошая",
-    "es": "buena",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "плохая",
-    "es": "mala",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "позитивная",
-    "es": "positiva",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "негативная",
-    "es": "negativa",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "весёлая",
-    "es": "divertida",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "серьёзная",
-    "es": "seria",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "скучная",
-    "es": "aburrida",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "интересная",
-    "es": "interesante",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "сложная",
-    "es": "difícil",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "лёгкая",
-    "es": "fácil",
-    "pos": "прилагательное",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "хорошо оплачиваемая",
-    "es": "bien pagada",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  },
-  {
-    "ru": "плохо оплачиваемая",
-    "es": "mal pagada",
-    "pos": "фраза",
-    "added": 1781302297280,
-    "history": [],
-    "historyRecall": []
-  }
-]
+{
+  "words": [
+    {
+      "ru": "философ",
+      "es": "filósofo",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "инженер",
+      "es": "ingeniero",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "механик",
+      "es": "mecánico",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "почтальон",
+      "es": "cartero",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "учёный",
+      "es": "científico",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "адвокат",
+      "es": "abogado",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388975796,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432175796,
+      "srsT": 1
+    },
+    {
+      "ru": "экономист",
+      "es": "economista",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "администратор",
+      "es": "administrativo",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388974173,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781388974173,
+      "srsT": 0
+    },
+    {
+      "ru": "политик",
+      "es": "político",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "продавец",
+      "es": "dependiente",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "водитель",
+      "es": "conductor",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388935069,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432135069,
+      "srsT": 1
+    },
+    {
+      "ru": "архитектор",
+      "es": "arquitecto",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "думать",
+      "es": "pensar",
+      "pos": "глагол",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "спрашивать",
+      "es": "preguntar",
+      "pos": "глагол",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "кто",
+      "es": "quién",
+      "pos": "местоимение",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388951384,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432151384,
+      "srsT": 1
+    },
+    {
+      "ru": "Кто это (он/она)",
+      "es": "Quién es",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "Кто ты (ты есть)",
+      "es": "Quien sos",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "красивый",
+      "es": "bonito",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388952838,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432152838,
+      "srsT": 1
+    },
+    {
+      "ru": "некрасивый, уродливый",
+      "es": "feo",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388973828,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781388973829,
+      "srsT": 0
+    },
+    {
+      "ru": "большой",
+      "es": "grande",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "маленький",
+      "es": "pequeño",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "бедный",
+      "es": "pobre",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "богатый, вкусный",
+      "es": "rico",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "хороший",
+      "es": "bueno",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "плохой",
+      "es": "malo",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "за, в пользу",
+      "es": "a favor",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "против",
+      "es": "contra",
+      "pos": "предлог",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "о чём",
+      "es": "sobre qué",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "что ты думаешь",
+      "es": "qué pensás",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "откуда он/она",
+      "es": "de donde es",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "Откуда ты (откуда вы родом)",
+      "es": "De donde sos",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "страна",
+      "es": "país",
+      "pos": "существительное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "я думаю что",
+      "es": "yo creo que",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388999636,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432199636,
+      "srsT": 1
+    },
+    {
+      "ru": "я уверен",
+      "es": "estoy seguro",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388957604,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781388957604,
+      "srsT": 0
+    },
+    {
+      "ru": "из чего это (сделано)",
+      "es": "de qué es",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "хорошая",
+      "es": "buena",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "плохая",
+      "es": "mala",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "позитивная",
+      "es": "positiva",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388961201,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432161201,
+      "srsT": 1
+    },
+    {
+      "ru": "негативная",
+      "es": "negativa",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "весёлая",
+      "es": "divertida",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "серьёзная",
+      "es": "seria",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388988251,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781388988251,
+      "srsT": 0
+    },
+    {
+      "ru": "скучная",
+      "es": "aburrida",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "интересная",
+      "es": "interesante",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "сложная",
+      "es": "difícil",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388943379,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432143379,
+      "srsT": 1
+    },
+    {
+      "ru": "лёгкая",
+      "es": "fácil",
+      "pos": "прилагательное",
+      "added": 1781302297280,
+      "history": [
+        {
+          "ts": 1781388945502,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781432145502,
+      "srsT": 1
+    },
+    {
+      "ru": "хорошо оплачиваемая",
+      "es": "bien pagada",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    },
+    {
+      "ru": "плохо оплачиваемая",
+      "es": "mal pagada",
+      "pos": "фраза",
+      "added": 1781302297280,
+      "history": [],
+      "historyRecall": []
+    }
+  ],
+  "failedPhrases": []
+}
