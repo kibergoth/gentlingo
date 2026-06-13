@@ -111,6 +111,13 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .conj-table .form{font-weight:600;}
 .conj-table .tr{color:var(--text3);font-size:12px;}
 .lvl-pip{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:4px;vertical-align:middle;}
+/* PROGRESS BAR */
+.prog5{display:flex;gap:3px;margin-top:6px;}
+.prog5-pip{flex:1;height:5px;border-radius:3px;background:var(--bg3);}
+.prog5-pip.done{background:var(--success);}
+.prog5-pip.cur{background:var(--warning);}
+.prog5-label{font-size:10px;color:var(--text3);margin-top:2px;text-align:center;}
+.card-prog-block{margin-top:8px;padding-top:8px;border-top:.5px solid var(--border);width:100%;}
 /* PHRASE LEVEL TABS */
 .lvl-tabs{display:flex;gap:4px;margin-bottom:16px;}
 .lvl-tab{flex:1;padding:8px 4px;font-size:12px;border:.5px solid var(--border);border-radius:var(--r);background:none;color:var(--text2);cursor:pointer;font-family:inherit;text-align:center;line-height:1.3;}
@@ -127,7 +134,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar">
     <h1>Gentlingo</h1>
     <span id="wcnt" style="font-size:13px;color:var(--text2)">…</span>
-    <span style="font-size:11px;color:var(--text3);margin-left:4px">v9</span>
+    <span style="font-size:11px;color:var(--text3);margin-left:4px">v11</span>
   </div>
   <div class="sc">
     <div id="dbl" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="sp"></span>Загрузка...</div>
@@ -183,6 +190,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <span class="cb" id="rg-pos">—</span>
           <span class="ch" id="rg-hint">нажми, чтобы открыть перевод</span>
           <span class="cr" id="rg-reveal" style="opacity:0">—</span>
+          <div class="card-prog-block" id="rg-prog5-block">
+            <div class="prog5" id="rg-prog5"></div>
+            <div class="prog5-label" id="rg-prog5-label"></div>
+          </div>
         </div>
       </div>
       <div class="arow">
@@ -224,6 +235,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
           <span class="cw" id="rl-word">—</span>
           <span class="ch">назови или напиши перевод</span>
           <span class="cr" id="rl-reveal" style="opacity:0">—</span>
+          <div class="card-prog-block" id="rl-prog5-block">
+            <div class="prog5" id="rl-prog5"></div>
+            <div class="prog5-label" id="rl-prog5-label"></div>
+          </div>
         </div>
       </div>
       <div class="mb" id="rl-mb"></div>
@@ -281,6 +296,10 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
             <span class="cw" id="cj-phrase" style="font-size:22px">—</span>
             <span class="ch" id="cj-thint">нажми, чтобы открыть перевод</span>
             <span class="cr" id="cj-ans" style="opacity:0">—</span>
+            <div class="card-prog-block" id="cj-prog5-block" style="display:none">
+              <div class="prog5" id="cj-prog5"></div>
+              <div class="prog5-label" id="cj-prog5-label"></div>
+            </div>
           </div>
         </div>
         <div class="mb" id="cj-mb"></div>
@@ -351,7 +370,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     <div style="height:12px"></div>
     <div class="card">
       <p class="slbl">О приложении</p>
-      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v9 — личное приложение для изучения испанского. База хранится на GitHub.</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v11 — личное приложение для изучения испанского. База хранится на GitHub.</p>
     </div>
   </div>
 </div>
@@ -385,7 +404,98 @@ function getKey(){return localStorage.getItem('gl_key')||'';}
 function getGHT(){return localStorage.getItem('gl_ght')||'';}
 function getFreq(){return parseInt(localStorage.getItem('gl_freq')||'50');}
 function saveKey(){const k=document.getElementById('inp-key').value.trim();if(!k){sm('st-key','Введи ключ','err');return;}localStorage.setItem('gl_key',k);sm('st-key','Сохранено','ok');}
-function saveGH(){const k=document.getElementById('inp-ght').value.trim();if(!k){sm('st-gh','Введи токен','err');return;}localStorage.setItem('gl_ght',k);sm('st-gh','Сохранено','ok');loadDB();}
+function saveGH(){const k=document.getElementById('inp-ght').value.trim();if(!k){sm('st-gh','Введи токен','err');return;}localStorage.setItem('gl_ght',k);sm('st-gh','Сохранено','ok');
+// ── PROGRESS BARS ──
+function renderProg5(containerId, labelId, lvl, mode){
+  const el=document.getElementById(containerId);
+  const lb=document.getElementById(labelId);
+  if(!el)return;
+  const labels=['текст','аудио','припом.','спряж.'];
+  const modeLabels={text:'текст',audio:'аудио',recall:'припом.'};
+  const pips=Array.from({length:5},(_,i)=>{
+    const cls=i<lvl?'done':(i===lvl&&lvl<5?'cur':'');
+    return`<div class="prog5-pip ${cls}"></div>`;
+  }).join('');
+  el.innerHTML=pips;
+  const steps=['','12ч','24ч','5дн','30дн','✓'];
+  if(lb)lb.textContent=lvl>=5?'Освоено':('Следующий интервал: '+steps[lvl+1]||'');
+}
+
+function showProg5Recog(w){
+  const k=srsKeys(rgMode);
+  const lvl=w[k.lvl]||0;
+  renderProg5('rg-prog5','rg-prog5-label',lvl,rgMode);
+}
+
+function showProg5Recall(w){
+  const k=srsKeys('recall');
+  const lvl=w[k.lvl]||0;
+  renderProg5('rl-prog5','rl-prog5-label',lvl,'recall');
+}
+
+function showProg5Conj(w,pro,tense){
+  const block=document.getElementById('cj-prog5-block');
+  if(!block)return;
+  if(!w||!pro){block.style.display='none';return;}
+  block.style.display='block';
+  const s=w.conjSRS&&w.conjSRS[tense]&&w.conjSRS[tense][pro];
+  const lvl=s?s.lvl:0;
+  renderProg5('cj-prog5','cj-prog5-label',lvl,'conj');
+}
+
+
+// ── KEYBOARD SCROLL FIX ──
+(function(){
+  const inp = document.getElementById('rl-inp');
+  if(!inp) return;
+  let scrollY = 0;
+  inp.addEventListener('focus', () => {
+    scrollY = window.scrollY;
+    // Small delay to let keyboard appear, then restore scroll
+    setTimeout(() => {
+      const arena = document.querySelector('#recall-session .arena');
+      if(arena) arena.scrollIntoView({block:'start',behavior:'instant'});
+    }, 100);
+  });
+  inp.addEventListener('blur', () => {
+    setTimeout(() => { window.scrollTo(0, scrollY); }, 50);
+  });
+
+  // Also handle cj-inp
+  const cjInp = document.getElementById('cj-inp');
+  if(cjInp){
+    cjInp.addEventListener('focus', () => {
+      scrollY = window.scrollY;
+      setTimeout(() => {
+        const arena = document.querySelector('#conj-session .arena');
+        if(arena) arena.scrollIntoView({block:'start',behavior:'instant'});
+      }, 100);
+    });
+    cjInp.addEventListener('blur', () => {
+      setTimeout(() => { window.scrollTo(0, scrollY); }, 50);
+    });
+  }
+
+  // visualViewport API - shrink arena when keyboard appears
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize', () => {
+      const vh = window.visualViewport.height;
+      const full = window.innerHeight;
+      const keyboardH = full - vh;
+      // If keyboard is up (>100px), nudge scroll to keep input visible
+      if(keyboardH > 100){
+        setTimeout(() => {
+          const focused = document.activeElement;
+          if(focused && (focused.id==='rl-inp'||focused.id==='cj-inp')){
+            focused.scrollIntoView({block:'nearest',behavior:'smooth'});
+          }
+        }, 50);
+      }
+    });
+  }
+})();
+
+loadDB().then(checkKeysOnStart);}
 function saveFreq(){const v=parseInt(document.getElementById('inp-freq').value);if(v<10||v>1000){sm('st-freq','Число от 10 до 1000','err');return;}localStorage.setItem('gl_freq',v);sm('st-freq','Сохранено','ok');}
 
 // ── SRS KEYS ──
@@ -522,6 +632,17 @@ async function ghPut(data){
 }
 
 function showSbar(msg){const el=document.getElementById('sbar');if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';}
+
+function checkKeysOnStart(){
+  const hasGHT = !!getGHT();
+  const hasKey = !!getKey();
+  if(!hasGHT||!hasKey){
+    const missing=[];
+    if(!hasGHT)missing.push('GitHub токен');
+    if(!hasKey)missing.push('API-ключ Anthropic');
+    showSbar('⚠️ Не заданы: '+missing.join(', ')+' — зайди в Настройки');
+  }
+}
 
 async function loadDB(){
   showSbar('⟳ Загружаю базу...');
@@ -771,6 +892,7 @@ function rgCard(){
   document.getElementById('rg-card').className='scard';
   document.getElementById('rg-card').style.transform='';
   document.getElementById('rg-hint').textContent=rgMode==='audio'?'нажми, чтобы услышать':'нажми, чтобы открыть перевод';
+  showProg5Recog(w);
   const tot=rgQ.length;
   document.getElementById('rg-prog').style.width=Math.round(rgI/tot*100)+'%';
   document.getElementById('rg-cnt').textContent=rgI+' / '+tot;
@@ -824,16 +946,19 @@ function rlCard(){
   document.getElementById('rl-mb').className='mb';
   document.getElementById('rl-mh').textContent='';
   stopMic();
+  showProg5Recall(rlQ[rlI]);
   const tot=rlQ.length;
   document.getElementById('rl-prog').style.width=Math.round(rlI/tot*100)+'%';
   document.getElementById('rl-cnt').textContent=rlI+' / '+tot;
 }
 
 function rlCheck(){
-  const val=document.getElementById('rl-inp').value.trim();if(!val)return;
-  const w=rlQ[rlI];const ok=norm(val)===norm(w.es);
-  const box=document.getElementById('rl-mb');box.style.display='block';
+  const val=document.getElementById('rl-inp').value.trim();
+  const w=rlQ[rlI];
   document.getElementById('rl-reveal').style.opacity='1';
+  if(!val){return;} // empty — just revealed, user decides via swipe
+  const ok=norm(val)===norm(w.es);
+  const box=document.getElementById('rl-mb');box.style.display='block';
   if(ok){box.className='mb ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>rlResult('known'),800);}
   else{box.className='mb err';box.textContent='✗ '+val;document.getElementById('rl-mh').textContent='Неверно. Свайпни или попробуй ещё раз';}
 }
@@ -1021,6 +1146,7 @@ async function cjNextConj(){
   }
   document.getElementById('cj-prog').style.width=Math.round(cjI/10*100)+'%';
   document.getElementById('cj-cnt').textContent=cjI+' / 10';
+  showProg5Conj(cjConjWord,cjConjPro,cjConjTense);
   document.getElementById('cj-load').style.display='none';
   document.getElementById('cj-ui').style.display='block';
 }
@@ -1051,7 +1177,9 @@ function showCjCard(es,ru){
   document.getElementById('cj-ans').textContent=isEs2ru?ru:es;
   document.getElementById('cj-ans').style.opacity='0';
   document.getElementById('cj-thint').textContent='нажми, чтобы открыть перевод';
-  document.getElementById('cj-dlbl').textContent=isEs2ru?'Переведи на русский':'Переведи на испанский';
+  const failRec=failedPhrases.find(p=>p.es===es&&p.dir===cjDir&&p.lvl===cjLvl);
+  const failStr=failRec&&failRec.fails>0?' · ✗ '+failRec.fails+(failRec.fails===1?' раз':' раза'):'';
+  document.getElementById('cj-dlbl').textContent=(isEs2ru?'Переведи на русский':'Переведи на испанский')+failStr;
   document.getElementById('cj-card').className='scard';
   document.getElementById('cj-card').style.transform='';
   document.getElementById('cj-card').dataset.es=es;
@@ -1070,6 +1198,7 @@ function showCjCard(es,ru){
   }
   document.getElementById('cj-prog').style.width=Math.round(cjI/10*100)+'%';
   document.getElementById('cj-cnt').textContent=cjI+' / 10';
+  showProg5Conj(null,null,null);
   document.getElementById('cj-load').style.display='none';
   document.getElementById('cj-ui').style.display='block';
 }
@@ -1114,10 +1243,10 @@ async function cjResult(result){
       // Remove from failed phrases
       failedPhrases=failedPhrases.filter(p=>!(p.es===es&&p.dir===cjDir&&p.lvl===cjLvl));
     }else{
-      // Save to failed phrases
-      if(!failedPhrases.find(p=>p.es===es&&p.dir===cjDir&&p.lvl===cjLvl)){
-        failedPhrases.push({es,ru,dir:cjDir,lvl:cjLvl,ts:Date.now()});
-      }
+      // Save to failed phrases with attempt counter
+      const existFail=failedPhrases.find(p=>p.es===es&&p.dir===cjDir&&p.lvl===cjLvl);
+      if(existFail){existFail.fails=(existFail.fails||1)+1;existFail.ts=Date.now();}
+      else failedPhrases.push({es,ru,dir:cjDir,lvl:cjLvl,ts:Date.now(),fails:1});
     }
   }
 
@@ -1239,7 +1368,98 @@ setupSwipe('cj-area','cj-card',()=>cjResult('forgot'),()=>cjResult('known'));
 document.getElementById('rg-card').addEventListener('click',()=>{if(!rgRev)rgReveal();});
 document.getElementById('cj-card').addEventListener('click',()=>{if(!cjRev)cjReveal();});
 
-loadDB();
+
+// ── PROGRESS BARS ──
+function renderProg5(containerId, labelId, lvl, mode){
+  const el=document.getElementById(containerId);
+  const lb=document.getElementById(labelId);
+  if(!el)return;
+  const labels=['текст','аудио','припом.','спряж.'];
+  const modeLabels={text:'текст',audio:'аудио',recall:'припом.'};
+  const pips=Array.from({length:5},(_,i)=>{
+    const cls=i<lvl?'done':(i===lvl&&lvl<5?'cur':'');
+    return`<div class="prog5-pip ${cls}"></div>`;
+  }).join('');
+  el.innerHTML=pips;
+  const steps=['','12ч','24ч','5дн','30дн','✓'];
+  if(lb)lb.textContent=lvl>=5?'Освоено':('Следующий интервал: '+steps[lvl+1]||'');
+}
+
+function showProg5Recog(w){
+  const k=srsKeys(rgMode);
+  const lvl=w[k.lvl]||0;
+  renderProg5('rg-prog5','rg-prog5-label',lvl,rgMode);
+}
+
+function showProg5Recall(w){
+  const k=srsKeys('recall');
+  const lvl=w[k.lvl]||0;
+  renderProg5('rl-prog5','rl-prog5-label',lvl,'recall');
+}
+
+function showProg5Conj(w,pro,tense){
+  const block=document.getElementById('cj-prog5-block');
+  if(!block)return;
+  if(!w||!pro){block.style.display='none';return;}
+  block.style.display='block';
+  const s=w.conjSRS&&w.conjSRS[tense]&&w.conjSRS[tense][pro];
+  const lvl=s?s.lvl:0;
+  renderProg5('cj-prog5','cj-prog5-label',lvl,'conj');
+}
+
+
+// ── KEYBOARD SCROLL FIX ──
+(function(){
+  const inp = document.getElementById('rl-inp');
+  if(!inp) return;
+  let scrollY = 0;
+  inp.addEventListener('focus', () => {
+    scrollY = window.scrollY;
+    // Small delay to let keyboard appear, then restore scroll
+    setTimeout(() => {
+      const arena = document.querySelector('#recall-session .arena');
+      if(arena) arena.scrollIntoView({block:'start',behavior:'instant'});
+    }, 100);
+  });
+  inp.addEventListener('blur', () => {
+    setTimeout(() => { window.scrollTo(0, scrollY); }, 50);
+  });
+
+  // Also handle cj-inp
+  const cjInp = document.getElementById('cj-inp');
+  if(cjInp){
+    cjInp.addEventListener('focus', () => {
+      scrollY = window.scrollY;
+      setTimeout(() => {
+        const arena = document.querySelector('#conj-session .arena');
+        if(arena) arena.scrollIntoView({block:'start',behavior:'instant'});
+      }, 100);
+    });
+    cjInp.addEventListener('blur', () => {
+      setTimeout(() => { window.scrollTo(0, scrollY); }, 50);
+    });
+  }
+
+  // visualViewport API - shrink arena when keyboard appears
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize', () => {
+      const vh = window.visualViewport.height;
+      const full = window.innerHeight;
+      const keyboardH = full - vh;
+      // If keyboard is up (>100px), nudge scroll to keep input visible
+      if(keyboardH > 100){
+        setTimeout(() => {
+          const focused = document.activeElement;
+          if(focused && (focused.id==='rl-inp'||focused.id==='cj-inp')){
+            focused.scrollIntoView({block:'nearest',behavior:'smooth'});
+          }
+        }, 50);
+      }
+    });
+  }
+})();
+
+loadDB().then(checkKeysOnStart);
 </script>
 </body>
 </html>
