@@ -329,8 +329,22 @@
       "es": "De donde sos",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781390340456,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781390340456,
+      "srsT": 0
     },
     {
       "ru": "страна",
