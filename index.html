@@ -7,157 +7,142 @@
 <meta name="apple-mobile-web-app-title" content="Gentlingo">
 <title>Gentlingo</title>
 <style>
-:root {
-  --bg:#ffffff;--bg2:#f5f5f5;--bg3:#eeeeee;--text:#111111;--text2:#555555;--text3:#999999;
-  --border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.25);
-  --success:#1a7f37;--success-bg:#dcfce7;--danger:#b91c1c;--danger-bg:#fee2e2;
-  --info:#1d4ed8;--info-bg:#dbeafe;--warning:#b45309;--radius:8px;--radius-lg:12px;
-}
-@media(prefers-color-scheme:dark){
-  :root{--bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;--text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;
-  --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.25);
-  --success:#34d058;--success-bg:#0d2818;--danger:#f87171;--danger-bg:#2d1010;
-  --info:#60a5fa;--info-bg:#0d1f3c;--warning:#fbbf24;}
-}
+:root{--bg:#fff;--bg2:#f5f5f5;--bg3:#eee;--text:#111;--text2:#555;--text3:#999;--border:rgba(0,0,0,.12);--border2:rgba(0,0,0,.25);--success:#1a7f37;--success-bg:#dcfce7;--danger:#b91c1c;--danger-bg:#fee2e2;--info:#1d4ed8;--info-bg:#dbeafe;--warning:#b45309;--r:8px;--rl:12px;}
+@media(prefers-color-scheme:dark){:root{--bg:#1c1c1e;--bg2:#2c2c2e;--bg3:#3a3a3c;--text:#f2f2f7;--text2:#aeaeb2;--text3:#636366;--border:rgba(255,255,255,.12);--border2:rgba(255,255,255,.25);--success:#34d058;--success-bg:#0d2818;--danger:#f87171;--danger-bg:#2d1010;--info:#60a5fa;--info-bg:#0d1f3c;--warning:#fbbf24;}}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;background:var(--bg3);}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);}
 .app{max-width:430px;margin:0 auto;background:var(--bg3);min-height:100%;display:flex;flex-direction:column;}
 .screen{display:none;flex:1;flex-direction:column;padding-bottom:60px;}
 .screen.active{display:flex;}
-.topbar{padding:14px 16px;background:var(--bg);border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.topbar h1{font-size:17px;font-weight:600;color:var(--text);flex:1;}
+.topbar{padding:14px 16px;background:var(--bg);border-bottom:.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topbar h1{font-size:17px;font-weight:600;flex:1;}
 .topbar-exit{background:none;border:none;cursor:pointer;color:var(--text2);font-size:13px;font-family:inherit;padding:4px 8px;}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;display:flex;border-top:0.5px solid var(--border);background:var(--bg);z-index:100;padding-bottom:env(safe-area-inset-bottom);}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;display:flex;border-top:.5px solid var(--border);background:var(--bg);z-index:100;padding-bottom:env(safe-area-inset-bottom);}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:10px;font-family:inherit;}
 .nav-btn.active{color:var(--info);}
 .nav-btn .ico{font-size:22px;display:block;font-style:normal;}
-.scroll-content{flex:1;overflow-y:auto;padding:16px;-webkit-overflow-scrolling:touch;}
-input[type=text],textarea,input[type=number]{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:11px 12px;font-size:16px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;-webkit-appearance:none;}
-input[type=text]:focus,textarea:focus,input[type=number]:focus{border-color:var(--border2);}
+.sc{flex:1;overflow-y:auto;padding:16px;-webkit-overflow-scrolling:touch;}
+input[type=text],textarea,input[type=number]{width:100%;border:.5px solid var(--border);border-radius:var(--r);padding:11px 12px;font-size:16px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;-webkit-appearance:none;}
+input:focus,textarea:focus{border-color:var(--border2);}
 textarea{resize:none;min-height:120px;line-height:1.5;}
-.btn-primary{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:var(--radius);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;}
-.btn-primary:disabled{opacity:0.4;cursor:default;}
-.btn-outline{width:100%;background:none;border:0.5px solid var(--border2);border-radius:var(--radius);padding:13px;font-size:15px;color:var(--text);cursor:pointer;font-family:inherit;}
-.card{background:var(--bg);border-radius:var(--radius-lg);padding:16px;margin-bottom:12px;}
-.sec-label{font-size:11px;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;}
+.btn{width:100%;background:var(--text);color:var(--bg);border:none;border-radius:var(--r);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;}
+.btn:disabled{opacity:.4;cursor:default;}
+.btn2{width:100%;background:none;border:.5px solid var(--border2);border-radius:var(--r);padding:13px;font-size:15px;color:var(--text);cursor:pointer;font-family:inherit;}
+.card{background:var(--bg);border-radius:var(--rl);padding:16px;margin-bottom:12px;}
+.slbl{font-size:11px;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;}
 .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle;}
 .tag-verb{background:var(--info-bg);color:var(--info);}
 .tag-noun{background:var(--success-bg);color:var(--success);}
 .tag-adj{background:#fef3c7;color:#92400e;}
 .tag-other{background:var(--bg2);color:var(--text2);}
-.api-note{background:var(--bg2);border-radius:var(--radius);padding:12px;font-size:13px;color:var(--text2);line-height:1.55;}
-.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:6px;}
+.note{background:var(--bg2);border-radius:var(--r);padding:12px;font-size:13px;color:var(--text2);line-height:1.55;}
+.sp{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.status-msg{font-size:13px;color:var(--text2);text-align:center;padding:8px 0;min-height:22px;}
-.status-msg.ok{color:var(--success);}
-.status-msg.err{color:var(--danger);}
-.tab-row{display:flex;gap:2px;background:var(--bg2);border-radius:var(--radius);padding:3px;margin-bottom:16px;}
+.sm{font-size:13px;color:var(--text2);text-align:center;padding:8px 0;min-height:22px;}
+.sm.ok{color:var(--success);}.sm.err{color:var(--danger);}
+.tabs{display:flex;gap:2px;background:var(--bg2);border-radius:var(--r);padding:3px;margin-bottom:16px;}
 .tab{flex:1;padding:8px;font-size:14px;border:none;border-radius:6px;background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
 .tab.active{background:var(--bg);color:var(--text);font-weight:600;}
-.sort-row{display:flex;gap:6px;margin-bottom:12px;}
-.sort-btn{flex:1;padding:8px 4px;font-size:12px;border:0.5px solid var(--border);border-radius:var(--radius);background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
-.sort-btn.active{background:var(--bg2);color:var(--text);border-color:var(--border2);}
-.word-row{display:flex;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--border);}
-.word-row:last-child{border-bottom:none;}
-.empty-state{text-align:center;padding:60px 16px;color:var(--text2);}
-.empty-state .ico{font-size:48px;display:block;margin-bottom:12px;font-style:normal;}
-.card-arena{padding:16px;flex:1;}
-.card-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.card-progress-track{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden;}
-.card-progress-done{height:100%;background:var(--border2);border-radius:2px;transition:width 0.3s;}
-.card-counter{font-size:13px;color:var(--text3);white-space:nowrap;}
-.swipe-area{position:relative;height:210px;margin-bottom:16px;touch-action:pan-y;user-select:none;}
-.flash-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;border-radius:var(--radius);padding:7px 16px;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:10;white-space:nowrap;font-weight:600;}
-.flash-known{background:var(--success-bg);color:var(--success);}
-.flash-forgot{background:var(--danger-bg);color:var(--danger);}
-.swipe-card{position:absolute;inset:0;background:var(--bg);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;will-change:transform;padding:24px;border:0.5px solid var(--border);transition:border-color 0.15s;}
-.swipe-card.tilt-r{border-color:var(--success);}
-.swipe-card.tilt-l{border-color:var(--danger);}
-.card-word{font-size:28px;font-weight:700;color:var(--text);text-align:center;line-height:1.3;}
-.card-badge{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
-.card-hint{font-size:12px;color:var(--text3);}
-.card-reveal{font-size:17px;color:var(--text2);text-align:center;transition:opacity 0.2s;min-height:26px;}
-.action-row{display:flex;gap:10px;margin-bottom:14px;}
-.act-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:0.5px solid var(--border);border-radius:var(--radius-lg);background:none;cursor:pointer;font-size:12px;font-family:inherit;color:var(--text2);}
-.act-btn .ico{font-size:22px;font-style:normal;}
-.act-forgot{border-color:var(--danger);color:var(--danger);}
-.act-knew{border-color:var(--success);color:var(--success);}
-.act-mic{border-color:var(--info);color:var(--info);}
-.act-mic.recording{background:var(--danger-bg);border-color:var(--danger);color:var(--danger);animation:pulse 1s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.mic-box{border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin-bottom:10px;font-size:15px;background:var(--bg2);min-height:40px;display:none;}
-.mic-box.ok{border-color:var(--success);background:var(--success-bg);color:var(--success);}
-.mic-box.err{border-color:var(--danger);background:var(--danger-bg);color:var(--danger);}
-.mic-hint{font-size:12px;color:var(--text3);text-align:center;margin-bottom:8px;min-height:18px;}
-.check-row{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
-.check-row input{flex:1;}
-.check-btn{background:none;border:0.5px solid var(--border2);border-radius:var(--radius);padding:11px 12px;cursor:pointer;color:var(--text);font-size:14px;font-family:inherit;white-space:nowrap;}
-.mode-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
-.mode-card{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 10px;text-align:center;cursor:pointer;background:none;font-family:inherit;}
-.mode-card .ico{font-size:24px;font-style:normal;display:block;margin-bottom:6px;}
-.mode-card .mt{font-size:13px;font-weight:600;color:var(--text);}
-.mode-card .md{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
-.mode-card.active{border-color:var(--info);background:var(--info-bg);}
-.mode-card.active .mt{color:var(--info);}
-.done-screen{text-align:center;padding:32px 0 20px;}
-.done-screen .ico{font-size:52px;font-style:normal;display:block;margin-bottom:12px;}
-.done-screen h2{font-size:20px;font-weight:700;margin-bottom:6px;}
-.done-screen p{font-size:14px;color:var(--text2);}
-.conj-badge{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
-.gen-loading{text-align:center;padding:30px 0;color:var(--text2);font-size:14px;}
-.sync-bar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;flex-shrink:0;}
-
+.srt{display:flex;gap:6px;margin-bottom:12px;}
+.srtb{flex:1;padding:8px 4px;font-size:12px;border:.5px solid var(--border);border-radius:var(--r);background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
+.srtb.active{background:var(--bg2);color:var(--text);border-color:var(--border2);}
+.wrow{display:flex;align-items:center;padding:12px 0;border-bottom:.5px solid var(--border);}
+.wrow:last-child{border-bottom:none;}
+.empty{text-align:center;padding:60px 16px;color:var(--text2);}
+.empty .ico{font-size:48px;display:block;margin-bottom:12px;font-style:normal;}
+/* CARDS */
+.arena{padding:16px;flex:1;}
+.prow{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.ptrack{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden;}
+.pdone{height:100%;background:var(--border2);border-radius:2px;transition:width .3s;}
+.pcnt{font-size:13px;color:var(--text3);white-space:nowrap;}
+.sarea{position:relative;height:210px;margin-bottom:16px;touch-action:pan-y;user-select:none;}
+.fh{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;border-radius:var(--r);padding:7px 16px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;white-space:nowrap;font-weight:600;}
+.fk{background:var(--success-bg);color:var(--success);}
+.ff{background:var(--danger-bg);color:var(--danger);}
+.sc-card{position:absolute;inset:0;background:var(--bg);border-radius:var(--rl);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;will-change:transform;padding:24px;border:.5px solid var(--border);transition:border-color .15s;}
+.sc-card.tr{border-color:var(--success);}.sc-card.tl{border-color:var(--danger);}
+.cw{font-size:28px;font-weight:700;text-align:center;line-height:1.3;}
+.cb{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
+.ch{font-size:12px;color:var(--text3);}
+.cr{font-size:17px;color:var(--text2);text-align:center;transition:opacity .2s;min-height:26px;}
+.arow{display:flex;gap:10px;margin-bottom:14px;}
+.ab{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:.5px solid var(--border);border-radius:var(--rl);background:none;cursor:pointer;font-size:12px;font-family:inherit;color:var(--text2);}
+.ab .ico{font-size:22px;font-style:normal;}
+.ab-f{border-color:var(--danger);color:var(--danger);}
+.ab-k{border-color:var(--success);color:var(--success);}
+.ab-m{border-color:var(--info);color:var(--info);}
+.ab-m.rec{background:var(--danger-bg);border-color:var(--danger);color:var(--danger);animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.mb{border:.5px solid var(--border);border-radius:var(--r);padding:10px 12px;margin-bottom:10px;font-size:15px;background:var(--bg2);min-height:40px;display:none;}
+.mb.ok{border-color:var(--success);background:var(--success-bg);color:var(--success);}
+.mb.err{border-color:var(--danger);background:var(--danger-bg);color:var(--danger);}
+.mh{font-size:12px;color:var(--text3);text-align:center;margin-bottom:8px;min-height:18px;}
+.cr2{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
+.cr2 input{flex:1;}
+.cb2{background:none;border:.5px solid var(--border2);border-radius:var(--r);padding:11px 12px;cursor:pointer;color:var(--text);font-size:14px;font-family:inherit;white-space:nowrap;}
+.mpick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.mc{border:.5px solid var(--border);border-radius:var(--rl);padding:14px 10px;text-align:center;cursor:pointer;background:none;font-family:inherit;}
+.mc .ico{font-size:24px;font-style:normal;display:block;margin-bottom:6px;}
+.mc .mt{font-size:13px;font-weight:600;color:var(--text);}
+.mc .md{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
+.mc.active{border-color:var(--info);background:var(--info-bg);}
+.mc.active .mt{color:var(--info);}
+.done{text-align:center;padding:32px 0 20px;}
+.done .ico{font-size:52px;font-style:normal;display:block;margin-bottom:12px;}
+.done h2{font-size:20px;font-weight:700;margin-bottom:6px;}
+.done p{font-size:14px;color:var(--text2);}
+.gload{text-align:center;padding:30px 0;color:var(--text2);font-size:14px;}
+.sbar{background:var(--info-bg);color:var(--info);font-size:13px;padding:8px 16px;text-align:center;display:none;flex-shrink:0;}
 /* STAT TREE */
-.stat-tree{background:var(--bg);border-radius:var(--radius-lg);padding:16px;margin-bottom:14px;}
-.stat-row{display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;}
-.stat-row-child{padding-left:16px;}
-.stat-row-grandchild{padding-left:32px;}
-.stat-label{font-size:14px;color:var(--text2);}
-.stat-label.ready{color:var(--info);font-weight:600;}
-.stat-value{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;margin-left:8px;}
-.stat-value.ok{color:var(--success);}
-.stat-value.warn{color:var(--warning);}
-.stat-value.bad{color:var(--danger);}
-.stat-divider{height:0.5px;background:var(--border);margin:6px 0;}
+.stree{background:var(--bg);border-radius:var(--rl);padding:16px;margin-bottom:14px;}
+.srow{display:flex;align-items:baseline;justify-content:space-between;padding:4px 0;}
+.sc1{padding-left:14px;}.sc2{padding-left:28px;}
+.slb{font-size:13px;color:var(--text2);}
+.slb.rdy{color:var(--info);font-weight:600;}
+.sv{font-size:13px;font-weight:600;white-space:nowrap;margin-left:8px;}
+.sv.ok{color:var(--success);}.sv.w{color:var(--warning);}.sv.bad{color:var(--danger);}
+.sdiv{height:.5px;background:var(--border);margin:5px 0;}
+/* MODE BADGE in session */
+.mode-badge{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--info-bg);color:var(--info);margin-bottom:4px;}
 </style>
 </head>
 <body>
 <div class="app">
-<div class="sync-bar" id="sync-bar"></div>
+<div class="sbar" id="sbar"></div>
 
 <!-- ДОБАВЛЕНИЕ -->
 <div class="screen active" id="s-add">
   <div class="topbar">
-    <i class="ico">🌐</i>
     <h1>Gentlingo</h1>
-    <span id="word-count" style="font-size:13px;color:var(--text2)">…</span>
-    <span style="font-size:11px;color:var(--text3);margin-left:4px">v4</span>
+    <span id="wcnt" style="font-size:13px;color:var(--text2)">…</span>
+    <span style="font-size:11px;color:var(--text3);margin-left:4px">v5</span>
   </div>
-  <div class="scroll-content">
-    <div id="db-loading" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="spinner"></span>Загрузка...</div>
-    <div id="add-ui" style="display:none">
-      <div class="tab-row">
+  <div class="sc">
+    <div id="dbl" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="sp"></span>Загрузка...</div>
+    <div id="addui" style="display:none">
+      <div class="tabs">
         <button class="tab active" onclick="switchTab('single')">По одному</button>
         <button class="tab" onclick="switchTab('bulk')">Списком</button>
       </div>
       <div id="t-single">
         <div class="card">
-          <p class="sec-label">Новое слово</p>
-          <input type="text" id="inp-single" placeholder="Слово на русском или испанском" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+          <p class="slbl">Новое слово</p>
+          <input type="text" id="inp-s" placeholder="Слово на русском или испанском" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
           <div style="height:10px"></div>
-          <p class="api-note">ℹ️ ИИ определит язык, часть речи и добавит перевод</p>
+          <p class="note">ℹ️ ИИ определит язык, часть речи и добавит перевод</p>
         </div>
-        <button class="btn-primary" id="btn-add-single" onclick="addSingle()">Добавить</button>
-        <p class="status-msg" id="st-single"></p>
+        <button class="btn" id="btn-s" onclick="addSingle()">Добавить</button>
+        <p class="sm" id="st-s"></p>
       </div>
       <div id="t-bulk" style="display:none">
         <div class="card">
-          <p class="sec-label">Список — по одному слову на строке</p>
-          <textarea id="inp-bulk" placeholder="мяч&#10;pelota&#10;играть&#10;jugar"></textarea>
+          <p class="slbl">Список — по одному слову на строке</p>
+          <textarea id="inp-b" placeholder="мяч&#10;pelota&#10;играть&#10;jugar"></textarea>
         </div>
-        <button class="btn-primary" id="btn-add-bulk" onclick="addBulk()">Обработать список</button>
-        <p class="status-msg" id="st-bulk"></p>
+        <button class="btn" id="btn-b" onclick="addBulk()">Обработать список</button>
+        <p class="sm" id="st-b"></p>
       </div>
     </div>
   </div>
@@ -166,191 +151,191 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 <!-- УЗНАВАНИЕ -->
 <div class="screen" id="s-recog">
   <div class="topbar"><h1>Узнавание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
-  <div id="recog-setup" class="scroll-content">
-    <p class="sec-label" style="margin-bottom:12px">Режим карточки</p>
-    <div class="mode-pick">
-      <button class="mode-card active" id="rm-text" onclick="setRecogMode('text')"><i class="ico">👁</i><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
-      <button class="mode-card" id="rm-audio" onclick="setRecogMode('audio')"><i class="ico">👂</i><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
+  <div id="recog-setup" class="sc">
+    <p class="slbl" style="margin-bottom:12px">Режим карточки</p>
+    <div class="mpick">
+      <button class="mc active" id="rm-text" onclick="setRgMode('text')"><i class="ico">👁</i><div class="mt">Текст</div><div class="md">Вижу испанское слово</div></button>
+      <button class="mc" id="rm-audio" onclick="setRgMode('audio')"><i class="ico">👂</i><div class="mt">Аудио</div><div class="md">Слышу слово по звуку</div></button>
     </div>
-    <div id="recog-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ В базе нет слов готовых к повторению.</div>
-    <button class="btn-primary" onclick="startRecog()">Начать</button>
+    <div id="rg-warn" class="note" style="display:none;margin-bottom:12px">⚠️ Нет слов готовых к повторению в этом режиме.</div>
+    <button class="btn" onclick="startRecog()">Начать</button>
     <div style="height:16px"></div>
-    <div class="stat-tree" id="recog-stat-tree"></div>
+    <div class="stree" id="rg-stat-setup"></div>
   </div>
   <div id="recog-session" style="display:none;flex:1;flex-direction:column">
-    <div class="card-arena">
-      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="rg-prog"></div></div><span class="card-counter" id="rg-cnt">0/0</span></div>
-      <div class="swipe-area" id="rg-area">
-        <div class="flash-hint flash-known" id="rg-fk">Знаю ✓</div>
-        <div class="flash-hint flash-forgot" id="rg-ff">Не помню</div>
-        <div class="swipe-card" id="rg-card">
-          <span class="card-word" id="rg-word">—</span>
-          <span class="card-badge" id="rg-pos">—</span>
-          <span class="card-hint" id="rg-hint">нажми, чтобы открыть перевод</span>
-          <span class="card-reveal" id="rg-reveal" style="opacity:0">—</span>
+    <div class="arena">
+      <div class="prow"><div class="ptrack"><div class="pdone" id="rg-prog"></div></div><span class="pcnt" id="rg-cnt">0/0</span></div>
+      <div class="sarea" id="rg-area">
+        <div class="fh fk" id="rg-fk">Знаю ✓</div>
+        <div class="fh ff" id="rg-ff">Не помню</div>
+        <div class="sc-card" id="rg-card">
+          <span class="mode-badge" id="rg-mbadge">текст</span>
+          <span class="cw" id="rg-word">—</span>
+          <span class="cb" id="rg-pos">—</span>
+          <span class="ch" id="rg-hint">нажми, чтобы открыть перевод</span>
+          <span class="cr" id="rg-reveal" style="opacity:0">—</span>
         </div>
       </div>
-      <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rgResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
-        <button class="act-btn" onclick="rgSpeak()"><i class="ico">🔊</i><span>Слушать</span></button>
-        <button class="act-btn act-knew" onclick="rgResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
+      <div class="arow">
+        <button class="ab ab-f" onclick="rgResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+        <button class="ab" onclick="rgSpeak()"><i class="ico">🔊</i><span>Слушать</span></button>
+        <button class="ab ab-k" onclick="rgResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
       </div>
-      <div class="stat-tree" id="rg-session-stat" style="font-size:13px"></div>
+      <div class="stree" id="rg-stat-sess" style="font-size:13px"></div>
     </div>
   </div>
-  <div id="recog-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ico">⭐</i><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
+  <div id="recog-done" style="display:none" class="sc">
+    <div class="done"><i class="ico">⭐</i><h2>Сессия завершена</h2><p id="rg-sum">—</p></div>
     <div style="height:12px"></div>
-    <div class="stat-tree" id="rg-done-stat"></div>
+    <div class="stree" id="rg-stat-done"></div>
     <div style="height:12px"></div>
-    <button class="btn-primary" onclick="startRecog()" style="margin-bottom:10px">Ещё раз</button>
-    <button class="btn-outline" onclick="showSub('recog','setup')">Настройки</button>
+    <button class="btn" onclick="startRecog()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn2" onclick="showSub('recog','setup')">Настройки</button>
   </div>
 </div>
 
 <!-- ПРИПОМИНАНИЕ -->
 <div class="screen" id="s-recall">
   <div class="topbar"><h1>Припоминание</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
-  <div id="recall-setup" class="scroll-content">
+  <div id="recall-setup" class="sc">
     <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Видишь русское слово — называешь или пишешь испанский перевод</p>
-    <div id="recall-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ В базе нет слов готовых к повторению.</div>
-    <button class="btn-primary" onclick="startRecall()">Начать</button>
+    <div id="rl-warn" class="note" style="display:none;margin-bottom:12px">⚠️ Нет слов готовых к повторению.</div>
+    <button class="btn" onclick="startRecall()">Начать</button>
     <div style="height:16px"></div>
-    <div class="stat-tree" id="recall-stat-tree"></div>
+    <div class="stree" id="rl-stat-setup"></div>
   </div>
   <div id="recall-session" style="display:none;flex:1;flex-direction:column">
-    <div class="card-arena">
-      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="rl-prog"></div></div><span class="card-counter" id="rl-cnt">0/0</span></div>
-      <div class="swipe-area" id="rl-area">
-        <div class="flash-hint flash-known" id="rl-fk">Знаю ✓</div>
-        <div class="flash-hint flash-forgot" id="rl-ff">Не помню</div>
-        <div class="swipe-card" id="rl-card">
-          <span class="card-word" id="rl-word">—</span>
-          <span class="card-hint">назови или напиши перевод</span>
-          <span class="card-reveal" id="rl-reveal" style="opacity:0">—</span>
+    <div class="arena">
+      <div class="prow"><div class="ptrack"><div class="pdone" id="rl-prog"></div></div><span class="pcnt" id="rl-cnt">0/0</span></div>
+      <div class="sarea" id="rl-area">
+        <div class="fh fk" id="rl-fk">Знаю ✓</div>
+        <div class="fh ff" id="rl-ff">Не помню</div>
+        <div class="sc-card" id="rl-card">
+          <span class="cw" id="rl-word">—</span>
+          <span class="ch">назови или напиши перевод</span>
+          <span class="cr" id="rl-reveal" style="opacity:0">—</span>
         </div>
       </div>
-      <div class="mic-box" id="rl-mic-box"></div>
-      <p class="mic-hint" id="rl-mic-hint"></p>
-      <div class="check-row">
+      <div class="mb" id="rl-mb"></div>
+      <p class="mh" id="rl-mh"></p>
+      <div class="cr2">
         <input type="text" id="rl-inp" placeholder="Напиши перевод..." autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')rlCheck()"/>
-        <button class="check-btn" onclick="rlCheck()">Проверить</button>
+        <button class="cb2" onclick="rlCheck()">Проверить</button>
       </div>
-      <div class="action-row">
-        <button class="act-btn act-forgot" onclick="rlResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
-        <button class="act-btn act-mic" id="rl-mic-btn" onclick="toggleMic('recall')"><i class="ico">🎤</i><span>Говорить</span></button>
-        <button class="act-btn act-knew" onclick="rlResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
+      <div class="arow">
+        <button class="ab ab-f" onclick="rlResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+        <button class="ab ab-m" id="rl-mic" onclick="toggleMic('recall')"><i class="ico">🎤</i><span>Говорить</span></button>
+        <button class="ab ab-k" onclick="rlResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
       </div>
-      <div class="stat-tree" id="rl-session-stat" style="font-size:13px"></div>
+      <div class="stree" id="rl-stat-sess" style="font-size:13px"></div>
     </div>
   </div>
-  <div id="recall-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ico">🏆</i><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
+  <div id="recall-done" style="display:none" class="sc">
+    <div class="done"><i class="ico">🏆</i><h2>Сессия завершена</h2><p id="rl-sum">—</p></div>
     <div style="height:12px"></div>
-    <div class="stat-tree" id="rl-done-stat"></div>
+    <div class="stree" id="rl-stat-done"></div>
     <div style="height:12px"></div>
-    <button class="btn-primary" onclick="startRecall()" style="margin-bottom:10px">Ещё раз</button>
-    <button class="btn-outline" onclick="showSub('recall','setup')">К настройкам</button>
+    <button class="btn" onclick="startRecall()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn2" onclick="showSub('recall','setup')">К настройкам</button>
   </div>
 </div>
 
 <!-- ФРАЗЫ -->
 <div class="screen" id="s-conj">
   <div class="topbar"><h1>Фразы</h1><button class="topbar-exit" onclick="nav('add')">Выйти</button></div>
-  <div id="conj-setup" class="scroll-content">
-    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Фразы строятся из слов, которые ты полностью освоил в режиме узнавания (прошли все 4 интервала повторения).</p>
-    <p class="sec-label" style="margin-bottom:10px">Направление</p>
-    <div class="mode-pick">
-      <button class="mode-card active" id="cj-d-es2ru" onclick="setConjDir('es2ru')"><i class="ico">→</i><div class="mt">Исп → Рус</div><div class="md">Читаю фразу по-испански</div></button>
-      <button class="mode-card" id="cj-d-ru2es" onclick="setConjDir('ru2es')"><i class="ico">←</i><div class="mt">Рус → Исп</div><div class="md">Перевожу с русского</div></button>
+  <div id="conj-setup" class="sc">
+    <p style="font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.6">Исп→Рус: слова, освоенные в Узнавании (текст и аудио).<br>Рус→Исп: слова, освоенные в Припоминании.</p>
+    <div class="mpick">
+      <button class="mc active" id="cj-es2ru" onclick="setCjDir('es2ru')"><i class="ico">→</i><div class="mt">Исп → Рус</div><div class="md">Читаю фразу</div></button>
+      <button class="mc" id="cj-ru2es" onclick="setCjDir('ru2es')"><i class="ico">←</i><div class="mt">Рус → Исп</div><div class="md">Перевожу</div></button>
     </div>
-    <div id="conj-warn" class="api-note" style="display:none;margin-bottom:12px">⚠️ Нужно хотя бы 2 освоенных слова (прошедших все 4 интервала).</div>
-    <button class="btn-primary" onclick="startConj()">Начать</button>
+    <div id="cj-warn" class="note" style="display:none;margin-bottom:12px">⚠️ Нужно хотя бы 2 освоенных слова.</div>
+    <button class="btn" onclick="startConj()">Начать</button>
   </div>
   <div id="conj-session" style="display:none;flex:1;flex-direction:column">
-    <div class="card-arena">
-      <div class="card-progress-row"><div class="card-progress-track"><div class="card-progress-done" id="cj-prog"></div></div><span class="card-counter" id="cj-cnt">0/10</span></div>
-      <div class="gen-loading" id="cj-loading" style="display:none"><span class="spinner"></span>ИИ составляет фразу...</div>
-      <div id="cj-card-ui">
-        <div class="swipe-area" id="cj-area">
-          <div class="flash-hint flash-known" id="cj-fk">Знаю ✓</div>
-          <div class="flash-hint flash-forgot" id="cj-ff">Не помню</div>
-          <div class="swipe-card" id="cj-card">
-            <span class="conj-badge" id="cj-dir-lbl">—</span>
-            <span class="card-word" id="cj-phrase" style="font-size:22px">—</span>
-            <span class="card-hint" id="cj-tap-hint">нажми, чтобы открыть перевод</span>
-            <span class="card-reveal" id="cj-answer" style="opacity:0">—</span>
+    <div class="arena">
+      <div class="prow"><div class="ptrack"><div class="pdone" id="cj-prog"></div></div><span class="pcnt" id="cj-cnt">0/10</span></div>
+      <div class="gload" id="cj-load" style="display:none"><span class="sp"></span>ИИ составляет фразу...</div>
+      <div id="cj-ui">
+        <div class="sarea" id="cj-area">
+          <div class="fh fk" id="cj-fk">Знаю ✓</div>
+          <div class="fh ff" id="cj-ff">Не помню</div>
+          <div class="sc-card" id="cj-card">
+            <span class="cb" id="cj-dlbl">—</span>
+            <span class="cw" id="cj-phrase" style="font-size:22px">—</span>
+            <span class="ch" id="cj-thint">нажми, чтобы открыть перевод</span>
+            <span class="cr" id="cj-ans" style="opacity:0">—</span>
           </div>
         </div>
-        <div class="mic-box" id="cj-mic-box"></div>
-        <p class="mic-hint" id="cj-mic-hint"></p>
-        <div class="check-row" id="cj-input-row" style="display:none">
+        <div class="mb" id="cj-mb"></div>
+        <p class="mh" id="cj-mh"></p>
+        <div class="cr2" id="cj-inrow" style="display:none">
           <input type="text" id="cj-inp" placeholder="Напиши перевод фразы..." autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')cjCheck()"/>
-          <button class="check-btn" onclick="cjCheck()">Проверить</button>
+          <button class="cb2" onclick="cjCheck()">Проверить</button>
         </div>
-        <div class="action-row">
-          <button class="act-btn act-forgot" onclick="cjResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
-          <button class="act-btn act-mic" id="cj-mid-btn" onclick="cjMidAction()"><i class="ico" id="cj-mid-icon">🔊</i><span id="cj-mid-lbl">Слушать</span></button>
-          <button class="act-btn act-knew" onclick="cjResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
+        <div class="arow">
+          <button class="ab ab-f" onclick="cjResult('forgot')"><i class="ico">✕</i><span>Не помню</span></button>
+          <button class="ab ab-m" id="cj-mid" onclick="cjMid()"><i class="ico" id="cj-midico">🔊</i><span id="cj-midlbl">Слушать</span></button>
+          <button class="ab ab-k" onclick="cjResult('known')"><i class="ico">✓</i><span>Знаю</span></button>
         </div>
       </div>
     </div>
   </div>
-  <div id="conj-done" style="display:none" class="scroll-content">
-    <div class="done-screen"><i class="ico">🏅</i><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
+  <div id="conj-done" style="display:none" class="sc">
+    <div class="done"><i class="ico">🏅</i><h2>Сессия завершена</h2><p id="cj-sum">—</p></div>
     <div style="height:16px"></div>
-    <button class="btn-primary" onclick="startConj()" style="margin-bottom:10px">Ещё раз</button>
-    <button class="btn-outline" onclick="showSub('conj','setup')">К настройкам</button>
+    <button class="btn" onclick="startConj()" style="margin-bottom:10px">Ещё раз</button>
+    <button class="btn2" onclick="showSub('conj','setup')">К настройкам</button>
   </div>
 </div>
 
 <!-- СЛОВА -->
 <div class="screen" id="s-list">
   <div class="topbar"><h1>Мои слова</h1></div>
-  <div class="scroll-content">
-    <div class="sort-row">
-      <button class="sort-btn active" id="srt-alpha" onclick="sortBy('alpha')">А—Я</button>
-      <button class="sort-btn" id="srt-score" onclick="sortBy('score')">Рейтинг</button>
-      <button class="sort-btn" id="srt-added" onclick="sortBy('added')">Новые</button>
+  <div class="sc">
+    <div class="srt">
+      <button class="srtb active" id="srt-alpha" onclick="sortBy('alpha')">А—Я</button>
+      <button class="srtb" id="srt-score" onclick="sortBy('score')">Уровень</button>
+      <button class="srtb" id="srt-added" onclick="sortBy('added')">Новые</button>
     </div>
-    <div id="words-list"></div>
+    <div id="wlist"></div>
   </div>
 </div>
 
 <!-- НАСТРОЙКИ -->
 <div class="screen" id="s-settings">
   <div class="topbar"><h1>Настройки</h1></div>
-  <div class="scroll-content">
+  <div class="sc">
     <div class="card">
-      <p class="sec-label">GitHub токен</p>
-      <input type="text" id="inp-gh-token" placeholder="ghp_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-bottom:8px"/>
-      <button class="btn-primary" onclick="saveGH()">Сохранить токен</button>
-      <p class="status-msg" id="st-gh"></p>
+      <p class="slbl">GitHub токен</p>
+      <input type="text" id="inp-ght" placeholder="ghp_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-bottom:8px"/>
+      <button class="btn" onclick="saveGH()">Сохранить токен</button>
+      <p class="sm" id="st-gh"></p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
-      <p class="sec-label">API-ключ Anthropic</p>
+      <p class="slbl">API-ключ Anthropic</p>
       <input type="text" id="inp-key" placeholder="sk-ant-..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <div style="height:8px"></div>
-      <button class="btn-primary" onclick="saveKey()">Сохранить ключ</button>
-      <p class="status-msg" id="st-key"></p>
+      <button class="btn" onclick="saveKey()">Сохранить ключ</button>
+      <p class="sm" id="st-key"></p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
-      <p class="sec-label">Освоенные слова — частота повторения</p>
+      <p class="slbl">Освоенные слова — частота показа</p>
       <p style="font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.5">Одно освоенное слово на каждые N обычных показов</p>
       <div style="display:flex;align-items:center;gap:10px">
-        <input type="number" id="inp-mastered-freq" min="10" max="1000" value="50" style="width:100px"/>
+        <input type="number" id="inp-freq" min="10" max="1000" value="50" style="width:100px"/>
         <span style="font-size:14px;color:var(--text2)">показов</span>
       </div>
       <div style="height:8px"></div>
-      <button class="btn-primary" onclick="saveFreq()">Сохранить</button>
-      <p class="status-msg" id="st-freq"></p>
+      <button class="btn" onclick="saveFreq()">Сохранить</button>
+      <p class="sm" id="st-freq"></p>
     </div>
     <div style="height:12px"></div>
     <div class="card">
-      <p class="sec-label">О приложении</p>
-      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v4 — личное приложение для изучения испанского. База хранится на GitHub, синхронизируется между устройствами автоматически.</p>
+      <p class="slbl">О приложении</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v5 — личное приложение для изучения испанского. База хранится на GitHub.</p>
     </div>
   </div>
 </div>
@@ -366,206 +351,177 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 </div>
 
 <script>
-// ── CONFIG ──
-const GH_OWNER='kibergoth', GH_REPO='gentlingo', GH_FILE='db.json', GH_BRANCH='main';
+const GH_OWNER='kibergoth',GH_REPO='gentlingo',GH_FILE='db.json',GH_BRANCH='main';
+const SRS=[12*3600000,24*3600000,120*3600000,720*3600000];
 
-// Интервалы SRS в миллисекундах: 12ч, 24ч, 120ч, 720ч
-const SRS_INTERVALS = [12*3600000, 24*3600000, 120*3600000, 720*3600000];
+let words=[],failedPhrases=[],ghSha=null,saving=false,csort='alpha';
+let rgMode='text',rgQ=[],rgI=0,rgRev=false,rgSK=0,rgSF=0;
+let rlQ=[],rlI=0,rlSK=0,rlSF=0;
+let cjDir='es2ru',cjI=0,cjK=0,cjF=0,cjRev=false,cjPool=[],cjQueue=[];
+let recog=null,micOn=false,micCtx='recall',showCtr=0;
 
-// ── STATE ──
-let words=[], ghFileSha=null, saving=false, currentSort='alpha';
-let rgMode='text', rgQueue=[], rgIdx=0, rgRevealed=false, rgSessionKnown=0, rgSessionForgot=0;
-let rlQueue=[], rlIdx=0, rlSessionKnown=0, rlSessionForgot=0;
-let cjDir='es2ru', cjIdx=0, cjKnown=0, cjForgot=0, cjRevealed=false, cjMasteredWords=[];
-let recognition=null, micActive=false, micCtx='recall';
-let showCounter=0; // счётчик показов для освоенных слов
+function getKey(){return localStorage.getItem('gl_key')||'';}
+function getGHT(){return localStorage.getItem('gl_ght')||'';}
+function getFreq(){return parseInt(localStorage.getItem('gl_freq')||'50');}
+function saveKey(){const k=document.getElementById('inp-key').value.trim();if(!k){sm('st-key','Введи ключ','err');return;}localStorage.setItem('gl_key',k);sm('st-key','Сохранено','ok');}
+function saveGH(){const k=document.getElementById('inp-ght').value.trim();if(!k){sm('st-gh','Введи токен','err');return;}localStorage.setItem('gl_ght',k);sm('st-gh','Сохранено','ok');loadDB();}
+function saveFreq(){const v=parseInt(document.getElementById('inp-freq').value);if(v<10||v>1000){sm('st-freq','Число от 10 до 1000','err');return;}localStorage.setItem('gl_freq',v);sm('st-freq','Сохранено','ok');}
 
-// ── SETTINGS ──
-function getKey()      { return localStorage.getItem('gl_claude_key')||''; }
-function getGHToken()  { return localStorage.getItem('gl_gh_token')||''; }
-function getMasteredFreq() { return parseInt(localStorage.getItem('gl_mastered_freq')||'50'); }
+// SRS keys per mode:
+// text: srsT (level), srsTA (nextAt), srsTL5 (last5), srsTLR (lastResult)
+// audio: srsA, srsAA, srsAL5, srsALR
+// recall: srsR, srsRA, srsRL5, srsRLR
 
-function saveKey()  { const k=document.getElementById('inp-key').value.trim(); if(!k){st('st-key','Введи ключ','err');return;} localStorage.setItem('gl_claude_key',k); st('st-key','Ключ сохранён','ok'); }
-function saveGH()   { const k=document.getElementById('inp-gh-token').value.trim(); if(!k){st('st-gh','Введи токен','err');return;} localStorage.setItem('gl_gh_token',k); st('st-gh','Токен сохранён','ok'); loadDB(); }
-function saveFreq() { const v=parseInt(document.getElementById('inp-mastered-freq').value); if(v<10||v>1000){st('st-freq','Введи число от 10 до 1000','err');return;} localStorage.setItem('gl_mastered_freq',v); st('st-freq','Сохранено','ok'); }
-
-// ── SRS LOGIC ──
-// Флаги на слове (для узнавания):
-// srsLevel: 0=новое, 1-4=уровень интервала, 5=освоено
-// srsNextAt: timestamp когда слово снова доступно
-// srsLastResult: 'known'|'forgot'
-// srsLast5: массив последних 5 результатов ['known','forgot',...]
-
-function isMastered(w, key) {
-  const lvlKey = key==='history' ? 'srsLevel' : 'srsLevelR';
-  return (w[lvlKey]||0) >= 5;
+function srsKeys(mode){
+  if(mode==='text')   return{lvl:'srsT',next:'srsTA',l5:'srsTL5',lr:'srsTLR'};
+  if(mode==='audio')  return{lvl:'srsA',next:'srsAA',l5:'srsAL5',lr:'srsALR'};
+  return                    {lvl:'srsR',next:'srsRA',l5:'srsRL5',lr:'srsRLR'};
 }
 
-function isReadyForReview(w, key) {
-  const nextKey = key==='history' ? 'srsNextAt' : 'srsNextAtR';
-  const lvlKey  = key==='history' ? 'srsLevel'  : 'srsLevelR';
-  const lvl = w[lvlKey]||0;
-  if (lvl >= 5) return false; // освоено — особый режим
-  const nextAt = w[nextKey]||0;
-  return Date.now() >= nextAt;
-}
-
-function getReadyWords(key) {
-  return words.filter(w => isReadyForReview(w, key));
-}
-
-function getMasteredWords(key) {
-  return words.filter(w => isMastered(w, key));
-}
-
-function applyResult(w, result, key) {
-  const lvlKey    = key==='history' ? 'srsLevel'      : 'srsLevelR';
-  const nextKey   = key==='history' ? 'srsNextAt'     : 'srsNextAtR';
-  const last5Key  = key==='history' ? 'srsLast5'      : 'srsLast5R';
-  const lastKey   = key==='history' ? 'srsLastResult' : 'srsLastResultR';
-
-  let lvl = w[lvlKey]||0;
-  const last5 = w[last5Key]||[];
-
-  last5.push(result);
-  if (last5.length > 5) last5.shift();
-  w[last5Key] = last5;
-  w[lastKey] = result;
-
-  if (result === 'known') {
-    lvl = Math.min(lvl+1, 5);
-    const interval = lvl <= 4 ? SRS_INTERVALS[lvl-1] : SRS_INTERVALS[3]*10;
-    w[nextKey] = Date.now() + interval;
+function applyResult(w,result,mode){
+  const k=srsKeys(mode);
+  let lvl=w[k.lvl]||0;
+  const l5=(w[k.l5]||[]).slice();
+  l5.push(result); if(l5.length>5)l5.shift();
+  w[k.l5]=l5; w[k.lr]=result;
+  if(result==='known'){
+    lvl=Math.min(lvl+1,5);
+    w[k.next]=Date.now()+(lvl<=4?SRS[lvl-1]:SRS[3]*10);
   } else {
-    // сброс: уровень обнуляется, доступно сразу
-    lvl = 0;
-    w[nextKey] = Date.now();
+    lvl=0; w[k.next]=Date.now();
   }
-  w[lvlKey] = lvl;
+  w[k.lvl]=lvl;
   return w;
 }
 
-// ── STAT TREE ──
-function buildStatTree(key) {
-  const total = words.length;
-  if (!total) return '<p style="color:var(--text3);font-size:14px">Слов пока нет</p>';
+function isReady(w,mode){
+  const k=srsKeys(mode);
+  if((w[k.lvl]||0)>=5)return false;
+  return Date.now()>=(w[k.next]||0);
+}
+function isMastered(w,mode){return(w[srsKeys(mode).lvl]||0)>=5;}
+function isMasteredForConj(w){
+  // Исп→Рус: освоено и в text и в audio
+  // Рус→Исп: освоено в recall
+  return{es2ru:isMastered(w,'text')&&isMastered(w,'audio'),ru2es:isMastered(w,'recall')};
+}
 
-  const lvlKey   = key==='history' ? 'srsLevel'      : 'srsLevelR';
-  const last5Key = key==='history' ? 'srsLast5'      : 'srsLast5R';
-  const lastKey  = key==='history' ? 'srsLastResult' : 'srsLastResultR';
-  const nextKey  = key==='history' ? 'srsNextAt'     : 'srsNextAtR';
+function readyWords(mode){return words.filter(w=>isReady(w,mode));}
+function masteredWords(mode){return words.filter(w=>isMastered(w,mode));}
 
-  const newWords      = words.filter(w => !(w[key]||[]).length && (w[lvlKey]||0)===0 && !w[lastKey]);
-  const seenWords     = words.filter(w => w[lastKey]);
-  const mastered      = seenWords.filter(w => (w[lvlKey]||0)>=5);
-  const active        = seenWords.filter(w => (w[lvlKey]||0)<5);
-  const ready         = active.filter(w => Date.now()>=(w[nextKey]||0));
-
-  const lastForgot    = seenWords.filter(w => w[lastKey]==='forgot');
-  const forgotRecent  = seenWords.filter(w => { const l=w[last5Key]||[]; return l.length>0 && l.includes('forgot'); });
-  const knownLast5    = seenWords.filter(w => { const l=w[last5Key]||[]; return l.length>=5 && l.every(r=>r==='known'); });
-
-  const p = (n,d) => d ? Math.round(n/d*100)+'%' : '0%';
-  const row = (label, val, cls, indent) =>
-    `<div class="stat-row ${indent}"><span class="stat-label">${label}</span><span class="stat-value ${cls||''}">${val}</span></div>`;
-
-  let html = '';
-  html += row('Всего слов в словаре', total, '', '');
-  html += `<div class="stat-divider"></div>`;
-  html += row('Новые (ни разу не оценивались)', `${newWords.length} (${p(newWords.length,total)})`, 'warn', 'stat-row-child');
-  html += row('Знакомые (оценивались хотя бы раз)', `${seenWords.length} (${p(seenWords.length,total)})`, '', 'stat-row-child');
-  if (seenWords.length) {
-    html += `<div class="stat-divider"></div>`;
-    html += row('Ждут повторения прямо сейчас', `${ready.length}`, ready.length>0?'ready':'', 'stat-row-grandchild');
-    html += row('Не узнано при последнем показе', `${lastForgot.length}`, lastForgot.length>0?'bad':'ok', 'stat-row-grandchild');
-    html += row('Не узнано хотя бы раз за 5 показов', `${forgotRecent.length}`, forgotRecent.length>0?'warn':'ok', 'stat-row-grandchild');
-    html += row('Знаю уверенно (5 подряд верно)', `${knownLast5.length}`, knownLast5.length>0?'ok':'', 'stat-row-grandchild');
-    html += row('Освоено (прошли все 4 интервала)', `${mastered.length}`, mastered.length>0?'ok':'', 'stat-row-grandchild');
+function buildQueue(mode){
+  const ready=readyWords(mode);
+  const mast=masteredWords(mode);
+  const freq=getFreq();
+  showCtr++;
+  let q=[...ready];
+  if(mast.length&&showCtr%freq===0){
+    q.push(mast[Math.floor(Math.random()*mast.length)]);
   }
-  return html;
+  q.sort((a,b)=>(a[srsKeys(mode).lvl]||0)-(b[srsKeys(mode).lvl]||0)+(Math.random()-.5)*.5);
+  return q.slice(0,20);
 }
 
-function renderStatTree(containerId, key) {
-  const el = document.getElementById(containerId);
-  if (el) el.innerHTML = buildStatTree(key);
+// STAT TREE
+function statTree(mode){
+  const total=words.length;
+  if(!total)return'<p style="color:var(--text3);font-size:13px">Слов пока нет</p>';
+  const k=srsKeys(mode);
+  const newW=words.filter(w=>!w[k.lr]);
+  const seen=words.filter(w=>w[k.lr]);
+  const mast=seen.filter(w=>(w[k.lvl]||0)>=5);
+  const active=seen.filter(w=>(w[k.lvl]||0)<5);
+  const ready=active.filter(w=>Date.now()>=(w[k.next]||0));
+  const lastF=seen.filter(w=>w[k.lr]==='forgot');
+  const recentF=seen.filter(w=>{const l=w[k.l5]||[];return l.length>0&&l.includes('forgot');});
+  const conf=seen.filter(w=>{const l=w[k.l5]||[];return l.length>=5&&l.every(r=>r==='known');});
+  const p=(n,d)=>d?Math.round(n/d*100)+'%':'0%';
+  const row=(lbl,val,cls,ind)=>`<div class="srow ${ind||''}"><span class="slb ${cls==='rdy'?'rdy':''}">${lbl}</span><span class="sv ${cls||''}">${val}</span></div>`;
+  let h='';
+  h+=row('Всего слов',total,'','');
+  h+='<div class="sdiv"></div>';
+  h+=row('Новые (без оценок)',`${newW.length} (${p(newW.length,total)})`,'w','sc1');
+  h+=row('Знакомые (оценивались)',`${seen.length} (${p(seen.length,total)})`,'','sc1');
+  if(seen.length){
+    h+='<div class="sdiv"></div>';
+    h+=row('Ждут повторения сейчас',`${ready.length}`,ready.length?'rdy':'ok','sc2');
+    h+=row('Не узнано при последнем показе',`${lastF.length}`,lastF.length?'bad':'ok','sc2');
+    h+=row('Не узнано хотя бы раз за 5 показов',`${recentF.length}`,recentF.length?'w':'ok','sc2');
+    h+=row('Знаю уверенно (5 подряд верно)',`${conf.length}`,conf.length?'ok':'','sc2');
+    h+=row('Освоено (все 4 интервала)',`${mast.length}`,mast.length?'ok':'','sc2');
+  }
+  return h;
 }
+function renderStat(id,mode){const el=document.getElementById(id);if(el)el.innerHTML=statTree(mode);}
 
-// ── GITHUB DB ──
-async function ghGet() {
-  const token=getGHToken();
-  const headers={'Accept':'application/vnd.github+json'};
-  if(token) headers['Authorization']='Bearer '+token;
-  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`,{headers});
-  if(!r.ok) throw new Error('GitHub read error '+r.status);
-  const d=await r.json();
-  ghFileSha=d.sha;
+// GITHUB
+async function ghGet(){
+  const h={'Accept':'application/vnd.github+json'};
+  const t=getGHT();if(t)h['Authorization']='Bearer '+t;
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`,{headers:h});
+  if(!r.ok)throw new Error('GitHub read '+r.status);
+  const d=await r.json();ghSha=d.sha;
   const raw=atob(d.content.replace(/\n/g,''));
   const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
-  return JSON.parse(new TextDecoder().decode(bytes));
+  const parsed=JSON.parse(new TextDecoder().decode(bytes));
+  // support both flat and {words,failedPhrases} format
+  if(Array.isArray(parsed)){return{words:parsed,failedPhrases:[]};}
+  return{words:parsed.words||[],failedPhrases:parsed.failedPhrases||[]};
 }
 
-async function ghPut(data) {
-  const token=getGHToken();
-  if(!token) throw new Error('Нет GitHub токена — добавь в Настройках');
-  const jsonStr=JSON.stringify(data,null,2);
-  const bytes=new TextEncoder().encode(jsonStr);
-  const binStr=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
-  const content=btoa(binStr);
+async function ghPut(data){
+  const t=getGHT();if(!t)throw new Error('Нет GitHub токена');
+  const js=JSON.stringify(data,null,2);
+  const bytes=new TextEncoder().encode(js);
+  const bin=Array.from(bytes).map(b=>String.fromCharCode(b)).join('');
+  const content=btoa(bin);
   const body={message:'update db',content,branch:GH_BRANCH};
-  if(ghFileSha) body.sha=ghFileSha;
+  if(ghSha)body.sha=ghSha;
   const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`,{
-    method:'PUT',
-    headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+    method:'PUT',headers:{'Authorization':'Bearer '+t,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
     body:JSON.stringify(body)
   });
-  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('GitHub write error '+r.status+(e.message?' — '+e.message:''));}
-  const d=await r.json();
-  ghFileSha=d.content.sha;
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('GitHub write '+r.status+(e.message?' — '+e.message:''));}
+  ghSha=(await r.json()).content.sha;
 }
 
-function syncBar(msg) {
-  const el=document.getElementById('sync-bar');
-  if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';
-}
+function sbar(msg){const el=document.getElementById('sbar');if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';}
 
-async function loadDB() {
-  syncBar('⟳ Загружаю базу...');
-  try {
-    words=await ghGet();
+async function loadDB(){
+  sbar('⟳ Загружаю базу...');
+  try{
+    const d=await ghGet();words=d.words;failedPhrases=d.failedPhrases;
     updateCount();
-    document.getElementById('db-loading').style.display='none';
-    document.getElementById('add-ui').style.display='block';
-    syncBar('');
-  } catch(e) {
-    document.getElementById('db-loading').style.display='none';
-    document.getElementById('add-ui').style.display='block';
-    syncBar(getGHToken() ? '⚠ Ошибка загрузки: '+e.message : '⚠ Добавь GitHub токен в Настройках');
+    document.getElementById('dbl').style.display='none';
+    document.getElementById('addui').style.display='block';
+    sbar('');
+  }catch(e){
+    document.getElementById('dbl').style.display='none';
+    document.getElementById('addui').style.display='block';
+    sbar(getGHT()?'⚠ Ошибка загрузки: '+e.message:'⚠ Добавь GitHub токен в Настройках');
   }
 }
 
-async function saveDB() {
-  if(saving) return;
-  saving=true; syncBar('⟳ Сохраняю...');
-  try { await ghPut(words); syncBar(''); }
-  catch(e) { syncBar('⚠ Ошибка сохранения: '+e.message); }
+async function saveDB(){
+  if(saving)return;saving=true;sbar('⟳ Сохраняю...');
+  try{await ghPut({words,failedPhrases});sbar('');}
+  catch(e){sbar('⚠ Ошибка: '+e.message);}
   saving=false;
 }
 
-// ── AI ──
-async function callAI(prompt, maxTokens) {
-  const key=getKey();
-  if(!key) throw new Error('Нет API-ключа Anthropic — добавь в Настройках');
+// AI
+async function callAI(prompt,max){
+  const key=getKey();if(!key)throw new Error('Нет API-ключа Anthropic');
   const r=await fetch('https://api.anthropic.com/v1/messages',{
     method:'POST',
     headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:maxTokens||1000,messages:[{role:'user',content:prompt}]})
+    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:max||1000,messages:[{role:'user',content:prompt}]})
   });
-  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('Ошибка API '+r.status+(e.error?.message?': '+e.error.message:''));}
-  const d=await r.json();
-  return d.content[0].text;
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error('API '+r.status+(e.error?.message?': '+e.error.message:''));}
+  return(await r.json()).content[0].text;
 }
 
-function extractJSON(text) {
+function xJSON(text){
   try{return JSON.parse(text);}catch(e){}
   const s=text.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
   try{return JSON.parse(s);}catch(e){}
@@ -574,83 +530,78 @@ function extractJSON(text) {
   throw new Error('Не удалось разобрать ответ ИИ. Попробуй ещё раз.');
 }
 
-// ── ADD WORDS ──
-async function processWords(list) {
-  const exRu=words.map(w=>w.ru.toLowerCase()), exEs=words.map(w=>w.es.toLowerCase());
-  const chunks=[];
-  for(let i=0;i<list.length;i+=15) chunks.push(list.slice(i,i+15));
-  const results=[];
+// ADD WORDS
+async function processWords(list){
+  const exRu=words.map(w=>w.ru.toLowerCase()),exEs=words.map(w=>w.es.toLowerCase());
+  const chunks=[];for(let i=0;i<list.length;i+=15)chunks.push(list.slice(i,i+15));
+  const res=[];
   for(const chunk of chunks){
-    const prompt=`Ты помогаешь наполнять базу для изучения испанского.
-
-Слова от пользователя (обработай ВСЕ):
+    const prompt=`Наполняй базу для изучения испанского.
+Слова (обработай ВСЕ):
 ${chunk.map((w,i)=>(i+1)+'. '+w).join('\n')}
-
-Уже в базе (не дублировать):
-Русские: ${exRu.slice(0,50).join(', ')||'нет'}
-Испанские: ${exEs.slice(0,50).join(', ')||'нет'}
-
-Для КАЖДОГО слова:
-1. Определи язык
-2. Найди перевод
-3. Часть речи: глагол, существительное, прилагательное, местоимение, наречие, предлог, союз, фраза, другое
-4. Фразы типа "a favor", "de donde" — одна единица
-5. Не дублируй слова из базы
-
-Верни ТОЛЬКО JSON-массив без пояснений и markdown:
-[{"ru":"...","es":"...","pos":"..."}]
-Если всё уже в базе — верни: []`;
+В базе (не дублировать):
+Рус: ${exRu.slice(0,50).join(', ')||'нет'}
+Исп: ${exEs.slice(0,50).join(', ')||'нет'}
+Для каждого: язык, перевод, часть речи (глагол/существительное/прилагательное/местоимение/наречие/предлог/союз/фраза/другое).
+Фразы типа "a favor" — одна единица.
+Верни ТОЛЬКО JSON без markdown: [{"ru":"...","es":"...","pos":"..."}]
+Если всё есть — верни: []`;
     const text=await callAI(prompt,2000);
-    const parsed=extractJSON(text);
-    if(Array.isArray(parsed)) results.push(...parsed);
+    const parsed=xJSON(text);
+    if(Array.isArray(parsed))res.push(...parsed);
   }
-  return results;
+  return res;
 }
 
-async function addSingle() {
-  const word=document.getElementById('inp-single').value.trim();if(!word)return;
-  const btn=document.getElementById('btn-add-single');btn.disabled=true;
-  document.getElementById('st-single').innerHTML='<span class="spinner"></span>Обрабатываю...';
-  try {
+async function addSingle(){
+  const word=document.getElementById('inp-s').value.trim();if(!word)return;
+  const btn=document.getElementById('btn-s');btn.disabled=true;
+  document.getElementById('st-s').innerHTML='<span class="sp"></span>Обрабатываю...';
+  try{
     const res=await processWords([word]);
-    if(!res.length){st('st-single','Слово уже есть в базе','');}
+    if(!res.length){sm('st-s','Слово уже есть в базе','');}
     else{
       const now=Date.now();
-      for(const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[],srsLevel:0,srsLevelR:0,srsNextAt:now,srsNextAtR:now});
-      document.getElementById('inp-single').value='';
-      updateCount();await saveDB();
-      st('st-single','Добавлено: '+res.map(w=>w.ru+' / '+w.es).join(', '),'ok');
+      for(const w of res)words.push(newWord(w,now));
+      document.getElementById('inp-s').value='';updateCount();await saveDB();
+      sm('st-s','Добавлено: '+res.map(w=>w.ru+' / '+w.es).join(', '),'ok');
     }
-  }catch(e){st('st-single',e.message,'err');}
+  }catch(e){sm('st-s',e.message,'err');}
   btn.disabled=false;
 }
 
-async function addBulk() {
-  const text=document.getElementById('inp-bulk').value.trim();if(!text)return;
+async function addBulk(){
+  const text=document.getElementById('inp-b').value.trim();if(!text)return;
   const list=text.split('\n').map(s=>s.trim()).filter(Boolean);
-  const btn=document.getElementById('btn-add-bulk');btn.disabled=true;
-  document.getElementById('st-bulk').innerHTML='<span class="spinner"></span>Обрабатываю '+list.length+' слов...';
-  try {
+  const btn=document.getElementById('btn-b');btn.disabled=true;
+  document.getElementById('st-b').innerHTML='<span class="sp"></span>Обрабатываю '+list.length+' слов...';
+  try{
     const res=await processWords(list);
-    if(!res.length){st('st-bulk','Все слова уже в базе','');}
+    if(!res.length){sm('st-b','Все слова уже в базе','');}
     else{
       const now=Date.now();
-      for(const w of res) words.push({ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[],srsLevel:0,srsLevelR:0,srsNextAt:now,srsNextAtR:now});
-      document.getElementById('inp-bulk').value='';
-      updateCount();await saveDB();
-      st('st-bulk','Добавлено '+res.length+' '+plural(res.length),'ok');
+      for(const w of res)words.push(newWord(w,now));
+      document.getElementById('inp-b').value='';updateCount();await saveDB();
+      sm('st-b','Добавлено '+res.length+' '+plural(res.length),'ok');
     }
-  }catch(e){st('st-bulk',e.message,'err');}
+  }catch(e){sm('st-b',e.message,'err');}
   btn.disabled=false;
 }
 
-// ── UI HELPERS ──
-function st(id,msg,type){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.className='status-msg'+(type?' '+type:'');if(type==='ok')setTimeout(()=>{el.textContent='';el.className='status-msg';},3000);}
+function newWord(w,now){
+  return{ru:w.ru,es:w.es,pos:w.pos,added:now,history:[],historyRecall:[],
+    srsT:0,srsTA:now,srsTL5:[],srsTLR:null,
+    srsA:0,srsAA:now,srsAL5:[],srsALR:null,
+    srsR:0,srsRA:now,srsRL5:[],srsRLR:null};
+}
+
+// UI
+function sm(id,msg,type){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.className='sm'+(type?' '+type:'');if(type==='ok')setTimeout(()=>{el.textContent='';el.className='sm';},3000);}
 function flash(id){const el=document.getElementById(id);if(!el)return;el.style.opacity='1';setTimeout(()=>{el.style.opacity='0';},600);}
 function plural(n){if(n%10===1&&n%100!==11)return'слово';if([2,3,4].includes(n%10)&&![12,13,14].includes(n%100))return'слова';return'слов';}
-function updateCount(){const n=words.length;document.getElementById('word-count').textContent=n+' '+plural(n);}
-function normalize(s){return s.toLowerCase().trim().replace(/[¡!¿?.,;:«»]/g,'').replace(/[áàâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[íìîï]/g,'i').replace(/[óòôö]/g,'o').replace(/[úùûü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' ');}
-function posTag(pos){const m={глагол:'verb',существительное:'noun',прилагательное:'adj'};const c=m[pos]||'other';return`<span class="tag tag-${c}">${pos}</span>`;}
+function updateCount(){const n=words.length;document.getElementById('wcnt').textContent=n+' '+plural(n);}
+function norm(s){return s.toLowerCase().trim().replace(/[¡!¿?.,;:«»]/g,'').replace(/[áàâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[íìîï]/g,'i').replace(/[óòôö]/g,'o').replace(/[úùûü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' ');}
+function posTag(pos){const m={глагол:'verb',существительное:'noun',прилагательное:'adj'};return`<span class="tag tag-${m[pos]||'other'}">${pos}</span>`;}
 
 function nav(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -658,15 +609,19 @@ function nav(name){
   document.getElementById('s-'+name).classList.add('active');
   document.getElementById('nav-'+name).classList.add('active');
   if(name==='list')renderList();
-  if(name==='settings'){const k=getKey();if(k)document.getElementById('inp-key').value=k;const t=getGHToken();if(t)document.getElementById('inp-gh-token').value=t;const f=getMasteredFreq();document.getElementById('inp-mastered-freq').value=f;}
-  if(name==='recog'){showSub('recog','setup');renderStatTree('recog-stat-tree','history');}
-  if(name==='recall'){showSub('recall','setup');renderStatTree('recall-stat-tree','historyRecall');}
+  if(name==='settings'){
+    const k=getKey();if(k)document.getElementById('inp-key').value=k;
+    const t=getGHT();if(t)document.getElementById('inp-ght').value=t;
+    document.getElementById('inp-freq').value=getFreq();
+  }
+  if(name==='recog'){showSub('recog','setup');renderStat('rg-stat-setup',rgMode);}
+  if(name==='recall'){showSub('recall','setup');renderStat('rl-stat-setup','recall');}
   if(name==='conj')showSub('conj','setup');
 }
 
-function showSub(screen,sub){
+function showSub(scr,sub){
   ['setup','session','done'].forEach(s=>{
-    const el=document.getElementById(screen+'-'+s);if(!el)return;
+    const el=document.getElementById(scr+'-'+s);if(!el)return;
     if(s==='setup'||s==='done')el.style.display=s===sub?'block':'none';
     else{el.style.display=s===sub?'flex':'none';if(s===sub)el.style.flexDirection='column';}
   });
@@ -678,318 +633,332 @@ function switchTab(t){
   document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',(i===0&&t==='single')||(i===1&&t==='bulk')));
 }
 
-// ── УЗНАВАНИЕ ──
-function setRecogMode(m){rgMode=m;document.getElementById('rm-text').classList.toggle('active',m==='text');document.getElementById('rm-audio').classList.toggle('active',m==='audio');}
-
-function buildRecogQueue() {
-  const ready = getReadyWords('history');
-  // добавляем освоенные с заданной частотой
-  const mastered = getMasteredWords('history');
-  const freq = getMasteredFreq();
-  showCounter++;
-  let queue = [...ready];
-  if (mastered.length && showCounter % freq === 0) {
-    // добавляем случайное освоенное слово
-    const pick = mastered[Math.floor(Math.random()*mastered.length)];
-    queue.push(pick);
-  }
-  // shuffle weighted by level (lower level = higher priority)
-  queue.sort((a,b)=>{
-    const la=a.srsLevel||0, lb=b.srsLevel||0;
-    return (la-lb) + (Math.random()-0.5)*0.5;
-  });
-  return queue.slice(0,20);
+// УЗНАВАНИЕ
+function setRgMode(m){
+  rgMode=m;
+  document.getElementById('rm-text').classList.toggle('active',m==='text');
+  document.getElementById('rm-audio').classList.toggle('active',m==='audio');
+  renderStat('rg-stat-setup',m);
 }
 
 function startRecog(){
-  const queue=buildRecogQueue();
-  if(!queue.length){document.getElementById('recog-warn').style.display='block';return;}
-  document.getElementById('recog-warn').style.display='none';
-  rgQueue=queue;rgIdx=0;rgRevealed=false;rgSessionKnown=0;rgSessionForgot=0;
-  showSub('recog','session');
-  renderStatTree('rg-session-stat','history');
-  rgCard();
+  const q=buildQueue(rgMode);
+  if(!q.length){document.getElementById('rg-warn').style.display='block';return;}
+  document.getElementById('rg-warn').style.display='none';
+  rgQ=q;rgI=0;rgRev=false;rgSK=0;rgSF=0;
+  showSub('recog','session');renderStat('rg-stat-sess',rgMode);rgCard();
 }
 
 function rgCard(){
-  if(rgIdx>=rgQueue.length){rgEnd();return;}
-  const w=rgQueue[rgIdx];rgRevealed=false;
+  if(rgI>=rgQ.length){rgEnd();return;}
+  const w=rgQ[rgI];rgRev=false;
+  document.getElementById('rg-mbadge').textContent=rgMode==='audio'?'аудио':'текст';
   document.getElementById('rg-word').textContent=w.es;
   document.getElementById('rg-pos').textContent=w.pos;
   document.getElementById('rg-reveal').textContent=w.ru;
   document.getElementById('rg-reveal').style.opacity='0';
-  document.getElementById('rg-card').className='swipe-card';
+  document.getElementById('rg-card').className='sc-card';
   document.getElementById('rg-card').style.transform='';
   document.getElementById('rg-hint').textContent=rgMode==='audio'?'нажми, чтобы услышать':'нажми, чтобы открыть перевод';
-  const tot=rgQueue.length;
-  document.getElementById('rg-prog').style.width=Math.round(rgIdx/tot*100)+'%';
-  document.getElementById('rg-cnt').textContent=rgIdx+' / '+tot;
+  const tot=rgQ.length;
+  document.getElementById('rg-prog').style.width=Math.round(rgI/tot*100)+'%';
+  document.getElementById('rg-cnt').textContent=rgI+' / '+tot;
   if(rgMode==='audio')setTimeout(rgSpeak,300);
 }
 
-function rgReveal(){rgRevealed=true;document.getElementById('rg-reveal').style.opacity='1';document.getElementById('rg-hint').textContent='';}
-function rgSpeak(){if(rgIdx>=rgQueue.length)return;const u=new SpeechSynthesisUtterance(rgQueue[rgIdx].es);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
+function rgReveal(){rgRev=true;document.getElementById('rg-reveal').style.opacity='1';document.getElementById('rg-hint').textContent='';}
+function rgSpeak(){if(rgI>=rgQ.length)return;const u=new SpeechSynthesisUtterance(rgQ[rgI].es);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
 
 async function rgResult(result){
-  if(rgIdx>=rgQueue.length)return;
-  let w=rgQueue[rgIdx];
-  // add to history log
+  if(rgI>=rgQ.length)return;
+  let w=rgQ[rgI];
   if(!w.history)w.history=[];
-  w.history.push({ts:Date.now(),result,mode:rgMode,bySound:rgMode==='audio'&&!rgRevealed,cat:'recog'});
-  // apply SRS
-  w=applyResult(w,'known'===result?'known':'forgot','history');
-  // update in words array
+  w.history.push({ts:Date.now(),result,mode:rgMode,bySound:rgMode==='audio'&&!rgRev,cat:'recog'});
+  w=applyResult(w,result,rgMode);
   const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
   if(idx>=0)words[idx]=w;
-  if(result==='known'){rgSessionKnown++;flash('rg-fk');}else{rgSessionForgot++;flash('rg-ff');}
-  renderStatTree('rg-session-stat','history');
-  rgIdx++;
-  if(rgIdx>=rgQueue.length){await saveDB();setTimeout(rgEnd,350);}
+  if(result==='known'){rgSK++;flash('rg-fk');}else{rgSF++;flash('rg-ff');}
+  renderStat('rg-stat-sess',rgMode);
+  rgI++;
+  if(rgI>=rgQ.length){await saveDB();setTimeout(rgEnd,350);}
   else setTimeout(rgCard,350);
 }
 
 function rgEnd(){
   showSub('recog','done');
-  const tot=rgSessionKnown+rgSessionForgot,p=tot?Math.round(rgSessionKnown/tot*100):0;
-  document.getElementById('rg-sum').textContent='Знаю '+p+'% ('+tot+' карточек)';
-  document.getElementById('rg-dk').textContent=rgSessionKnown;
-  document.getElementById('rg-df').textContent=rgSessionForgot;
-  renderStatTree('rg-done-stat','history');
+  const tot=rgSK+rgSF,p=tot?Math.round(rgSK/tot*100):0;
+  document.getElementById('rg-sum').textContent='Знаю '+p+'% ('+tot+' карточек, режим: '+(rgMode==='audio'?'аудио':'текст')+')';
+  renderStat('rg-stat-done',rgMode);
 }
 
-// ── ПРИПОМИНАНИЕ ──
-function buildRecallQueue(){
-  const ready=getReadyWords('historyRecall');
-  const mastered=getMasteredWords('historyRecall');
-  const freq=getMasteredFreq();
-  let queue=[...ready];
-  if(mastered.length&&showCounter%freq===0){const pick=mastered[Math.floor(Math.random()*mastered.length)];queue.push(pick);}
-  queue.sort((a,b)=>(a.srsLevelR||0)-(b.srsLevelR||0)+(Math.random()-0.5)*0.5);
-  return queue.slice(0,20);
-}
-
+// ПРИПОМИНАНИЕ
 function startRecall(){
-  const queue=buildRecallQueue();
-  if(!queue.length){document.getElementById('recall-warn').style.display='block';return;}
-  document.getElementById('recall-warn').style.display='none';
-  rlQueue=queue;rlIdx=0;rlSessionKnown=0;rlSessionForgot=0;
-  showSub('recall','session');
-  renderStatTree('rl-session-stat','historyRecall');
-  rlCard();
+  const q=buildQueue('recall');
+  if(!q.length){document.getElementById('rl-warn').style.display='block';return;}
+  document.getElementById('rl-warn').style.display='none';
+  rlQ=q;rlI=0;rlSK=0;rlSF=0;
+  showSub('recall','session');renderStat('rl-stat-sess','recall');rlCard();
 }
 
 function rlCard(){
-  if(rlIdx>=rlQueue.length){rlEnd();return;}
-  const w=rlQueue[rlIdx];
+  if(rlI>=rlQ.length){rlEnd();return;}
+  const w=rlQ[rlI];
   document.getElementById('rl-word').textContent=w.ru;
   document.getElementById('rl-reveal').textContent=w.es;
   document.getElementById('rl-reveal').style.opacity='0';
-  document.getElementById('rl-card').className='swipe-card';
+  document.getElementById('rl-card').className='sc-card';
   document.getElementById('rl-card').style.transform='';
   document.getElementById('rl-inp').value='';
-  document.getElementById('rl-mic-box').style.display='none';
-  document.getElementById('rl-mic-box').className='mic-box';
-  document.getElementById('rl-mic-hint').textContent='';
+  document.getElementById('rl-mb').style.display='none';
+  document.getElementById('rl-mb').className='mb';
+  document.getElementById('rl-mh').textContent='';
   stopMic();
-  const tot=rlQueue.length;
-  document.getElementById('rl-prog').style.width=Math.round(rlIdx/tot*100)+'%';
-  document.getElementById('rl-cnt').textContent=rlIdx+' / '+tot;
+  const tot=rlQ.length;
+  document.getElementById('rl-prog').style.width=Math.round(rlI/tot*100)+'%';
+  document.getElementById('rl-cnt').textContent=rlI+' / '+tot;
 }
 
 function rlCheck(){
   const val=document.getElementById('rl-inp').value.trim();if(!val)return;
-  const w=rlQueue[rlIdx];const ok=normalize(val)===normalize(w.es);
-  const box=document.getElementById('rl-mic-box');box.style.display='block';
+  const w=rlQ[rlI];const ok=norm(val)===norm(w.es);
+  const box=document.getElementById('rl-mb');box.style.display='block';
   document.getElementById('rl-reveal').style.opacity='1';
-  if(ok){box.className='mic-box ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>rlResult('known'),800);}
-  else{box.className='mic-box err';box.textContent='✗ '+val;document.getElementById('rl-mic-hint').textContent='Неверно. Свайпни или попробуй ещё раз';}
+  if(ok){box.className='mb ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>rlResult('known'),800);}
+  else{box.className='mb err';box.textContent='✗ '+val;document.getElementById('rl-mh').textContent='Неверно. Свайпни или попробуй ещё раз';}
 }
 
 async function rlResult(result){
-  if(rlIdx>=rlQueue.length)return;
-  let w=rlQueue[rlIdx];
+  if(rlI>=rlQ.length)return;
+  let w=rlQ[rlI];
   if(!w.historyRecall)w.historyRecall=[];
   w.historyRecall.push({ts:Date.now(),result,cat:'recall'});
-  w=applyResult(w,result,'historyRecall');
+  w=applyResult(w,result,'recall');
   const idx=words.findIndex(x=>x.ru===w.ru&&x.es===w.es);
   if(idx>=0)words[idx]=w;
-  if(result==='known'){rlSessionKnown++;flash('rl-fk');}else{rlSessionForgot++;flash('rl-ff');}
-  renderStatTree('rl-session-stat','historyRecall');
-  rlIdx++;
-  if(rlIdx>=rlQueue.length){await saveDB();setTimeout(rlEnd,350);}
+  if(result==='known'){rlSK++;flash('rl-fk');}else{rlSF++;flash('rl-ff');}
+  renderStat('rl-stat-sess','recall');
+  rlI++;
+  if(rlI>=rlQ.length){await saveDB();setTimeout(rlEnd,350);}
   else setTimeout(rlCard,350);
 }
 
 function rlEnd(){
   showSub('recall','done');
-  const tot=rlSessionKnown+rlSessionForgot,p=tot?Math.round(rlSessionKnown/tot*100):0;
+  const tot=rlSK+rlSF,p=tot?Math.round(rlSK/tot*100):0;
   document.getElementById('rl-sum').textContent='Знаю '+p+'% ('+tot+' карточек)';
-  document.getElementById('rl-dk').textContent=rlSessionKnown;
-  document.getElementById('rl-df').textContent=rlSessionForgot;
-  renderStatTree('rl-done-stat','historyRecall');
+  renderStat('rl-stat-done','recall');
+  saveDB();
 }
 
-// ── ФРАЗЫ ──
-function setConjDir(d){cjDir=d;document.getElementById('cj-d-es2ru').classList.toggle('active',d==='es2ru');document.getElementById('cj-d-ru2es').classList.toggle('active',d==='ru2es');}
+// ФРАЗЫ
+function setCjDir(d){cjDir=d;document.getElementById('cj-es2ru').classList.toggle('active',d==='es2ru');document.getElementById('cj-ru2es').classList.toggle('active',d==='ru2es');}
 
 function startConj(){
-  cjMasteredWords=getMasteredWords('history');
-  if(cjMasteredWords.length<2){document.getElementById('conj-warn').style.display='block';return;}
-  document.getElementById('conj-warn').style.display='none';
-  cjIdx=0;cjKnown=0;cjForgot=0;
-  showSub('conj','session');cjGenerate();
+  const mode=cjDir==='es2ru'?'es2ru':'ru2es';
+  if(cjDir==='es2ru'){
+    cjPool=words.filter(w=>isMastered(w,'text')&&isMastered(w,'audio'));
+  } else {
+    cjPool=words.filter(w=>isMastered(w,'recall'));
+  }
+  if(cjPool.length<2){document.getElementById('cj-warn').style.display='block';return;}
+  document.getElementById('cj-warn').style.display='none';
+  // Build queue: start with failed phrases, then generate new
+  cjQueue=[...failedPhrases.filter(p=>p.dir===cjDir)];
+  cjI=0;cjK=0;cjF=0;
+  showSub('conj','session');cjNext();
+}
+
+async function cjNext(){
+  if(cjI>=10){cjEnd();return;}
+  cjRev=false;
+  // Use saved failed phrase if available
+  if(cjQueue.length>0&&Math.random()<0.4){
+    const fp=cjQueue.splice(Math.floor(Math.random()*cjQueue.length),1)[0];
+    showCjCard(fp.es,fp.ru);
+  } else {
+    await cjGenerate();
+  }
 }
 
 async function cjGenerate(){
-  cjRevealed=false;
-  document.getElementById('cj-loading').style.display='block';
-  document.getElementById('cj-card-ui').style.display='none';
-  const wordList=cjMasteredWords.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
-  const prompt=`Ты помогаешь изучать испанский язык.
-
-Слова пользователя:
-${wordList}
-
-Составь ОДНУ простую фразу (3-7 слов) используя только эти слова.
-Фраза должна быть грамматически правильной и естественной на испанском.
-
-Верни ТОЛЬКО JSON без пояснений и markdown:
-{"es":"фраза на испанском","ru":"перевод на русский"}`;
+  document.getElementById('cj-load').style.display='block';
+  document.getElementById('cj-ui').style.display='none';
+  const wl=cjPool.map(w=>`${w.ru} / ${w.es} (${w.pos})`).join('\n');
+  const prompt=`Помогай изучать испанский.
+Слова: ${wl}
+Составь ОДНУ простую фразу (3-7 слов) только из этих слов. Грамматически правильную и естественную.
+ТОЛЬКО JSON: {"es":"...","ru":"..."}`;
   try{
     const text=await callAI(prompt,300);
-    const card=extractJSON(text);
-    const isEs2ru=cjDir==='es2ru';
-    document.getElementById('cj-phrase').textContent=isEs2ru?card.es:card.ru;
-    document.getElementById('cj-answer').textContent=isEs2ru?card.ru:card.es;
-    document.getElementById('cj-answer').style.opacity='0';
-    document.getElementById('cj-tap-hint').textContent='нажми, чтобы открыть перевод';
-    document.getElementById('cj-dir-lbl').textContent=isEs2ru?'Переведи на русский':'Переведи на испанский';
-    document.getElementById('cj-card').className='swipe-card';
-    document.getElementById('cj-card').style.transform='';
-    document.getElementById('cj-card').dataset.es=card.es;
-    document.getElementById('cj-card').dataset.ru=card.ru;
-    document.getElementById('cj-mic-box').style.display='none';
-    document.getElementById('cj-mic-hint').textContent='';
-    if(isEs2ru){document.getElementById('cj-input-row').style.display='none';document.getElementById('cj-mid-icon').textContent='🔊';document.getElementById('cj-mid-lbl').textContent='Слушать';}
-    else{document.getElementById('cj-input-row').style.display='flex';document.getElementById('cj-inp').value='';document.getElementById('cj-mid-icon').textContent='🎤';document.getElementById('cj-mid-lbl').textContent='Говорить';}
-    document.getElementById('cj-prog').style.width=Math.round(cjIdx/10*100)+'%';
-    document.getElementById('cj-cnt').textContent=cjIdx+' / 10';
+    const card=xJSON(text);
+    showCjCard(card.es,card.ru);
   }catch(e){
+    document.getElementById('cj-load').style.display='none';
+    document.getElementById('cj-ui').style.display='block';
     document.getElementById('cj-phrase').textContent='Ошибка: '+e.message;
-    document.getElementById('cj-answer').textContent='';
+    document.getElementById('cj-ans').textContent='';
   }
-  document.getElementById('cj-loading').style.display='none';
-  document.getElementById('cj-card-ui').style.display='block';
 }
 
-function cjReveal(){cjRevealed=true;document.getElementById('cj-answer').style.opacity='1';document.getElementById('cj-tap-hint').textContent='';}
-function cjMidAction(){
-  if(cjDir==='es2ru'){const u=new SpeechSynthesisUtterance(document.getElementById('cj-phrase').textContent);u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);cjReveal();}
-  else toggleMic('conj');
+function showCjCard(es,ru){
+  const isEs2ru=cjDir==='es2ru';
+  document.getElementById('cj-phrase').textContent=isEs2ru?es:ru;
+  document.getElementById('cj-ans').textContent=isEs2ru?ru:es;
+  document.getElementById('cj-ans').style.opacity='0';
+  document.getElementById('cj-thint').textContent='нажми, чтобы открыть перевод';
+  document.getElementById('cj-dlbl').textContent=isEs2ru?'Переведи на русский':'Переведи на испанский';
+  document.getElementById('cj-card').className='sc-card';
+  document.getElementById('cj-card').style.transform='';
+  document.getElementById('cj-card').dataset.es=es;
+  document.getElementById('cj-card').dataset.ru=ru;
+  document.getElementById('cj-mb').style.display='none';
+  document.getElementById('cj-mh').textContent='';
+  if(isEs2ru){
+    document.getElementById('cj-inrow').style.display='none';
+    document.getElementById('cj-midico').textContent='🔊';
+    document.getElementById('cj-midlbl').textContent='Слушать';
+  } else {
+    document.getElementById('cj-inrow').style.display='flex';
+    document.getElementById('cj-inp').value='';
+    document.getElementById('cj-midico').textContent='🎤';
+    document.getElementById('cj-midlbl').textContent='Говорить';
+  }
+  document.getElementById('cj-prog').style.width=Math.round(cjI/10*100)+'%';
+  document.getElementById('cj-cnt').textContent=cjI+' / 10';
+  document.getElementById('cj-load').style.display='none';
+  document.getElementById('cj-ui').style.display='block';
 }
+
+function cjReveal(){cjRev=true;document.getElementById('cj-ans').style.opacity='1';document.getElementById('cj-thint').textContent='';}
+function cjMid(){
+  if(cjDir==='es2ru'){
+    const u=new SpeechSynthesisUtterance(document.getElementById('cj-phrase').textContent);
+    u.lang='es-ES';speechSynthesis.cancel();speechSynthesis.speak(u);cjReveal();
+  } else toggleMic('conj');
+}
+
 function cjCheck(){
   const val=document.getElementById('cj-inp').value.trim();if(!val)return;
   const esAnswer=document.getElementById('cj-card').dataset.es||'';
-  const ok=normalize(val)===normalize(esAnswer);
-  const box=document.getElementById('cj-mic-box');box.style.display='block';cjReveal();
-  if(ok){box.className='mic-box ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>cjResult('known'),800);}
-  else{box.className='mic-box err';box.textContent='✗ '+val;document.getElementById('cj-mic-hint').textContent='Неверно или частично. Реши сам.';}
+  const ok=norm(val)===norm(esAnswer);
+  const box=document.getElementById('cj-mb');box.style.display='block';cjReveal();
+  if(ok){box.className='mb ok';box.textContent='✓ '+val+' — верно!';setTimeout(()=>cjResult('known'),800);}
+  else{box.className='mb err';box.textContent='✗ '+val;document.getElementById('cj-mh').textContent='Неверно или частично. Реши сам.';}
 }
+
 async function cjResult(result){
-  if(result==='known'){cjKnown++;flash('cj-fk');}else{cjForgot++;flash('cj-ff');}
-  cjIdx++;stopMic();
-  if(cjIdx>=10){setTimeout(cjEnd,350);return;}
-  setTimeout(cjGenerate,350);
+  if(result==='known'){
+    cjK++;flash('cj-fk');
+    // Remove from failedPhrases if it was there
+    const es=document.getElementById('cj-card').dataset.es;
+    failedPhrases=failedPhrases.filter(p=>!(p.es===es&&p.dir===cjDir));
+  } else {
+    cjF++;flash('cj-ff');
+    // Save to failedPhrases if not already there
+    const es=document.getElementById('cj-card').dataset.es;
+    const ru=document.getElementById('cj-card').dataset.ru;
+    if(!failedPhrases.find(p=>p.es===es&&p.dir===cjDir)){
+      failedPhrases.push({es,ru,dir:cjDir,ts:Date.now()});
+    }
+  }
+  cjI++;stopMic();
+  if(cjI>=10){await saveDB();setTimeout(cjEnd,350);return;}
+  setTimeout(cjNext,350);
 }
+
 function cjEnd(){
   showSub('conj','done');
-  const tot=cjKnown+cjForgot,p=tot?Math.round(cjKnown/tot*100):0;
+  const tot=cjK+cjF,p=tot?Math.round(cjK/tot*100):0;
   document.getElementById('cj-sum').textContent='Результат: '+p+'% знаю (10 фраз)';
 }
 
-// ── МИК ──
+// МИК
 function toggleMic(ctx){
-  if(micActive){stopMic();return;}
+  if(micOn){stopMic();return;}
   micCtx=ctx;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){alert('Распознавание речи не поддерживается. Используй Chrome.');return;}
-  recognition=new SR();recognition.lang='es-ES';recognition.continuous=false;recognition.interimResults=false;
-  recognition.onstart=()=>{
-    micActive=true;
-    const btnId=ctx==='recall'?'rl-mic-btn':'cj-mid-btn';
-    document.getElementById(btnId).classList.add('recording');
+  recog=new SR();recog.lang='es-ES';recog.continuous=false;recog.interimResults=false;
+  recog.onstart=()=>{
+    micOn=true;
+    const btnId=ctx==='recall'?'rl-mic':'cj-mid';
+    document.getElementById(btnId).classList.add('rec');
     document.getElementById(btnId).querySelector('span').textContent='Запись...';
-    document.getElementById(ctx==='recall'?'rl-mic-hint':'cj-mic-hint').textContent='Говори сейчас...';
+    document.getElementById(ctx==='recall'?'rl-mh':'cj-mh').textContent='Говори сейчас...';
   };
-  recognition.onresult=e=>handleMic(e.results[0][0].transcript,ctx);
-  recognition.onerror=e=>{stopMic();document.getElementById(ctx==='recall'?'rl-mic-hint':'cj-mic-hint').textContent='Ошибка: '+e.error;};
-  recognition.onend=()=>stopMic();
-  recognition.start();
-}
-function stopMic(){
-  micActive=false;if(recognition){try{recognition.stop();}catch(e){}recognition=null;}
-  const rb=document.getElementById('rl-mic-btn');if(rb){rb.classList.remove('recording');rb.querySelector('span').textContent='Говорить';}
-  const cb=document.getElementById('cj-mid-btn');if(cb&&cjDir==='ru2es'){cb.classList.remove('recording');cb.querySelector('span').textContent='Говорить';}
-}
-function handleMic(transcript,ctx){
-  let target,boxId,hintId,inpId;
-  if(ctx==='recall'){target=rlQueue[rlIdx]?.es||'';boxId='rl-mic-box';hintId='rl-mic-hint';inpId='rl-inp';document.getElementById('rl-reveal').style.opacity='1';}
-  else{target=document.getElementById('cj-card').dataset.es||'';boxId='cj-mic-box';hintId='cj-mic-hint';inpId='cj-inp';cjReveal();}
-  if(inpId)document.getElementById(inpId).value=transcript;
-  const ok=normalize(transcript)===normalize(target);
-  const box=document.getElementById(boxId);box.style.display='block';
-  if(ok){box.className='mic-box ok';box.textContent='✓ «'+transcript+'» — верно!';document.getElementById(hintId).textContent='';setTimeout(()=>ctx==='recall'?rlResult('known'):cjResult('known'),900);}
-  else{box.className='mic-box err';box.textContent='✗ «'+transcript+'»';document.getElementById(hintId).textContent='Неверно или неточно распознано — реши сам';}
+  recog.onresult=e=>handleMic(e.results[0][0].transcript,ctx);
+  recog.onerror=e=>{stopMic();document.getElementById(ctx==='recall'?'rl-mh':'cj-mh').textContent='Ошибка: '+e.error;};
+  recog.onend=()=>stopMic();
+  recog.start();
 }
 
-// ── СПИСОК СЛОВ ──
-function sortBy(t){currentSort=t;['alpha','score','added'].forEach(s=>document.getElementById('srt-'+s).classList.toggle('active',s===t));renderList();}
+function stopMic(){
+  micOn=false;if(recog){try{recog.stop();}catch(e){}recog=null;}
+  const rb=document.getElementById('rl-mic');if(rb){rb.classList.remove('rec');rb.querySelector('span').textContent='Говорить';}
+  const cb=document.getElementById('cj-mid');if(cb&&cjDir==='ru2es'){cb.classList.remove('rec');cb.querySelector('span').textContent='Говорить';}
+}
+
+function handleMic(transcript,ctx){
+  let target,boxId,hintId,inpId;
+  if(ctx==='recall'){target=rlQ[rlI]?.es||'';boxId='rl-mb';hintId='rl-mh';inpId='rl-inp';document.getElementById('rl-reveal').style.opacity='1';}
+  else{target=document.getElementById('cj-card').dataset.es||'';boxId='cj-mb';hintId='cj-mh';inpId='cj-inp';cjReveal();}
+  if(inpId)document.getElementById(inpId).value=transcript;
+  const ok=norm(transcript)===norm(target);
+  const box=document.getElementById(boxId);box.style.display='block';
+  if(ok){box.className='mb ok';box.textContent='✓ «'+transcript+'» — верно!';document.getElementById(hintId).textContent='';setTimeout(()=>ctx==='recall'?rlResult('known'):cjResult('known'),900);}
+  else{box.className='mb err';box.textContent='✗ «'+transcript+'»';document.getElementById(hintId).textContent='Неверно или неточно — реши сам';}
+}
+
+// СПИСОК СЛОВ
+function sortBy(t){csort=t;['alpha','score','added'].forEach(s=>document.getElementById('srt-'+s).classList.toggle('active',s===t));renderList();}
+
 function renderList(){
-  const el=document.getElementById('words-list');
-  if(!words.length){el.innerHTML='<div class="empty-state"><i class="ico">📚</i>Слов пока нет.<br>Добавь первое слово!</div>';return;}
+  const el=document.getElementById('wlist');
+  if(!words.length){el.innerHTML='<div class="empty"><i class="ico">📚</i>Слов пока нет</div>';return;}
   let sorted=[...words];
-  if(currentSort==='alpha')sorted.sort((a,b)=>a.ru.localeCompare(b.ru,'ru'));
-  if(currentSort==='score')sorted.sort((a,b)=>(b.srsLevel||0)-(a.srsLevel||0));
-  if(currentSort==='added')sorted.sort((a,b)=>b.added-a.added);
+  if(csort==='alpha')sorted.sort((a,b)=>a.ru.localeCompare(b.ru,'ru'));
+  if(csort==='score')sorted.sort((a,b)=>((b.srsT||0)+(b.srsA||0)+(b.srsR||0))-((a.srsT||0)+(a.srsA||0)+(a.srsR||0)));
+  if(csort==='added')sorted.sort((a,b)=>b.added-a.added);
+  const ll=['новое','12ч','24ч','5дн','30дн','✓'];
   el.innerHTML='<div class="card" style="padding:0 16px">'+sorted.map(w=>{
-    const lvl=w.srsLevel||0, lvlR=w.srsLevelR||0;
-    const lvlLabel=['новое','12ч','24ч','120ч','720ч','освоено'];
-    return`<div class="word-row"><div style="flex:1;min-width:0">
+    const lt=w.srsT||0,la=w.srsA||0,lr=w.srsR||0;
+    return`<div class="wrow"><div style="flex:1;min-width:0">
       <div style="font-size:15px">${w.ru}${posTag(w.pos)}</div>
       <div style="font-size:14px;color:var(--text2);margin-top:2px">${w.es}</div>
-      <div style="display:flex;gap:14px;margin-top:3px">
-        <span style="font-size:11px;color:var(--text3)">Узн.: <b style="color:var(--${lvl>=5?'success':'info'})">${lvlLabel[lvl]||lvl}</b></span>
-        <span style="font-size:11px;color:var(--text3)">Прип.: <b style="color:var(--${lvlR>=5?'success':'info'})">${lvlLabel[lvlR]||lvlR}</b></span>
+      <div style="display:flex;gap:10px;margin-top:3px;flex-wrap:wrap">
+        <span style="font-size:11px;color:var(--text3)">Текст:<b style="color:var(--${lt>=5?'success':'info'})">${ll[lt]||lt}</b></span>
+        <span style="font-size:11px;color:var(--text3)">Аудио:<b style="color:var(--${la>=5?'success':'info'})">${ll[la]||la}</b></span>
+        <span style="font-size:11px;color:var(--text3)">Прип.:<b style="color:var(--${lr>=5?'success':'info'})">${ll[lr]||lr}</b></span>
       </div>
     </div></div>`;
   }).join('')+'</div>';
 }
 
-// ── СВАЙПЫ ──
-function setupSwipe(areaId,cardId,onLeft,onRight){
-  let sx=0,sy=0,drag=false;
-  const area=document.getElementById(areaId);
-  area.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;drag=true;},{passive:true});
-  area.addEventListener('touchmove',e=>{
-    if(!drag)return;const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
+// СВАЙПЫ
+function setupSwipe(aId,cId,onL,onR){
+  let sx=0,sy=0,dr=false;
+  const a=document.getElementById(aId);
+  a.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;dr=true;},{passive:true});
+  a.addEventListener('touchmove',e=>{
+    if(!dr)return;const dx=e.touches[0].clientX-sx,dy=e.touches[0].clientY-sy;
     if(Math.abs(dy)>Math.abs(dx)+10)return;
-    const card=document.getElementById(cardId);
-    card.style.transform=`translateX(${dx}px) rotate(${dx*0.07}deg)`;
-    card.className='swipe-card'+(dx>30?' tilt-r':dx<-30?' tilt-l':'');
+    const c=document.getElementById(cId);
+    c.style.transform=`translateX(${dx}px) rotate(${dx*.07}deg)`;
+    c.className='sc-card'+(dx>30?' tr':dx<-30?' tl':'');
   },{passive:true});
-  area.addEventListener('touchend',e=>{
-    if(!drag)return;drag=false;const dx=e.changedTouches[0].clientX-sx;
-    const card=document.getElementById(cardId);
-    if(dx>70){card.style.transform='translateX(500px) rotate(20deg)';onRight();}
-    else if(dx<-70){card.style.transform='translateX(-500px) rotate(-20deg)';onLeft();}
-    else{card.style.transform='';card.className='swipe-card';}
+  a.addEventListener('touchend',e=>{
+    if(!dr)return;dr=false;const dx=e.changedTouches[0].clientX-sx;
+    const c=document.getElementById(cId);
+    if(dx>70){c.style.transform='translateX(500px) rotate(20deg)';onR();}
+    else if(dx<-70){c.style.transform='translateX(-500px) rotate(-20deg)';onL();}
+    else{c.style.transform='';c.className='sc-card';}
   });
 }
 setupSwipe('rg-area','rg-card',()=>rgResult('forgot'),()=>rgResult('known'));
 setupSwipe('rl-area','rl-card',()=>rlResult('forgot'),()=>rlResult('known'));
 setupSwipe('cj-area','cj-card',()=>cjResult('forgot'),()=>cjResult('known'));
-document.getElementById('rg-card').addEventListener('click',()=>{if(!rgRevealed)rgReveal();});
-document.getElementById('cj-card').addEventListener('click',()=>{if(!cjRevealed)cjReveal();});
+document.getElementById('rg-card').addEventListener('click',()=>{if(!rgRev)rgReveal();});
+document.getElementById('cj-card').addEventListener('click',()=>{if(!cjRev)cjReveal();});
 
 loadDB();
 </script>
