@@ -1715,12 +1715,20 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781442831071,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781436483233,
+      "srsTA": 1781442831071,
       "srsTL5": [
+        "forgot",
         "forgot"
       ],
       "srsTLR": "forgot",
@@ -4595,28 +4603,6 @@
       "phraseL3": 0
     },
     {
-      "ru": "работа, работать",
-      "es": "trabajo, trabajar",
-      "pos": "существительное/глагол",
-      "added": 1781392842729,
-      "history": [],
-      "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
-      "phraseL2": 0,
-      "phraseL3": 0
-    },
-    {
       "ru": "люди",
       "es": "gente",
       "pos": "существительное",
@@ -5855,12 +5841,22 @@
       "es": "menos",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442834272,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781486034272,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
