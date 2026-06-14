@@ -3227,6 +3227,13 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781442660246,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
@@ -3236,10 +3243,12 @@
         "known"
       ],
       "srsTLR": "known",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485860246,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -4046,16 +4055,26 @@
       "es": "padre",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442599160,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485799160,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -4698,16 +4717,26 @@
       "es": "hora",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442639155,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485839155,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -4774,16 +4803,26 @@
       "es": "dinero",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442606494,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485806494,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -4840,16 +4879,26 @@
       "es": "mujer",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442623653,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485823653,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -4901,6 +4950,13 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781442616706,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
@@ -4910,10 +4966,12 @@
         "known"
       ],
       "srsTLR": "known",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485816706,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -5039,6 +5097,13 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781442648790,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
@@ -5048,10 +5113,12 @@
         "known"
       ],
       "srsTLR": "known",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsA": 1,
+      "srsAA": 1781485848791,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -5198,16 +5265,26 @@
       "es": "fuera",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442668699,
+          "result": "forgot",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
       "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsAA": 1781442668699,
+      "srsAL5": [
+        "forgot"
+      ],
+      "srsALR": "forgot",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
@@ -6496,16 +6573,26 @@
       "es": "aún",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781442592921,
+          "result": "forgot",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
       "srsTLR": null,
       "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
+      "srsAA": 1781442592922,
+      "srsAL5": [
+        "forgot"
+      ],
+      "srsALR": "forgot",
       "srsR": 0,
       "srsRA": 1781392842729,
       "srsRL5": [],
