@@ -6885,6 +6885,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "работать",
+      "es": "trabajar",
+      "pos": "глагол",
+      "added": 1781442889857,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781442889857,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781442889857,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781442889857,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo trabajo",
+            "ru": "я работаю"
+          },
+          "vos": {
+            "es": "vos trabajás",
+            "ru": "ты работаешь"
+          },
+          "él/ella": {
+            "es": "él/ella trabaja",
+            "ru": "он/она работает"
+          },
+          "nosotros": {
+            "es": "nosotros trabajamos",
+            "ru": "мы работаем"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas trabajan",
+            "ru": "они работают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
