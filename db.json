@@ -6863,6 +6863,28 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "работа",
+      "es": "trabajo",
+      "pos": "существительное",
+      "added": 1781442876969,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781442876969,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781442876969,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781442876969,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
