@@ -5,8 +5,22 @@
       "es": "filósofo",
       "pos": "существительное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436994758,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781480194758,
+      "srsT": 1
     },
     {
       "ru": "инженер",
@@ -29,8 +43,35 @@
       "es": "cartero",
       "pos": "существительное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436930261,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        },
+        {
+          "ts": 1781437072582,
+          "result": "known",
+          "mode": "audio",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781480130261,
+      "srsT": 1,
+      "srsAL5": [
+        "known"
+      ],
+      "srsALR": "known",
+      "srsAA": 1781480272582,
+      "srsA": 1
     },
     {
       "ru": "учёный",
@@ -81,8 +122,22 @@
       "es": "economista",
       "pos": "существительное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436836290,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781480036290,
+      "srsT": 1
     },
     {
       "ru": "администратор",
@@ -96,15 +151,23 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781437011808,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsTL5": [
-        "forgot"
+        "forgot",
+        "known"
       ],
-      "srsTLR": "forgot",
-      "srsTA": 1781388974173,
-      "srsT": 0
+      "srsTLR": "known",
+      "srsTA": 1781480211808,
+      "srsT": 1
     },
     {
       "ru": "политик",
@@ -239,8 +302,22 @@
       "es": "Quien sos",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436685714,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781436685714,
+      "srsT": 0
     },
     {
       "ru": "красивый",
@@ -276,15 +353,23 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781436772689,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsTL5": [
-        "forgot"
+        "forgot",
+        "known"
       ],
-      "srsTLR": "forgot",
-      "srsTA": 1781388973829,
-      "srsT": 0
+      "srsTLR": "known",
+      "srsTA": 1781479972689,
+      "srsT": 1
     },
     {
       "ru": "большой",
@@ -339,8 +424,22 @@
       "es": "rico",
       "pos": "прилагательное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436621245,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781479821245,
+      "srsT": 1
     },
     {
       "ru": "хороший",
@@ -363,24 +462,66 @@
       "es": "a favor",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781437016818,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781480216819,
+      "srsT": 1
     },
     {
       "ru": "против",
       "es": "contra",
       "pos": "предлог",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436947172,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781480147172,
+      "srsT": 1
     },
     {
       "ru": "о чём",
       "es": "sobre qué",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436959088,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781436959088,
+      "srsT": 0
     },
     {
       "ru": "что ты думаешь",
@@ -395,8 +536,22 @@
       "es": "de donde es",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436780634,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781479980634,
+      "srsT": 1
     },
     {
       "ru": "Откуда ты (откуда вы родом)",
@@ -485,16 +640,44 @@
       "es": "de qué es",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436631118,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781436631118,
+      "srsT": 0
     },
     {
       "ru": "хорошая",
       "es": "buena",
       "pos": "прилагательное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436691962,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781479891962,
+      "srsT": 1
     },
     {
       "ru": "плохая",
@@ -577,16 +760,44 @@
       "es": "aburrida",
       "pos": "прилагательное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436976661,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781436976661,
+      "srsT": 0
     },
     {
       "ru": "интересная",
       "es": "interesante",
       "pos": "прилагательное",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436669130,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781479869130,
+      "srsT": 1
     },
     {
       "ru": "сложная",
@@ -645,8 +856,22 @@
       "es": "mal pagada",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781436711316,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
+      "srsTA": 1781479911316,
+      "srsT": 1
     },
     {
       "ru": "что",
@@ -903,12 +1128,22 @@
       "es": "en",
       "pos": "предлог",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436748452,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479948452,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -925,12 +1160,22 @@
       "es": "por",
       "pos": "предлог",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436794046,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479994046,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1185,12 +1430,22 @@
       "es": "mi",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781437020881,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480220881,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1239,12 +1494,22 @@
       "es": "para",
       "pos": "предлог",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436653737,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479853737,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1315,12 +1580,22 @@
       "es": "decir",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436615945,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436615945,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1341,12 +1616,22 @@
       "es": "todo",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436950975,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480150975,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1363,12 +1648,22 @@
       "es": "querer",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436834083,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480034083,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1479,12 +1774,22 @@
       "es": "pero",
       "pos": "союз",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436689325,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479889325,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1501,12 +1806,22 @@
       "es": "tu",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436765933,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436765933,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1523,12 +1838,22 @@
       "es": "yo",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436694256,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479894256,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1589,12 +1914,22 @@
       "es": "del",
       "pos": "предлог",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436944655,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436944655,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1665,12 +2000,22 @@
       "es": "ver",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436756020,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436756020,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1691,12 +2036,22 @@
       "es": "le",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436882468,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436882468,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -1882,15 +2237,23 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781436967285,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781393820700,
+      "srsT": 1,
+      "srsTA": 1781480167285,
       "srsTL5": [
-        "forgot"
+        "forgot",
+        "known"
       ],
-      "srsTLR": "forgot",
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2104,12 +2467,20 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781437004624,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781393884443,
+      "srsTA": 1781437004624,
       "srsTL5": [
+        "forgot",
         "forgot"
       ],
       "srsTLR": "forgot",
@@ -2168,12 +2539,20 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781436871279,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781393794439,
+      "srsTA": 1781436871279,
       "srsTL5": [
+        "forgot",
         "forgot"
       ],
       "srsTLR": "forgot",
@@ -2399,12 +2778,22 @@
       "es": "gracias",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436884317,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480084317,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2475,12 +2864,22 @@
       "es": "ser ir",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436649915,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436649915,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2563,12 +2962,22 @@
       "es": "tanto",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436665767,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436665767,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2617,12 +3026,22 @@
       "es": "cosa / coser",
       "pos": "существительное / глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436825764,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436825764,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2639,12 +3058,22 @@
       "es": "ella",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436962107,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480162107,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2683,12 +3112,22 @@
       "es": "nuestro",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436927096,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436927096,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2757,12 +3196,22 @@
       "es": "hola",
       "pos": "другое",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436656197,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479856197,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3093,12 +3542,22 @@
       "es": "verdad",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436993154,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480193154,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3389,12 +3848,22 @@
       "es": "dejar",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436810254,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436810254,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3621,12 +4090,22 @@
       "es": "siempre",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436922548,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436922548,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3697,12 +4176,22 @@
       "es": "antes",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436738988,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436738988,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3881,12 +4370,22 @@
       "es": "parecer",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781437001129,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781437001129,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4075,12 +4574,22 @@
       "es": "ellos",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781437009450,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781437009450,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4119,12 +4628,22 @@
       "es": "problema",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436997242,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480197242,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4251,12 +4770,22 @@
       "es": "claro",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436853515,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480053515,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4273,12 +4802,22 @@
       "es": "lugar",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436902725,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480102725,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4343,12 +4882,22 @@
       "es": "espera",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436850682,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781480050682,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4422,7 +4971,13 @@
           "cat": "recog"
         }
       ],
-      "historyRecall": [],
+      "historyRecall": [
+        {
+          "ts": 1781437131278,
+          "result": "known",
+          "cat": "recall"
+        }
+      ],
       "srsT": 1,
       "srsTA": 1781436909250,
       "srsTL5": [
@@ -4433,10 +4988,12 @@
       "srsAA": 1781392842729,
       "srsAL5": [],
       "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
+      "srsR": 1,
+      "srsRA": 1781480331278,
+      "srsRL5": [
+        "known"
+      ],
+      "srsRLR": "known",
       "phraseL2": 0,
       "phraseL3": 0
     },
@@ -4445,12 +5002,22 @@
       "es": "desde",
       "pos": "предлог",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436987141,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436987141,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4493,12 +5060,22 @@
       "es": "ser",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436703821,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479903821,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4590,7 +5167,13 @@
       "pos": "глагол",
       "added": 1781392842729,
       "history": [],
-      "historyRecall": [],
+      "historyRecall": [
+        {
+          "ts": 1781437098023,
+          "result": "forgot",
+          "cat": "recall"
+        }
+      ],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
@@ -4600,9 +5183,11 @@
       "srsAL5": [],
       "srsALR": null,
       "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
+      "srsRA": 1781437098023,
+      "srsRL5": [
+        "forgot"
+      ],
+      "srsRLR": "forgot",
       "conjugations": {
         "presente": {}
       },
@@ -4685,12 +5270,22 @@
       "es": "estar",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436790832,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436790832,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4769,12 +5364,22 @@
       "es": "acuerdo",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436719181,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436719181,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4887,12 +5492,22 @@
       "es": "nombre",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436674059,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479874059,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -4935,12 +5550,22 @@
       "es": "tres",
       "pos": "другое",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436671687,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781479871687,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -5023,12 +5648,22 @@
       "es": "conmigo",
       "pos": "местоимение",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781436891729,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsTA": 1781436891729,
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -5068,7 +5703,13 @@
       "pos": "наречие",
       "added": 1781392842729,
       "history": [],
-      "historyRecall": [],
+      "historyRecall": [
+        {
+          "ts": 1781437104391,
+          "result": "forgot",
+          "cat": "recall"
+        }
+      ],
       "srsT": 0,
       "srsTA": 1781392842729,
       "srsTL5": [],
@@ -5078,9 +5719,11 @@
       "srsAL5": [],
       "srsALR": null,
       "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
+      "srsRA": 1781437104391,
+      "srsRL5": [
+        "forgot"
+      ],
+      "srsRLR": "forgot",
       "phraseL2": 0,
       "phraseL3": 0
     },
@@ -5707,20 +6350,38 @@
       "es": "semana",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
-      "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "history": [
+        {
+          "ts": 1781436875236,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [
+        {
+          "ts": 1781437121179,
+          "result": "known",
+          "cat": "recall"
+        }
+      ],
+      "srsT": 1,
+      "srsTA": 1781480075237,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
       "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
+      "srsR": 1,
+      "srsRA": 1781480321179,
+      "srsRL5": [
+        "known"
+      ],
+      "srsRLR": "known",
       "phraseL2": 0,
       "phraseL3": 0
     },
