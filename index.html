@@ -61,7 +61,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .fh{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;border-radius:var(--r);padding:7px 16px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;white-space:nowrap;font-weight:600;}
 .fk{background:var(--success-bg);color:var(--success);}
 .ff{background:var(--danger-bg);color:var(--danger);}
-.scard{position:absolute;inset:0;background:var(--bg);border-radius:var(--rl);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;will-change:transform;padding:20px;border:.5px solid var(--border);transition:border-color .15s;}
+.scard{position:absolute;inset:0;background:var(--bg);border-radius:var(--rl);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;will-change:transform;padding:20px 20px 20px 20px;border:.5px solid var(--border);transition:border-color .15s;overflow:visible;}
 .scard.tr{border-color:var(--success);}.scard.tl{border-color:var(--danger);}
 .cw{font-size:26px;font-weight:700;text-align:center;line-height:1.3;}
 .cb{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--text2);}
@@ -123,6 +123,14 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
 .lvl-tab{flex:1;padding:8px 4px;font-size:12px;border:.5px solid var(--border);border-radius:var(--r);background:none;color:var(--text2);cursor:pointer;font-family:inherit;text-align:center;line-height:1.3;}
 .lvl-tab.active{border-color:var(--info);background:var(--info-bg);color:var(--info);font-weight:600;}
 .lvl-tab:disabled{opacity:.35;cursor:default;}
+.card-menu-wrap{position:absolute;top:8px;right:8px;z-index:20;}
+.card-menu-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:18px;padding:4px 6px;line-height:1;border-radius:4px;}
+.card-menu-btn:active{background:var(--bg2);}
+.card-menu-dropdown{position:absolute;top:100%;right:0;background:var(--bg);border:.5px solid var(--border2);border-radius:var(--r);box-shadow:0 4px 12px rgba(0,0,0,.15);min-width:140px;display:none;z-index:30;}
+.card-menu-dropdown.open{display:block;}
+.card-menu-item{display:block;width:100%;padding:10px 14px;font-size:14px;font-family:inherit;background:none;border:none;cursor:pointer;text-align:left;color:var(--text);}
+.card-menu-item.danger{color:var(--danger);}
+.card-menu-item:active{background:var(--bg2);}
 .del-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:4px 6px;border-radius:4px;white-space:nowrap;}
 .del-btn:hover{color:var(--danger);}
 .del-confirm{display:flex;gap:6px;align-items:center;margin-top:4px;}
@@ -139,7 +147,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
   <div class="topbar">
     <h1>Gentlingo</h1>
     <span id="wcnt" style="font-size:13px;color:var(--text2)">…</span>
-    <span style="font-size:11px;color:var(--text3);margin-left:4px">v13</span>
+    <span style="font-size:11px;color:var(--text3);margin-left:4px">v14</span>
   </div>
   <div class="sc">
     <div id="dbl" style="text-align:center;padding:40px 0;color:var(--text2)"><span class="sp"></span>Загрузка...</div>
@@ -190,6 +198,12 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         <div class="fh fk" id="rg-fk">Знаю ✓</div>
         <div class="fh ff" id="rg-ff">Не помню</div>
         <div class="scard" id="rg-card">
+          <div class="card-menu-wrap">
+            <button class="card-menu-btn" onclick="toggleCardMenu('recog',event)" title="Меню">⋯</button>
+            <div class="card-menu-dropdown" id="card-menu-recog">
+              <button class="card-menu-item danger" onclick="deleteCurrentCard('recog')">🗑 Удалить слово</button>
+            </div>
+          </div>
           <span class="mbadge" id="rg-mbadge">текст</span>
           <span class="cw" id="rg-word">—</span>
           <span class="cb" id="rg-pos">—</span>
@@ -200,14 +214,6 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
             <div class="prog5-label" id="rg-prog5-label"></div>
           </div>
         </div>
-      </div>
-      <div style="text-align:right;margin-bottom:4px">
-        <button class="del-btn" onclick="deleteCurrentCard('recog')" title="Удалить слово">🗑 удалить слово</button>
-      </div>
-      <div class="del-confirm" id="del-confirm-session-recog" style="display:none;margin-bottom:8px">
-        <span style="font-size:12px;color:var(--text2)" id="del-lbl-recog">Удалить?</span>
-        <button class="del-yes" onclick="confirmDeleteSession('recog')">Да</button>
-        <button class="del-no" onclick="cancelDeleteSession('recog')">Нет</button>
       </div>
       <div class="arow">
         <button class="ab ab-f" onclick="rgResult('forgot')"><i class="ic">✕</i><span>Не помню</span></button>
@@ -245,6 +251,12 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
         <div class="fh fk" id="rl-fk">Знаю ✓</div>
         <div class="fh ff" id="rl-ff">Не помню</div>
         <div class="scard" id="rl-card">
+          <div class="card-menu-wrap">
+            <button class="card-menu-btn" onclick="toggleCardMenu('recall',event)" title="Меню">⋯</button>
+            <div class="card-menu-dropdown" id="card-menu-recall">
+              <button class="card-menu-item danger" onclick="deleteCurrentCard('recall')">🗑 Удалить слово</button>
+            </div>
+          </div>
           <span class="cw" id="rl-word">—</span>
           <span class="ch">назови или напиши перевод</span>
           <span class="cr" id="rl-reveal" style="opacity:0">—</span>
@@ -253,14 +265,6 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
             <div class="prog5-label" id="rl-prog5-label"></div>
           </div>
         </div>
-      </div>
-      <div style="text-align:right;margin-bottom:4px">
-        <button class="del-btn" onclick="deleteCurrentCard('recall')" title="Удалить слово">🗑 удалить слово</button>
-      </div>
-      <div class="del-confirm" id="del-confirm-session-recall" style="display:none;margin-bottom:8px">
-        <span style="font-size:12px;color:var(--text2)" id="del-lbl-recall">Удалить?</span>
-        <button class="del-yes" onclick="confirmDeleteSession('recall')">Да</button>
-        <button class="del-no" onclick="cancelDeleteSession('recall')">Нет</button>
       </div>
       <div class="mb" id="rl-mb"></div>
       <p class="mh" id="rl-mh"></p>
@@ -391,7 +395,7 @@ textarea{resize:none;min-height:120px;line-height:1.5;}
     <div style="height:12px"></div>
     <div class="card">
       <p class="slbl">О приложении</p>
-      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v13 — личное приложение для изучения испанского. База хранится на GitHub.</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Gentlingo v14 — личное приложение для изучения испанского. База хранится на GitHub.</p>
     </div>
   </div>
 </div>
@@ -518,18 +522,40 @@ function showProg5Conj(w,pro,tense){
 
 
 
+function toggleCardMenu(mode, e){
+  e.stopPropagation();
+  const menu=document.getElementById('card-menu-'+mode);
+  const isOpen=menu.classList.contains('open');
+  // close all menus
+  document.querySelectorAll('.card-menu-dropdown').forEach(m=>m.classList.remove('open'));
+  if(!isOpen)menu.classList.add('open');
+}
+
+// Close menus on tap outside
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.card-menu-dropdown').forEach(m=>m.classList.remove('open'));
+});
+
 function deleteCurrentCard(mode){
   const w=mode==='recog'?rgQ[rgI]:rlQ[rlI];
   if(!w)return;
-  const lbl=document.getElementById('del-lbl-'+mode);
-  if(lbl)lbl.textContent='Удалить «'+w.ru+'»?';
-  const el=document.getElementById('del-confirm-session-'+mode);
-  if(el)el.style.display='flex';
+  // Replace menu content with confirm
+  const menu=document.getElementById('card-menu-'+mode);
+  menu.innerHTML=`<div style="padding:10px 14px;font-size:13px;color:var(--text2)">Удалить «${w.ru}»?</div>
+    <div style="display:flex;gap:6px;padding:0 10px 10px">
+      <button class="del-yes" style="flex:1" onclick="confirmDeleteSession('${mode}')">Да</button>
+      <button class="del-no" style="flex:1" onclick="cancelDeleteSession('${mode}')">Нет</button>
+    </div>`;
 }
+
 function cancelDeleteSession(mode){
-  const el=document.getElementById('del-confirm-session-'+mode);
-  if(el)el.style.display='none';
+  const menu=document.getElementById('card-menu-'+mode);
+  if(menu){
+    menu.classList.remove('open');
+    menu.innerHTML=`<button class="card-menu-item danger" onclick="deleteCurrentCard('${mode}')">🗑 Удалить слово</button>`;
+  }
 }
+
 async function confirmDeleteSession(mode){
   const w=mode==='recog'?rgQ[rgI]:rlQ[rlI];
   if(!w)return;
@@ -976,7 +1002,14 @@ function rgReveal(){
   document.getElementById('rg-word').style.opacity='1';
   document.getElementById('rg-hint').textContent='';
 }
-function rgSpeak(){if(rgI>=rgQ.length)return;const u=new SpeechSynthesisUtterance(rgQ[rgI].es);u.lang='es-AR';speechSynthesis.cancel();speechSynthesis.speak(u);rgReveal();}
+function rgSpeak(){
+  if(rgI>=rgQ.length)return;
+  const u=new SpeechSynthesisUtterance(rgQ[rgI].es);
+  u.lang='es-AR';speechSynthesis.cancel();speechSynthesis.speak(u);
+  // In audio mode: only speak, don't reveal yet - user taps to see
+  // In text mode (manual speak button): reveal
+  if(rgMode!=='audio')rgReveal();
+}
 
 async function rgResult(result){
   if(rgI>=rgQ.length)return;
@@ -1545,18 +1578,40 @@ function showProg5Conj(w,pro,tense){
 
 
 
+function toggleCardMenu(mode, e){
+  e.stopPropagation();
+  const menu=document.getElementById('card-menu-'+mode);
+  const isOpen=menu.classList.contains('open');
+  // close all menus
+  document.querySelectorAll('.card-menu-dropdown').forEach(m=>m.classList.remove('open'));
+  if(!isOpen)menu.classList.add('open');
+}
+
+// Close menus on tap outside
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.card-menu-dropdown').forEach(m=>m.classList.remove('open'));
+});
+
 function deleteCurrentCard(mode){
   const w=mode==='recog'?rgQ[rgI]:rlQ[rlI];
   if(!w)return;
-  const lbl=document.getElementById('del-lbl-'+mode);
-  if(lbl)lbl.textContent='Удалить «'+w.ru+'»?';
-  const el=document.getElementById('del-confirm-session-'+mode);
-  if(el)el.style.display='flex';
+  // Replace menu content with confirm
+  const menu=document.getElementById('card-menu-'+mode);
+  menu.innerHTML=`<div style="padding:10px 14px;font-size:13px;color:var(--text2)">Удалить «${w.ru}»?</div>
+    <div style="display:flex;gap:6px;padding:0 10px 10px">
+      <button class="del-yes" style="flex:1" onclick="confirmDeleteSession('${mode}')">Да</button>
+      <button class="del-no" style="flex:1" onclick="cancelDeleteSession('${mode}')">Нет</button>
+    </div>`;
 }
+
 function cancelDeleteSession(mode){
-  const el=document.getElementById('del-confirm-session-'+mode);
-  if(el)el.style.display='none';
+  const menu=document.getElementById('card-menu-'+mode);
+  if(menu){
+    menu.classList.remove('open');
+    menu.innerHTML=`<button class="card-menu-item danger" onclick="deleteCurrentCard('${mode}')">🗑 Удалить слово</button>`;
+  }
 }
+
 async function confirmDeleteSession(mode){
   const w=mode==='recog'?rgQ[rgI]:rlQ[rlI];
   if(!w)return;
