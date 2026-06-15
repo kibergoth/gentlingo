@@ -7355,6 +7355,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "учить / изучать",
+      "es": "estudiar",
+      "pos": "глагол",
+      "added": 1781547379340,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781547379340,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781547379340,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781547379340,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo estudio",
+            "ru": "я учу / я занимаюсь"
+          },
+          "vos": {
+            "es": "vos estudiás",
+            "ru": "ты учишь / ты занимаешься"
+          },
+          "él/ella": {
+            "es": "él/ella estudia",
+            "ru": "он/она учит / занимается"
+          },
+          "nosotros": {
+            "es": "nosotros estudiamos",
+            "ru": "мы учим / мы занимаемся"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas estudian",
+            "ru": "они учат / они занимаются"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
