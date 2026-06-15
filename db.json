@@ -7239,6 +7239,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "проверять / пересматривать",
+      "es": "revisar",
+      "pos": "глагол",
+      "added": 1781546813357,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781546813357,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781546813357,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781546813357,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "reviso",
+            "ru": "я проверяю"
+          },
+          "vos": {
+            "es": "revisás",
+            "ru": "ты проверяешь"
+          },
+          "él/ella": {
+            "es": "revisa",
+            "ru": "он/она проверяет"
+          },
+          "nosotros": {
+            "es": "revisamos",
+            "ru": "мы проверяем"
+          },
+          "ellos/ellas": {
+            "es": "revisan",
+            "ru": "они проверяют"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
