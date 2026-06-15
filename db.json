@@ -8471,6 +8471,28 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "вещь",
+      "es": "cosa",
+      "pos": "существительное",
+      "added": 1781554288797,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781554288797,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781554288797,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781554288797,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
