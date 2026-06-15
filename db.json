@@ -7775,6 +7775,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "ложиться спать",
+      "es": "acostarse",
+      "pos": "глагол",
+      "added": 1781549558701,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549558701,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549558701,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549558701,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo me acuesto",
+            "ru": "я ложусь спать"
+          },
+          "vos": {
+            "es": "vos te acostás",
+            "ru": "ты ложишься спать"
+          },
+          "él/ella": {
+            "es": "él/ella se acuesta",
+            "ru": "он/она ложится спать"
+          },
+          "nosotros": {
+            "es": "nosotros nos acostamos",
+            "ru": "мы ложимся спать"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas se acuestan",
+            "ru": "они ложатся спать"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
