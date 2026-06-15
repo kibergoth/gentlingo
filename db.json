@@ -670,8 +670,22 @@
       "es": "qué pensás",
       "pos": "фраза",
       "added": 1781302297280,
-      "history": [],
-      "historyRecall": []
+      "history": [
+        {
+          "ts": 1781554255097,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
+      "historyRecall": [],
+      "srsTL5": [
+        "forgot"
+      ],
+      "srsTLR": "forgot",
+      "srsTA": 1781554255097,
+      "srsT": 0
     },
     {
       "ru": "откуда он/она",
@@ -966,16 +980,24 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781554223754,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsTL5": [
         "forgot",
-        "forgot"
+        "forgot",
+        "known"
       ],
-      "srsTLR": "forgot",
-      "srsTA": 1781484664604,
-      "srsT": 0
+      "srsTLR": "known",
+      "srsTA": 1781597423754,
+      "srsT": 1
     },
     {
       "ru": "интересная",
@@ -1436,12 +1458,22 @@
       "es": "tener",
       "pos": "глагол",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781554230191,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781597430191,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -2166,12 +2198,22 @@
       "es": "aquí",
       "pos": "наречие",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781554263771,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781597463772,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3364,38 +3406,6 @@
       "phraseL3": 0
     },
     {
-      "ru": "вещь / шить",
-      "es": "cosa / coser",
-      "pos": "существительное / глагол",
-      "added": 1781392842729,
-      "history": [
-        {
-          "ts": 1781436825764,
-          "result": "forgot",
-          "mode": "text",
-          "bySound": false,
-          "cat": "recog"
-        }
-      ],
-      "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781436825764,
-      "srsTL5": [
-        "forgot"
-      ],
-      "srsTLR": "forgot",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
-      "phraseL2": 0,
-      "phraseL3": 0
-    },
-    {
       "ru": "она",
       "es": "ella",
       "pos": "местоимение",
@@ -3471,15 +3481,23 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781554233406,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781436927096,
+      "srsT": 1,
+      "srsTA": 1781597433406,
       "srsTL5": [
-        "forgot"
+        "forgot",
+        "known"
       ],
-      "srsTLR": "forgot",
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
