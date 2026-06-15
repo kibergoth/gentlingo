@@ -8281,6 +8281,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "идти / ехать",
+      "es": "ir",
+      "pos": "глагол",
+      "added": 1781553966940,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781553966940,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781553966940,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781553966940,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "voy",
+            "ru": "я иду / я езжу"
+          },
+          "vos": {
+            "es": "vas",
+            "ru": "ты идёшь / ты едешь"
+          },
+          "él/ella": {
+            "es": "va",
+            "ru": "он/она идёт / едет"
+          },
+          "nosotros": {
+            "es": "vamos",
+            "ru": "мы идём / едем"
+          },
+          "ellos/ellas": {
+            "es": "van",
+            "ru": "они идут / едут"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
