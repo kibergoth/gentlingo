@@ -8493,6 +8493,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "шить",
+      "es": "coser",
+      "pos": "глагол",
+      "added": 1781554298488,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781554298488,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781554298488,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781554298488,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "coso",
+            "ru": "я шью"
+          },
+          "vos": {
+            "es": "cosés",
+            "ru": "ты шьёшь"
+          },
+          "él/ella": {
+            "es": "cose",
+            "ru": "он/она шьёт"
+          },
+          "nosotros": {
+            "es": "cosemos",
+            "ru": "мы шьём"
+          },
+          "ellos/ellas": {
+            "es": "cosen",
+            "ru": "они шьют"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
