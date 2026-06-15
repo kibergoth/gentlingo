@@ -7938,6 +7938,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "выходить / уходить",
+      "es": "salir",
+      "pos": "глагол",
+      "added": 1781550020743,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781550020743,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781550020743,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781550020743,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo salgo",
+            "ru": "я выхожу"
+          },
+          "vos": {
+            "es": "vos salís",
+            "ru": "ты выходишь"
+          },
+          "él/ella": {
+            "es": "él/ella sale",
+            "ru": "он/она выходит"
+          },
+          "nosotros": {
+            "es": "nosotros salimos",
+            "ru": "мы выходим"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas salen",
+            "ru": "они выходят"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
