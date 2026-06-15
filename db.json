@@ -8900,6 +8900,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "сидеть / подходить / усаживать",
+      "es": "sentar",
+      "pos": "глагол",
+      "added": 1781555505739,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781555505739,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781555505739,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781555505739,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "siento",
+            "ru": "я сижу / я усаживаю"
+          },
+          "vos": {
+            "es": "sentás",
+            "ru": "ты сидишь / ты усаживаешь"
+          },
+          "él/ella": {
+            "es": "sienta",
+            "ru": "он/она сидит / усаживает"
+          },
+          "nosotros": {
+            "es": "sentamos",
+            "ru": "мы сидим / мы усаживаем"
+          },
+          "ellos/ellas": {
+            "es": "sientan",
+            "ru": "они сидят / они усаживают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
