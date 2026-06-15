@@ -7286,6 +7286,28 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "пересмотр / повторение / ревизия",
+      "es": "revisión",
+      "pos": "существительное",
+      "added": 1781546856055,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781546856055,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781546856055,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781546856055,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
