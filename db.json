@@ -8853,6 +8853,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "чувствовать",
+      "es": "sentir",
+      "pos": "глагол",
+      "added": 1781555492000,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781555492000,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781555492000,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781555492000,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "siento",
+            "ru": "я чувствую"
+          },
+          "vos": {
+            "es": "sentís",
+            "ru": "ты чувствуешь"
+          },
+          "él/ella": {
+            "es": "siente",
+            "ru": "он/она чувствует"
+          },
+          "nosotros": {
+            "es": "sentimos",
+            "ru": "мы чувствуем"
+          },
+          "ellos/ellas": {
+            "es": "sienten",
+            "ru": "они чувствуют"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
