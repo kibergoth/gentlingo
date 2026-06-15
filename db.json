@@ -1898,12 +1898,20 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781555414524,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781554082033,
+      "srsTA": 1781555414524,
       "srsTL5": [
+        "forgot",
         "forgot",
         "forgot"
       ],
@@ -2017,12 +2025,20 @@
           "mode": "text",
           "bySound": false,
           "cat": "recog"
+        },
+        {
+          "ts": 1781555403622,
+          "result": "forgot",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
         }
       ],
       "historyRecall": [],
       "srsT": 0,
-      "srsTA": 1781484718917,
+      "srsTA": 1781555403622,
       "srsTL5": [
+        "forgot",
         "forgot",
         "forgot",
         "forgot"
@@ -3236,42 +3252,6 @@
       "phraseL3": 0
     },
     {
-      "ru": "быть; идти",
-      "es": "ser ir",
-      "pos": "глагол",
-      "added": 1781392842729,
-      "history": [
-        {
-          "ts": 1781436649915,
-          "result": "forgot",
-          "mode": "text",
-          "bySound": false,
-          "cat": "recog"
-        }
-      ],
-      "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781436649915,
-      "srsTL5": [
-        "forgot"
-      ],
-      "srsTLR": "forgot",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
-      "conjugations": {
-        "presente": {}
-      },
-      "conjSRS": {},
-      "phraseL2": 0,
-      "phraseL3": 0
-    },
-    {
       "ru": "давать",
       "es": "dar",
       "pos": "глагол",
@@ -4311,12 +4291,22 @@
       "es": "amigo",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781555407422,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781598607422,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
