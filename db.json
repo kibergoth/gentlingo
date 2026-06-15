@@ -7706,6 +7706,28 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "иногда",
+      "es": "a veces",
+      "pos": "наречие",
+      "added": 1781549391992,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549391992,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549391992,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549391992,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
