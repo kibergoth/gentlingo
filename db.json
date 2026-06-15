@@ -8032,6 +8032,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "одеваться",
+      "es": "vestirse",
+      "pos": "глагол",
+      "added": 1781550059445,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781550059445,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781550059445,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781550059445,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "me visto",
+            "ru": "я одеваюсь"
+          },
+          "vos": {
+            "es": "te vestís",
+            "ru": "ты одеваешься"
+          },
+          "él/ella": {
+            "es": "se viste",
+            "ru": "он/она одевается"
+          },
+          "nosotros": {
+            "es": "nos vestimos",
+            "ru": "мы одеваемся"
+          },
+          "ellos/ellas": {
+            "es": "se visten",
+            "ru": "они одеваются"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
