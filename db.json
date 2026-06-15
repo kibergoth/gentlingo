@@ -8328,6 +8328,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "быть (являться)",
+      "es": "ser",
+      "pos": "глагол",
+      "added": 1781553982941,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781553982941,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781553982941,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781553982941,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo soy",
+            "ru": "я есть / я являюсь"
+          },
+          "vos": {
+            "es": "vos sos",
+            "ru": "ты есть / ты являешься"
+          },
+          "él/ella": {
+            "es": "él/ella es",
+            "ru": "он/она есть / он/она является"
+          },
+          "nosotros": {
+            "es": "nosotros somos",
+            "ru": "мы есть / мы являемся"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas son",
+            "ru": "они есть / они являются"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
