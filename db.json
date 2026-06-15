@@ -7449,6 +7449,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "читать",
+      "es": "leer",
+      "pos": "глагол",
+      "added": 1781547630113,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781547630113,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781547630113,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781547630113,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo leo",
+            "ru": "я читаю"
+          },
+          "vos": {
+            "es": "vos leés",
+            "ru": "ты читаешь"
+          },
+          "él/ella": {
+            "es": "él/ella lee",
+            "ru": "он/она читает"
+          },
+          "nosotros": {
+            "es": "nosotros leemos",
+            "ru": "мы читаем"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas leen",
+            "ru": "они читают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
