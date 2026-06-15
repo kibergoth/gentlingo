@@ -7985,6 +7985,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "причёсываться",
+      "es": "peinarse",
+      "pos": "глагол",
+      "added": 1781550042550,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781550042550,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781550042550,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781550042550,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo me peino",
+            "ru": "я причёсываюсь"
+          },
+          "vos": {
+            "es": "vos te peinás",
+            "ru": "ты причёсываешься"
+          },
+          "él/ella": {
+            "es": "él/ella se peina",
+            "ru": "он/она причёсывается"
+          },
+          "nosotros": {
+            "es": "nosotros nos peinamos",
+            "ru": "мы причёсываемся"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas se peinan",
+            "ru": "они причёсываются"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
