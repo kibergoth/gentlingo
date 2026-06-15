@@ -7728,6 +7728,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "мыться под душем",
+      "es": "ducharse",
+      "pos": "глагол",
+      "added": 1781549427015,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549427015,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549427015,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549427015,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo me ducho",
+            "ru": "я принимаю душ"
+          },
+          "vos": {
+            "es": "vos te duchás",
+            "ru": "ты принимаешь душ"
+          },
+          "él/ella": {
+            "es": "él/ella se ducha",
+            "ru": "он/она принимает душ"
+          },
+          "nosotros": {
+            "es": "nosotros nos duchamos",
+            "ru": "мы принимаем душ"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas se duchan",
+            "ru": "они принимают душ"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
