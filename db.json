@@ -7822,6 +7822,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "вставать / подниматься",
+      "es": "levantarse",
+      "pos": "глагол",
+      "added": 1781549632020,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549632020,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549632020,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549632020,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo me levanto",
+            "ru": "я встаю"
+          },
+          "vos": {
+            "es": "vos te levantás",
+            "ru": "ты встаёшь"
+          },
+          "él/ella": {
+            "es": "él/ella se levanta",
+            "ru": "он/она встаёт"
+          },
+          "nosotros": {
+            "es": "nosotros nos levantamos",
+            "ru": "мы встаём"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas se levantan",
+            "ru": "они встают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
