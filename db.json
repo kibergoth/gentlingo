@@ -2688,38 +2688,6 @@
       "phraseL3": 0
     },
     {
-      "ru": "ты",
-      "es": "tú",
-      "pos": "местоимение",
-      "added": 1781392842729,
-      "history": [
-        {
-          "ts": 1781393843721,
-          "result": "known",
-          "mode": "text",
-          "bySound": false,
-          "cat": "recog"
-        }
-      ],
-      "historyRecall": [],
-      "srsT": 1,
-      "srsTA": 1781437043721,
-      "srsTL5": [
-        "known"
-      ],
-      "srsTLR": "known",
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
-      "phraseL2": 0,
-      "phraseL3": 0
-    },
-    {
       "ru": "так",
       "es": "así",
       "pos": "наречие",
