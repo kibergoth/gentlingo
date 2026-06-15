@@ -7496,6 +7496,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "открывать",
+      "es": "abrir",
+      "pos": "глагол",
+      "added": 1781547716945,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781547716945,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781547716945,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781547716945,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "abro",
+            "ru": "я открываю"
+          },
+          "vos": {
+            "es": "abrís",
+            "ru": "ты открываешь"
+          },
+          "él/ella": {
+            "es": "abre",
+            "ru": "он/она открывает"
+          },
+          "nosotros": {
+            "es": "abrimos",
+            "ru": "мы открываем"
+          },
+          "ellos/ellas": {
+            "es": "abren",
+            "ru": "они открывают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
