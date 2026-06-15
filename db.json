@@ -7308,6 +7308,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "бросать / кидать",
+      "es": "tirar",
+      "pos": "глагол",
+      "added": 1781547364890,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781547364890,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781547364890,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781547364890,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "tiro",
+            "ru": "я тяну/бросаю"
+          },
+          "vos": {
+            "es": "tirás",
+            "ru": "ты тянешь/бросаешь"
+          },
+          "él/ella": {
+            "es": "tira",
+            "ru": "он/она тянет/бросает"
+          },
+          "nosotros": {
+            "es": "tiramos",
+            "ru": "мы тянем/бросаем"
+          },
+          "ellos/ellas": {
+            "es": "tiran",
+            "ru": "они тянут/бросают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
