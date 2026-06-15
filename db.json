@@ -2966,12 +2966,22 @@
       "es": "vez",
       "pos": "существительное",
       "added": 1781392842729,
-      "history": [],
+      "history": [
+        {
+          "ts": 1781555432996,
+          "result": "known",
+          "mode": "text",
+          "bySound": false,
+          "cat": "recog"
+        }
+      ],
       "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
+      "srsT": 1,
+      "srsTA": 1781598632996,
+      "srsTL5": [
+        "known"
+      ],
+      "srsTLR": "known",
       "srsA": 0,
       "srsAA": 1781392842729,
       "srsAL5": [],
@@ -3486,32 +3496,6 @@
       "srsRA": 1781392842729,
       "srsRL5": [],
       "srsRLR": null,
-      "phraseL2": 0,
-      "phraseL3": 0
-    },
-    {
-      "ru": "чувствовать / сидеть",
-      "es": "sentir / sentar",
-      "pos": "глагол",
-      "added": 1781392842729,
-      "history": [],
-      "historyRecall": [],
-      "srsT": 0,
-      "srsTA": 1781392842729,
-      "srsTL5": [],
-      "srsTLR": null,
-      "srsA": 0,
-      "srsAA": 1781392842729,
-      "srsAL5": [],
-      "srsALR": null,
-      "srsR": 0,
-      "srsRA": 1781392842729,
-      "srsRL5": [],
-      "srsRLR": null,
-      "conjugations": {
-        "presente": {}
-      },
-      "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
     },
