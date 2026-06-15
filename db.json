@@ -7684,6 +7684,28 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "каша (детское питание)",
+      "es": "papilla",
+      "pos": "существительное",
+      "added": 1781549362396,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549362396,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549362396,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549362396,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
