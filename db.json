@@ -7891,6 +7891,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "начинать",
+      "es": "empezar",
+      "pos": "глагол",
+      "added": 1781549840615,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549840615,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549840615,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549840615,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "empiezo",
+            "ru": "я начинаю"
+          },
+          "vos": {
+            "es": "empezás",
+            "ru": "ты начинаешь"
+          },
+          "él/ella": {
+            "es": "empieza",
+            "ru": "он/она начинает"
+          },
+          "nosotros": {
+            "es": "empezamos",
+            "ru": "мы начинаем"
+          },
+          "ellos/ellas": {
+            "es": "empiezan",
+            "ru": "они начинают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
