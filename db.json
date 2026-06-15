@@ -7637,6 +7637,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "завтракать",
+      "es": "desayunar",
+      "pos": "глагол",
+      "added": 1781549157488,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781549157488,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781549157488,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781549157488,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo desayuno",
+            "ru": "я завтракаю"
+          },
+          "vos": {
+            "es": "vos desayunás",
+            "ru": "ты завтракаешь"
+          },
+          "él/ella": {
+            "es": "él/ella desayuna",
+            "ru": "он/она завтракает"
+          },
+          "nosotros": {
+            "es": "nosotros desayunamos",
+            "ru": "мы завтракаем"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas desayunan",
+            "ru": "они завтракают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
