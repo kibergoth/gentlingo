@@ -7590,6 +7590,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "просыпаться",
+      "es": "despertarse",
+      "pos": "глагол",
+      "added": 1781548893504,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781548893504,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781548893504,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781548893504,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo me despierto",
+            "ru": "я просыпаюсь"
+          },
+          "vos": {
+            "es": "vos te despertás",
+            "ru": "ты просыпаешься"
+          },
+          "él/ella": {
+            "es": "él/ella se despierta",
+            "ru": "он/она просыпается"
+          },
+          "nosotros": {
+            "es": "nosotros nos despertamos",
+            "ru": "мы просыпаемся"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas se despiertan",
+            "ru": "они просыпаются"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
