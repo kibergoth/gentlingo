@@ -7402,6 +7402,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "есть (принимать пищу)",
+      "es": "comer",
+      "pos": "глагол",
+      "added": 1781547619969,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781547619969,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781547619969,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781547619969,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "como",
+            "ru": "я ем"
+          },
+          "vos": {
+            "es": "comés",
+            "ru": "ты ешь"
+          },
+          "él/ella": {
+            "es": "come",
+            "ru": "он/она ест"
+          },
+          "nosotros": {
+            "es": "comemos",
+            "ru": "мы едим"
+          },
+          "ellos/ellas": {
+            "es": "comen",
+            "ru": "они едят"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
