@@ -7543,6 +7543,53 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "отдыхать",
+      "es": "descansar",
+      "pos": "глагол",
+      "added": 1781548785569,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781548785569,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781548785569,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781548785569,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo descanso",
+            "ru": "я отдыхаю"
+          },
+          "vos": {
+            "es": "vos descansás",
+            "ru": "ты отдыхаешь"
+          },
+          "él/ella": {
+            "es": "él/ella descansa",
+            "ru": "он/она отдыхает"
+          },
+          "nosotros": {
+            "es": "nosotros descansamos",
+            "ru": "мы отдыхаем"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas descansan",
+            "ru": "они отдыхают"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
