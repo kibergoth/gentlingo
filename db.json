@@ -9653,6 +9653,53 @@
       "srsRLR": null,
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "жениться / выходить замуж",
+      "es": "casar",
+      "pos": "глагол",
+      "added": 1781568578497,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781568578497,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781568578497,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781568578497,
+      "srsRL5": [],
+      "srsRLR": null,
+      "conjugations": {
+        "presente": {
+          "yo": {
+            "es": "yo caso",
+            "ru": "я женюсь / я выхожу замуж"
+          },
+          "vos": {
+            "es": "vos casás",
+            "ru": "ты женишься / ты выходишь замуж"
+          },
+          "él/ella": {
+            "es": "él/ella casa",
+            "ru": "он женится / она выходит замуж"
+          },
+          "nosotros": {
+            "es": "nosotros casamos",
+            "ru": "мы женимся / мы выходим замуж"
+          },
+          "ellos/ellas": {
+            "es": "ellos/ellas casan",
+            "ru": "они женятся / они выходят замуж"
+          }
+        }
+      },
+      "conjSRS": {},
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
