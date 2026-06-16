@@ -9631,6 +9631,28 @@
       "conjSRS": {},
       "phraseL2": 0,
       "phraseL3": 0
+    },
+    {
+      "ru": "дом",
+      "es": "casa",
+      "pos": "существительное",
+      "added": 1781568568975,
+      "history": [],
+      "historyRecall": [],
+      "srsT": 0,
+      "srsTA": 1781568568975,
+      "srsTL5": [],
+      "srsTLR": null,
+      "srsA": 0,
+      "srsAA": 1781568568975,
+      "srsAL5": [],
+      "srsALR": null,
+      "srsR": 0,
+      "srsRA": 1781568568975,
+      "srsRL5": [],
+      "srsRLR": null,
+      "phraseL2": 0,
+      "phraseL3": 0
     }
   ],
   "failedPhrases": []
